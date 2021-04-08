@@ -1,0 +1,6 @@
+D:\bsuir\2 курс\2 сем\Курсовой\Мой\CarShowroom\CarShowroom.Entities\bin\Debug\CarShowroom.Entities.dll
+D:\bsuir\2 курс\2 сем\Курсовой\Мой\CarShowroom\CarShowroom.Entities\bin\Debug\CarShowroom.Entities.pdb
+D:\bsuir\2 курс\2 сем\Курсовой\Мой\CarShowroom\CarShowroom.Entities\obj\Debug\CarShowroom.Entities.csprojAssemblyReference.cache
+D:\bsuir\2 курс\2 сем\Курсовой\Мой\CarShowroom\CarShowroom.Entities\obj\Debug\CarShowroom.Entities.csproj.CoreCompileInputs.cache
+D:\bsuir\2 курс\2 сем\Курсовой\Мой\CarShowroom\CarShowroom.Entities\obj\Debug\CarShowroom.Entities.dll
+D:\bsuir\2 курс\2 сем\Курсовой\Мой\CarShowroom\CarShowroom.Entities\obj\Debug\CarShowroom.Entities.pdb
