@@ -1,7 +1,7 @@
 /.vs
-/CarShowroom.Server/bin/
-/CarShowroom.Server/obj/
-/CarShowroom.Entities/obj/
-/CarShowroom.Entities/bin/
-/CarShowroom/obj/
-/CarShowroom/bin/
+/CarShowroom.Server/bin
+/CarShowroom.Server/obj
+/CarShowroom.Entities/obj
+/CarShowroom.Entities/bin
+/CarShowroom/obj
+/CarShowroom/bin
