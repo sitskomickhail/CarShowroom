@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace CarShowroom.View
 {
     /// <summary>
-    /// Interaction logic for AdministratorWindow.xaml
+    /// Interaction logic for AdministrationWindow.xaml
     /// </summary>
-    public partial class AdministratorWindow : Page
+    public partial class AdministrationWindow : Window
     {
-        public AdministratorWindow()
+        public AdministrationWindow()
         {
             InitializeComponent();
         }

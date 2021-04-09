@@ -37,8 +37,9 @@ namespace CarShowroom.ViewModel
         private void OnLoginCommandExecuted(object obj)
         {
             Debug.WriteLine($"Current state: {Login} : {Password}");
-
-            AdministratorWindow window = new AdministratorWindow();
+            
+            AdministrationWindow window = new AdministrationWindow();
+            window.Show();
         }
     }
 }

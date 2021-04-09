@@ -1,7 +1,0 @@
-D:\bsuir\2 курс\2 сем\Курсовой\Мой\CarShowroom\CarShowroom.Server\bin\Debug\CarShowroom.Server.exe.config
-D:\bsuir\2 курс\2 сем\Курсовой\Мой\CarShowroom\CarShowroom.Server\bin\Debug\CarShowroom.Server.exe
-D:\bsuir\2 курс\2 сем\Курсовой\Мой\CarShowroom\CarShowroom.Server\bin\Debug\CarShowroom.Server.pdb
-D:\bsuir\2 курс\2 сем\Курсовой\Мой\CarShowroom\CarShowroom.Server\obj\Debug\CarShowroom.Server.csprojAssemblyReference.cache
-D:\bsuir\2 курс\2 сем\Курсовой\Мой\CarShowroom\CarShowroom.Server\obj\Debug\CarShowroom.Server.csproj.CoreCompileInputs.cache
-D:\bsuir\2 курс\2 сем\Курсовой\Мой\CarShowroom\CarShowroom.Server\obj\Debug\CarShowroom.Server.exe
-D:\bsuir\2 курс\2 сем\Курсовой\Мой\CarShowroom\CarShowroom.Server\obj\Debug\CarShowroom.Server.pdb
