@@ -6,4 +6,5 @@
 /CarShowroom.Server/bin
 /CarShowroom.Entities/bin
 
-*.baml
+appsettings.*.json
+packages/

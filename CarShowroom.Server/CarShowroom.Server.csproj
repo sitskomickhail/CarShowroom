@@ -50,8 +50,6 @@
     <None Include="App.config" />
     <None Include="appsettings.json" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DependencyInjection\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
