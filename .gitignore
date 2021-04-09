@@ -1,0 +1,9 @@
+/.vs
+/CarShowroom/obj
+/CarShowroom.Server/obj
+/CarShowroom.Entities/obj
+/CarShowroom/bin
+/CarShowroom.Server/bin
+/CarShowroom.Entities/bin
+
+*.baml
