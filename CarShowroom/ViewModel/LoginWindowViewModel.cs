@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using CarShowroom.Helpers;
+using CarShowroom.Interfaces;
 using CarShowroom.View;
 using CarShowroom.ViewModel.Base;
+using GalaSoft.MvvmLight.CommandWpf;
 
 namespace CarShowroom.ViewModel
 {
@@ -31,15 +28,17 @@ namespace CarShowroom.ViewModel
 
         public LoginWindowViewModel()
         {
-            LoginCommand = new RelayCommand(OnLoginCommandExecuted, f => !String.IsNullOrEmpty(_login) && !String.IsNullOrEmpty(_password));
+            LoginCommand = new RelayCommand<IClosable>(OnLoginCommandExecuted, f => !String.IsNullOrEmpty(_login) && !String.IsNullOrEmpty(_password));
         }
 
-        private void OnLoginCommandExecuted(object obj)
+        private void OnLoginCommandExecuted(IClosable currentWindow)
         {
             Debug.WriteLine($"Current state: {Login} : {Password}");
             
             AdministrationWindow window = new AdministrationWindow();
             window.Show();
+
+            currentWindow.CloseWindow();
         }
     }
 }

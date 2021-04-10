@@ -1,17 +1,17 @@
-﻿<Window x:Class="CarShowroom.View.AdministrationWindow"
+﻿<Window x:Class="CarShowroom.View.EmployeeWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:ViewModels="clr-namespace:CarShowroom.ViewModel"
         xmlns:local="clr-namespace:CarShowroom.View"
-        mc:Ignorable="d"
-        x:Name="AdministratorWindowName"
+        xmlns:ViewModels="clr-namespace:CarShowroom.ViewModel"
+        x:Name="EmployeeWindowName"
         Icon="../Images/Icons/automobile.png"
-        Title="Showroom-Administrator" Height="650" Width="1200">
+        mc:Ignorable="d"
+        Title="Showroom-Employee" Height="650" Width="1200">
     <Grid>
         <Grid.DataContext>
-            <ViewModels:AdministartorWindowViewModel/>
+            <ViewModels:EmployeeWindowViewModel/>
         </Grid.DataContext>
         <Grid.RowDefinitions>
             <RowDefinition Height="35"></RowDefinition>
@@ -21,20 +21,14 @@
             <ToolBar  Height="35" 
                       VerticalAlignment="Top"
                       HorizontalAlignment="Right"
-                      MinHeight="35" >
+                      MinHeight="35">
                 <ToggleButton Command="{Binding BackToLoginCommand}"
-                              CommandParameter="{Binding ElementName=AdministratorWindowName}"
+                              CommandParameter="{Binding ElementName=EmployeeWindowName}"
                               HorizontalAlignment="Right"
                               MaxHeight="35">
                     <Image Source="../Images/Icons/cross.png"/>
                 </ToggleButton>
             </ToolBar>
         </ToolBarTray>
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.2*"></ColumnDefinition>
-                <ColumnDefinition Width="0.8*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-        </Grid>
     </Grid>
 </Window>
