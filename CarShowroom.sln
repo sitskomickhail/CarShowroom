@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarShowroom", "CarShowroom\CarShowroom.csproj", "{26F7A9EE-3ED3-4D8F-BD60-28DC96369058}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3DF819E0-B960-4DC8-80C8-C5185CD00710} = {3DF819E0-B960-4DC8-80C8-C5185CD00710}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarShowroom.Entities", "CarShowroom.Entities\CarShowroom.Entities.csproj", "{3DF819E0-B960-4DC8-80C8-C5185CD00710}"
 EndProject

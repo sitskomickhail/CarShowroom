@@ -4,13 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ViewModels="clr-namespace:CarShowroom.ViewModel"
+        x:Name="LoginWindowName"
         mc:Ignorable="d"
-        Title="Car Showroom" Height="300" Width="500">
+        Icon="../Images/Icons/automobile.png"
+        Title="Car Showroom" Height="300" Width="500"
+        Closing="LoginWindow_OnClosing">
     <Grid Margin="50, 55, 50, 55">
-        <Grid.DataContext>
-            <ViewModels:LoginWindowViewModel/>
-        </Grid.DataContext>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
@@ -52,7 +51,8 @@
                     FontFamily="Calibri"
                     BorderThickness="2"
                     Background="DarkGray"
-                    Command="{Binding LoginCommand}">Login</Button>
+                    Command="{Binding LoginCommand}"
+                    CommandParameter="{Binding ElementName=LoginWindowName}">Login</Button>
         </Grid>
         <Grid Grid.Row="4">
             <Label Cursor="Hand"

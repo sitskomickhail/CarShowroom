@@ -1,18 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using CarShowroom.Helpers;
+using CarShowroom.Interfaces;
+using CarShowroom.TransferHandlers.Interfaces;
 using CarShowroom.View;
 using CarShowroom.ViewModel.Base;
+using GalaSoft.MvvmLight.CommandWpf;
+using Ninject;
 
 namespace CarShowroom.ViewModel
 {
     public class LoginWindowViewModel : BaseViewModel
     {
+        [Inject]
+        public AdministrationWindow AdministrationWindow { get; set; }
+
+        [Inject]
+        public EmployeeWindow EmployeeWindow { get; set; }
+
+        [Inject]
+        public ITcpTransferHandler TcpTransferHandler { get; set; }
+
         private string _login;
         public string Login
         {
@@ -31,15 +39,28 @@ namespace CarShowroom.ViewModel
 
         public LoginWindowViewModel()
         {
-            LoginCommand = new RelayCommand(OnLoginCommandExecuted, f => !String.IsNullOrEmpty(_login) && !String.IsNullOrEmpty(_password));
+            LoginCommand = new RelayCommand<IWindow>(OnLoginCommandExecuted, f => !String.IsNullOrEmpty(_login) && !String.IsNullOrEmpty(_password));
         }
 
-        private void OnLoginCommandExecuted(object obj)
+        private void OnLoginCommandExecuted(IWindow currentWindow)
         {
-            Debug.WriteLine($"Current state: {Login} : {Password}");
+            TcpTransferHandler.WriteStream($"{Login} + {Password}");
+
+            var result = TcpTransferHandler.ReadStream();
             
-            AdministrationWindow window = new AdministrationWindow();
-            window.Show();
+            Debug.WriteLine(result);
+            
+            AdministrationWindow.Show();
+            
+            EmployeeWindow.Show();
+
+            currentWindow.CloseWindow();
+        }
+
+        public override void SetDefaultValues()
+        {
+            this.Login = String.Empty;
+            this.Password = String.Empty;
         }
     }
 }

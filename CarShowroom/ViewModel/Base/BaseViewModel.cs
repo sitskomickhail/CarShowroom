@@ -4,7 +4,7 @@ using CarShowroom.Annotations;
 
 namespace CarShowroom.ViewModel.Base
 {
-    public class BaseViewModel : INotifyPropertyChanged
+    public abstract class BaseViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -13,5 +13,7 @@ namespace CarShowroom.ViewModel.Base
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public abstract void SetDefaultValues();
     }
 }
