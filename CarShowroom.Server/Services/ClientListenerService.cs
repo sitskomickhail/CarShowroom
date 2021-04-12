@@ -2,7 +2,6 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
-using CarShowroom.Entities.DatabaseModels.Context;
 using CarShowroom.Server.Factories;
 using CarShowroom.Server.Services.Interfaces;
 using Ninject;
@@ -11,9 +10,6 @@ namespace CarShowroom.Server.Services
 {
     public class ClientListenerService : IClientListenerService
     {
-        [Inject]
-        public SqlServerContext Context { get; set; }
-
         [Inject]
         public TcpHandlerFactory TcpHandlerFactory { get; set; }
 
@@ -27,8 +23,8 @@ namespace CarShowroom.Server.Services
 
                 while (true)
                 {
-                    TcpClient mainClient = new TcpClient();
-                    TcpHandlerFactory.RunClientHandler(mainClient).Start();
+                    TcpClient mainClient = listener.AcceptTcpClient();
+                    TcpHandlerFactory.RunClientHandler(mainClient);
                 }
             }
             catch (Exception e)

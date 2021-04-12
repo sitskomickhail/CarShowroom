@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CarShowroom.Entities.DatabaseModels.Context;
+﻿using CarShowroom.Entities.DatabaseModels.Context;
 using CarShowroom.Server.Factories;
+using CarShowroom.Server.Handlers;
+using CarShowroom.Server.Handlers.Interfaces;
 using CarShowroom.Server.Services;
 using CarShowroom.Server.Services.Interfaces;
 using Ninject;
@@ -27,6 +24,9 @@ namespace CarShowroom.Server.DependecyInjection
             InjectMsSqlServer();
             InjectListenerService();
             InjectFactory();
+            InjectHandlers();
+            InjectHandlerServices();
+            InjectServices();
         }
 
         private void InjectMsSqlServer()
@@ -44,9 +44,18 @@ namespace CarShowroom.Server.DependecyInjection
             Kernel.Bind<IClientListenerService>().To<ClientListenerService>().InSingletonScope();
         }
 
-        public void InjectServices()
+        public void InjectHandlers()
+        {
+            Kernel.Bind<IHandlerExecutor>().To<HandlerExecutor>().InRequestScope();
+        }
+
+        public void InjectHandlerServices()
         {
 
+        }
+        
+        public void InjectServices()
+        {
         }
     }
 }

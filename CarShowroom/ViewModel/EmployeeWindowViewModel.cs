@@ -17,15 +17,17 @@ namespace CarShowroom.ViewModel
 
         public EmployeeWindowViewModel()
         {
-            BackToLoginCommand = new RelayCommand<IClosable>(BackToLoginCommandExecute);
+            BackToLoginCommand = new RelayCommand<IWindow>(BackToLoginCommandExecute);
         }
 
-        public void BackToLoginCommandExecute(IClosable currentWindow)
+        public void BackToLoginCommandExecute(IWindow currentWindow)
         {
-            LoginWindow window = new LoginWindow();
-            window.Show();
+            //LoginWindow window = new LoginWindow();
+            //window.Show();
 
             currentWindow.CloseWindow();
         }
+
+        public override void SetDefaultValues() { }
     }
 }

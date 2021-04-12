@@ -1,7 +1,9 @@
 ﻿namespace CarShowroom.Interfaces
 {
-    public interface IClosable
+    public interface IWindow
     {
         void CloseWindow();
+
+        void SetDefault();
     }
 }

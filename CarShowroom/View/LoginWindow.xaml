@@ -7,12 +7,9 @@
         x:Name="LoginWindowName"
         mc:Ignorable="d"
         Icon="../Images/Icons/automobile.png"
-        Title="Car Showroom" Height="300" Width="500">
+        Title="Car Showroom" Height="300" Width="500"
+        Closing="LoginWindow_OnClosing">
     <Grid Margin="50, 55, 50, 55">
-        <Grid.DataContext>
-            <ViewModels:LoginWindowViewModel/>
-        </Grid.DataContext>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>

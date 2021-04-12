@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseModels\Client.cs" />
     <Compile Include="DatabaseModels\Context\SqlServerContext.cs" />
     <Compile Include="DatabaseModels\Maintenance.cs" />
     <Compile Include="DatabaseModels\Role.cs" />
@@ -66,16 +67,24 @@
     <Compile Include="Migrations\202104091515594_Initialize database.designer.cs">
       <DependentUpon>202104091515594_Initialize database.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104121041199_CreatingDatabaseStructure.cs" />
+    <Compile Include="Migrations\202104121041199_CreatingDatabaseStructure.designer.cs">
+      <DependentUpon>202104121041199_CreatingDatabaseStructure.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DataTransfers\DataReciever.cs" />
     <Compile Include="Models\DataTransfers\DataTransfer.cs" />
     <Compile Include="Models\Enums\EnumRoles.cs" />
     <Compile Include="Models\Enums\RequestAction.cs" />
+    <Compile Include="Models\Enums\RequestResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202104091515594_Initialize database.resx">
       <DependentUpon>202104091515594_Initialize database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104121041199_CreatingDatabaseStructure.resx">
+      <DependentUpon>202104121041199_CreatingDatabaseStructure.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

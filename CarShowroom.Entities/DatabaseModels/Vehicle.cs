@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CarShowroom.Entities.DatabaseModels
 {
@@ -17,9 +13,11 @@ namespace CarShowroom.Entities.DatabaseModels
         public string? Mark { get; set; }
 
         public bool? Salable { get; set; }
-
-        public int? Capacity { get; set; }
         
         public decimal? Cost { get; set; }
+
+        public Sale? Sale { get; set; }
+
+        public Maintenance? Maintenance { get; set; }
     }
 }

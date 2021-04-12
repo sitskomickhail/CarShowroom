@@ -8,11 +8,9 @@
         x:Name="EmployeeWindowName"
         Icon="../Images/Icons/automobile.png"
         mc:Ignorable="d"
-        Title="Showroom-Employee" Height="650" Width="1200">
+        Title="Showroom-Employee" Height="650" Width="1200"
+        Closing="EmployeeWindow_OnClosing">
     <Grid>
-        <Grid.DataContext>
-            <ViewModels:EmployeeWindowViewModel/>
-        </Grid.DataContext>
         <Grid.RowDefinitions>
             <RowDefinition Height="35"></RowDefinition>
             <RowDefinition Height="0.1*"></RowDefinition>

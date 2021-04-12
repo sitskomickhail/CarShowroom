@@ -8,11 +8,9 @@
         mc:Ignorable="d"
         x:Name="AdministratorWindowName"
         Icon="../Images/Icons/automobile.png"
-        Title="Showroom-Administrator" Height="650" Width="1200">
+        Title="Showroom-Administrator" Height="650" Width="1200"
+        Closing="AdministrationWindow_OnClosing">
     <Grid>
-        <Grid.DataContext>
-            <ViewModels:AdministartorWindowViewModel/>
-        </Grid.DataContext>
         <Grid.RowDefinitions>
             <RowDefinition Height="35"></RowDefinition>
             <RowDefinition Height="0.1*"></RowDefinition>
