@@ -32,6 +32,7 @@ namespace CarShowroom.NinjectDependencyInjection
             Kernel.Bind<LoginWindow>().ToSelf().InSingletonScope();
             Kernel.Bind<AdministrationWindow>().ToSelf().InSingletonScope();
             Kernel.Bind<EmployeeWindow>().ToSelf().InSingletonScope();
+            Kernel.Bind<RegisterWindow>().ToSelf().InSingletonScope();
         }
 
         private void InjectViewModels()
@@ -39,6 +40,7 @@ namespace CarShowroom.NinjectDependencyInjection
             Kernel.Bind<AdministartorWindowViewModel>().ToSelf().InSingletonScope();
             Kernel.Bind<LoginWindowViewModel>().ToSelf().InSingletonScope();
             Kernel.Bind<EmployeeWindowViewModel>().ToSelf().InSingletonScope();
+            Kernel.Bind<RegisterWindowViewModel>().ToSelf().InSingletonScope();
         }
 
         private void InjectTcpHandler()

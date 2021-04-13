@@ -22,6 +22,9 @@ namespace CarShowroom.ViewModel
         public EmployeeWindow EmployeeWindow { get; set; }
 
         [Inject]
+        public RegisterWindow RegisterWindow { get; set; }
+        
+        [Inject]
         public ILoginHandler LoginHandler { get; set; }
         
         private string _infoMessage = "Welcome! Enter your credentials";
@@ -75,7 +78,7 @@ namespace CarShowroom.ViewModel
 
         private void OnRegisterCommandExecuted()
         {
-
+            RegisterWindow.Show();
         }
         
         public override void SetDefaultValues()

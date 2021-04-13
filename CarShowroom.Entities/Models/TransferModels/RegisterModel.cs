@@ -12,6 +12,8 @@ namespace CarShowroom.Entities.Models.TransferModels
 
         public string Password { get; set; }
 
+        public string SecretPassword { get; set; }
+        
         public EnumRoles Role { get; set; }
     }
 }
