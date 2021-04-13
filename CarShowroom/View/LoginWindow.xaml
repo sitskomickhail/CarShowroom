@@ -15,37 +15,41 @@
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
-            <RowDefinition Height="0.6*"></RowDefinition>
+            <RowDefinition Height="0.7*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Label HorizontalAlignment="Center"
                    FontFamily="Calibri"
-                   FontSize="18">Welcome! Enter your credentials</Label>
+                   FontSize="18"
+                   Content="{Binding Path=InfoMessage, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"/>
         </Grid>
         <Grid Grid.Row="1"
-              Margin="2">
+              Margin="2"
+              MaxHeight="60">
             <Border BorderBrush="SlateGray" 
                     BorderThickness="2" 
                     CornerRadius="5">
                 <TextBox BorderBrush="Transparent"
                          FontSize="18"
                          FontFamily="Calibri"
-                         Text="{Binding Path=Login, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></TextBox>
+                         Text="{Binding Path=LoginModel.Login, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></TextBox>
             </Border>
         </Grid>
         <Grid Grid.Row="2" 
-              Margin="2">
+              Margin="2"
+              MaxHeight="60">
             <Border BorderBrush="SlateGray" 
                     BorderThickness="2" 
                     CornerRadius="5">
                 <TextBox BorderBrush="Transparent"
                          FontSize="18"
                          FontFamily="Calibri"
-                         Text="{Binding Path=Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></TextBox>
+                         Text="{Binding Path=LoginModel.Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></TextBox>
             </Border>
         </Grid>
         <Grid Grid.Row="3"
-              Margin="2">
+              Margin="2"
+              MaxHeight="60">
             <Button BorderBrush="SlateGray" 
                     FontSize="18"
                     FontFamily="Calibri"
@@ -54,10 +58,13 @@
                     Command="{Binding LoginCommand}"
                     CommandParameter="{Binding ElementName=LoginWindowName}">Login</Button>
         </Grid>
-        <Grid Grid.Row="4">
-            <Label Cursor="Hand"
-                   HorizontalAlignment="Center"
-                   FontSize="9">register in system</Label>
+        <Grid Grid.Row="4"
+              Margin="2"
+              MaxHeight="30">
+            <Button Cursor="Hand"
+                    BorderThickness="2"
+                    FontSize="9"
+                    Command="{Binding RegisterCommand}">register in system</Button>
         </Grid>
     </Grid>
 </Window>

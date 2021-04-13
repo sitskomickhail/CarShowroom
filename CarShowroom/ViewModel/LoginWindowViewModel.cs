@@ -1,11 +1,14 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Windows.Input;
+using CarShowroom.Entities.Models.AnswerModels.Users;
+using CarShowroom.Entities.Models.Enums;
+using CarShowroom.Entities.Models.TransferModels;
+using CarShowroom.Handlers.Interfaces.Login;
 using CarShowroom.Interfaces;
-using CarShowroom.TransferHandlers.Interfaces;
 using CarShowroom.View;
 using CarShowroom.ViewModel.Base;
 using GalaSoft.MvvmLight.CommandWpf;
+using Newtonsoft.Json;
 using Ninject;
 
 namespace CarShowroom.ViewModel
@@ -19,48 +22,66 @@ namespace CarShowroom.ViewModel
         public EmployeeWindow EmployeeWindow { get; set; }
 
         [Inject]
-        public ITcpTransferHandler TcpTransferHandler { get; set; }
+        public ILoginHandler LoginHandler { get; set; }
+        
+        private string _infoMessage = "Welcome! Enter your credentials";
 
-        private string _login;
-        public string Login
+        public string InfoMessage
         {
-            get { return _login; }
-            set { _login = value; OnPropertyChanged(); }
+            get { return _infoMessage; }
+            set { _infoMessage = value; OnPropertyChanged(); }
         }
 
-        private string _password;
-        public string Password
+        private LoginModel _loginModel;
+
+        public LoginModel LoginModel
         {
-            get { return _password; }
-            set { _password = value; OnPropertyChanged(); }
+            get { return _loginModel; }
+            set { _loginModel = value; OnPropertyChanged(); }
         }
 
         public ICommand LoginCommand { get; set; }
+        public ICommand RegisterCommand { get; set; }
 
         public LoginWindowViewModel()
         {
-            LoginCommand = new RelayCommand<IWindow>(OnLoginCommandExecuted, f => !String.IsNullOrEmpty(_login) && !String.IsNullOrEmpty(_password));
+            SetDefaultValues();
+
+            LoginCommand = new RelayCommand<IWindow>(OnLoginCommandExecuted, f => !String.IsNullOrEmpty(_loginModel.Login) && !String.IsNullOrEmpty(_loginModel.Password));
+            RegisterCommand = new RelayCommand(OnRegisterCommandExecuted);
         }
 
         private void OnLoginCommandExecuted(IWindow currentWindow)
         {
-            TcpTransferHandler.WriteStream($"{Login} + {Password}");
+            var serverAnswer = LoginHandler.LoginExecute(LoginModel);
 
-            var result = TcpTransferHandler.ReadStream();
-            
-            Debug.WriteLine(result);
-            
-            AdministrationWindow.Show();
-            
-            EmployeeWindow.Show();
+            if (serverAnswer.RequestResult == RequestResult.Success)
+            {
+                var userModel = JsonConvert.DeserializeObject<UserAnswerModel>(serverAnswer.Object);
 
-            currentWindow.CloseWindow();
+                switch (userModel.Role)
+                {
+                    case EnumRoles.Administrator: AdministrationWindow.Show(); break;
+                    case EnumRoles.Employee: EmployeeWindow.Show(); break;
+                }
+
+                currentWindow.CloseWindow();
+            }
+            else
+            {
+                InfoMessage = serverAnswer.Message;
+            }
         }
 
+        private void OnRegisterCommandExecuted()
+        {
+
+        }
+        
         public override void SetDefaultValues()
         {
-            this.Login = String.Empty;
-            this.Password = String.Empty;
+            this.LoginModel = new LoginModel();
+            this.InfoMessage = "Welcome! Enter your credentials";
         }
     }
 }

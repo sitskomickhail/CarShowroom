@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CarShowroom.Handlers.Interfaces.Login;
+using CarShowroom.Handlers.Login;
 using CarShowroom.TransferHandlers;
 using CarShowroom.TransferHandlers.Interfaces;
 using CarShowroom.View;
@@ -27,6 +24,7 @@ namespace CarShowroom.NinjectDependencyInjection
             InjectWindows();
             InjectViewModels();
             InjectTcpHandler();
+            InjectHandlers();
         }
 
         private void InjectWindows()
@@ -46,6 +44,12 @@ namespace CarShowroom.NinjectDependencyInjection
         private void InjectTcpHandler()
         {
             Kernel.Bind<ITcpTransferHandler>().To<TcpTransferHandler>().InSingletonScope();
+        }
+
+        private void InjectHandlers()
+        {
+            Kernel.Bind<IRegisterHandler>().To<RegisterHandler>();
+            Kernel.Bind<ILoginHandler>().To<LoginHandler>().InRequestScope();
         }
     }
 }

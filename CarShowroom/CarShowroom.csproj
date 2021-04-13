@@ -47,6 +47,9 @@
     <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.4.1.0, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
     </Reference>
@@ -76,9 +79,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Handlers\Interfaces\Login\ILoginHandler.cs" />
+    <Compile Include="Handlers\Interfaces\Login\IRegisterHandler.cs" />
+    <Compile Include="Handlers\Login\LoginHandler.cs" />
+    <Compile Include="Handlers\Login\RegisterHandler.cs" />
     <Compile Include="Helpers\RelayCommand.cs" />
     <Compile Include="Interfaces\IWindow.cs" />
-    <Compile Include="Model\LoginModel.cs" />
     <Compile Include="NinjectDependencyInjection\NinjectDI.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="TransferHandlers\Interfaces\ITcpTransferHandler.cs" />
@@ -141,12 +147,18 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\CarShowroom.Entities\CarShowroom.Entities.csproj">
+      <Project>{3df819e0-b960-4dc8-80c8-c5185cd00710}</Project>
+      <Name>CarShowroom.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Icons\cross.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Icons\automobile.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
