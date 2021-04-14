@@ -9,11 +9,13 @@
         WindowStyle="ThreeDBorderWindow"
         xmlns:uc="clr-namespace:CarShowroom.Controls"
         Title="Registration" Height="600" Width="400"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        Icon="../Images/Icons/plus.png">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="35"></RowDefinition>
             <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
         <ToolBar Grid.Row="0"
                  Height="35" 
@@ -163,16 +165,6 @@
                     <uc:PasswordControl Grid.Column="1"
                                  VerticalAlignment="Center"
                                  SecurePassword="{Binding Path=RepeatPassword, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-                    <!--<PasswordBox Grid.Column="1"
-                                 VerticalAlignment="Center"
-                                 FontSize="16"/>-->
-                    <!--<TextBox Grid.Column="1"
-                             BorderBrush="Transparent"
-                             VerticalAlignment="Center"
-                             FontSize="16"
-                             TextAlignment="Center"
-                             
-                             Text="{Binding Path=RepeatPassword, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>-->
                 </Grid>
             </Border>
 
@@ -221,5 +213,9 @@
                         CommandParameter="{Binding ElementName=RegisterWindowName}">Save</Button>
             </Border>
         </Grid>
+        <StatusBar Grid.Row="2">
+            <Label FontSize="10">Status: </Label>
+            <Label FontSize="10" Content="{Binding Path=Status, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></Label>
+        </StatusBar>
     </Grid>
 </Window>

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CarShowroom.Entities.Models.DataTransfers;
+﻿using CarShowroom.Entities.Models.DataTransfers;
 using CarShowroom.Entities.Models.TransferModels;
 using CarShowroom.Handlers.Interfaces.Login;
 using CarShowroom.TransferHandlers.Interfaces;
@@ -16,7 +11,6 @@ namespace CarShowroom.Handlers.Login
     {
         [Inject]
         public ITcpTransferHandler TcpTransferHandler { get; set; }
-
 
         public DataReciever LoginExecute(LoginModel model)
         {

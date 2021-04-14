@@ -1,18 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using CarShowroom.Entities.Models.Enums;
 using CarShowroom.Entities.Models.TransferModels;
 using CarShowroom.Handlers.Interfaces.Login;
-using CarShowroom.Helpers;
 using CarShowroom.Interfaces;
 using CarShowroom.View;
 using CarShowroom.ViewModel.Base;
-using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using Ninject;
 using RelayCommand = GalaSoft.MvvmLight.CommandWpf.RelayCommand;
@@ -24,25 +18,26 @@ namespace CarShowroom.ViewModel
         [Inject]
         public RegisterWindow RegisterWindow { get; set; }
 
+        [Inject]
         public IRegisterHandler RegisterHandler { get; set; }
 
         private RegisterModel _registerModel;
         public RegisterModel RegisterModel
         {
-            get { return _registerModel; }
+            get => _registerModel;
             set { _registerModel = value; OnPropertyChanged(); }
         }
 
         private string _selectedRole;
         public string SelectedRole
         {
-            get { return _selectedRole; }
+            get => _selectedRole;
             set
             {
                 _selectedRole = value;
 
                 AdministratorVisibility = _selectedRole == EnumRoles.Administrator.ToString() ? Visibility.Visible : Visibility.Hidden;
-                
+
                 OnPropertyChanged();
             }
         }
@@ -50,17 +45,24 @@ namespace CarShowroom.ViewModel
         private string _repeatPassword;
         public string RepeatPassword
         {
-            get { return _repeatPassword; }
+            get => _repeatPassword;
             set { _repeatPassword = value; OnPropertyChanged(); }
         }
 
         private Visibility _administratorVisibility;
         public Visibility AdministratorVisibility
         {
-            get { return _administratorVisibility; }
+            get => _administratorVisibility;
             set { _administratorVisibility = value; OnPropertyChanged(); }
         }
-        
+
+        private string _status;
+        public string Status
+        {
+            get => _status;
+            set { _status = value; OnPropertyChanged(); }
+        }
+
         public ICommand SaveUserCommand { get; set; }
 
         public ICommand BackToLoginCommand { get; set; }
@@ -69,7 +71,17 @@ namespace CarShowroom.ViewModel
         {
             SetDefaultValues();
 
-            SaveUserCommand = new RelayCommand<IWindow>(SaveUserCommandExecuted);
+            SaveUserCommand = new RelayCommand<IWindow>(SaveUserCommandExecuted, f =>
+            {
+                return !String.IsNullOrEmpty(RegisterModel.Login) &&
+                       !String.IsNullOrEmpty(RegisterModel.Name) &&
+                       !String.IsNullOrEmpty(RegisterModel.Password) &&
+                       !String.IsNullOrEmpty(RepeatPassword) &&
+                       RepeatPassword.Equals(RegisterModel.Password, StringComparison.Ordinal) &&
+                       !(SelectedRole == EnumRoles.Administrator.ToString() &&
+                         String.IsNullOrEmpty(RegisterModel.SecretPassword));
+            });
+
             BackToLoginCommand = new RelayCommand(BackToLoginCommandExecuted);
         }
 
@@ -79,14 +91,12 @@ namespace CarShowroom.ViewModel
 
             if (serverAnswer.RequestResult == RequestResult.Success)
             {
-
+                window.CloseWindow();
             }
             else
             {
-
+                Status = serverAnswer.Message;
             }
-
-            window.CloseWindow();
         }
 
         private void BackToLoginCommandExecuted()
