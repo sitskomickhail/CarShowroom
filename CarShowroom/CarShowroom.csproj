@@ -79,6 +79,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\Administration\AdministrationBaseControl.cs" />
+    <Compile Include="Controls\Administration\Vehicles\VehicleListControl.xaml.cs">
+      <DependentUpon>VehicleListControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PasswordControl.xaml.cs">
       <DependentUpon>PasswordControl.xaml</DependentUpon>
     </Compile>
@@ -88,11 +92,13 @@
     <Compile Include="Handlers\Login\RegisterHandler.cs" />
     <Compile Include="Helpers\RelayCommand.cs" />
     <Compile Include="Interfaces\IWindow.cs" />
+    <Compile Include="Models\Vehicles\VehicleGridModel.cs" />
     <Compile Include="NinjectDependencyInjection\NinjectDI.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="TransferHandlers\Interfaces\ITcpTransferHandler.cs" />
     <Compile Include="TransferHandlers\TcpTransferHandler.cs" />
     <Compile Include="ViewModel\AdministartorWindowViewModel.cs" />
+    <Compile Include="ViewModel\Administration\Vehicles\VehiclesListViewModel.cs" />
     <Compile Include="ViewModel\Base\BaseViewModel.cs" />
     <Compile Include="ViewModel\EmployeeWindowViewModel.cs" />
     <Compile Include="ViewModel\LoginWindowViewModel.cs" />
@@ -113,6 +119,10 @@
     <Compile Include="View\RegisterWindow.xaml.cs">
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Controls\Administration\Vehicles\VehicleListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\PasswordControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -180,5 +190,22 @@
   <ItemGroup>
     <Resource Include="Images\Icons\key.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\bus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\documents.png" />
+    <Resource Include="Images\Icons\sales.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\coat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\business.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

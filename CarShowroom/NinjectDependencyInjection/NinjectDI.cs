@@ -4,6 +4,7 @@ using CarShowroom.TransferHandlers;
 using CarShowroom.TransferHandlers.Interfaces;
 using CarShowroom.View;
 using CarShowroom.ViewModel;
+using CarShowroom.ViewModel.Administration.Vehicles;
 using Ninject;
 using Ninject.Modules;
 using Ninject.Web.Common;
@@ -41,6 +42,8 @@ namespace CarShowroom.NinjectDependencyInjection
             Kernel.Bind<LoginWindowViewModel>().ToSelf().InSingletonScope();
             Kernel.Bind<EmployeeWindowViewModel>().ToSelf().InSingletonScope();
             Kernel.Bind<RegisterWindowViewModel>().ToSelf().InSingletonScope();
+            
+            Kernel.Bind<VehiclesListViewModel>().ToSelf().InRequestScope();
         }
 
         private void InjectTcpHandler()

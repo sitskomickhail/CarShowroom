@@ -15,6 +15,8 @@ namespace CarShowroom.ViewModel
 
         public ICommand BackToLoginCommand { get; set; }
 
+        public ICommand MenuElementCommand { get; set; }
+        
         public AdministartorWindowViewModel()
         {
             BackToLoginCommand = new RelayCommand<IWindow>(OnBackToLoginCommandExecuted, null);

@@ -6,11 +6,12 @@
         xmlns:local="clr-namespace:CarShowroom.View"
         x:Name="RegisterWindowName"
         mc:Ignorable="d"
-        WindowStyle="ThreeDBorderWindow"
+        WindowStyle="None"
         xmlns:uc="clr-namespace:CarShowroom.Controls"
         Title="Registration" Height="600" Width="400"
         ResizeMode="NoResize"
-        Icon="../Images/Icons/plus.png">
+        Icon="../Images/Icons/plus.png"
+        MouseLeftButtonDown="RegisterWindow_OnMouseLeftButtonDown">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="35"></RowDefinition>
