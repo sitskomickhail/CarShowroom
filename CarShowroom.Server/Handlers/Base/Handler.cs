@@ -1,4 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
+using CarShowroom.Entities.Models.DataTransfers;
+using CarShowroom.Entities.Models.Enums;
 using CarShowroom.Server.HandlerServices.Interfaces;
 using Newtonsoft.Json;
 using Ninject;
@@ -10,13 +13,25 @@ namespace CarShowroom.Server.Handlers.Base
         [Inject]
         public IHandlerService<T1, T2> HandlerService { get; set; }
 
-        public async Task<string> ExecuteAction(string jsonModel)
+        public async Task<DataReciever> ExecuteAction(DataTransfer transferModel)
         {
-            T1 model = JsonConvert.DeserializeObject<T1>(jsonModel);
+            T1 model = JsonConvert.DeserializeObject<T1>(transferModel.Object);
 
-            var answer = await HandlerService.ExecuteAsync(model);
+            DataReciever reciever = new DataReciever();
 
-            return JsonConvert.SerializeObject(answer);
+            try
+            {
+                var answer = await HandlerService.ExecuteAsync(model);
+
+                reciever.RequestResult = RequestResult.Success;
+                reciever.Object = JsonConvert.SerializeObject(answer);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return reciever;
         }
     }
 }

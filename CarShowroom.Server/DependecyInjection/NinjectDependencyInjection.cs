@@ -1,7 +1,12 @@
 ﻿using CarShowroom.Entities.DatabaseModels.Context;
+using CarShowroom.Entities.Models.AnswerModels.Users;
+using CarShowroom.Entities.Models.TransferModels;
 using CarShowroom.Server.Factories;
 using CarShowroom.Server.Handlers;
+using CarShowroom.Server.Handlers.Base;
 using CarShowroom.Server.Handlers.Interfaces;
+using CarShowroom.Server.HandlerServices.Interfaces;
+using CarShowroom.Server.HandlerServices.Users;
 using CarShowroom.Server.Services;
 using CarShowroom.Server.Services.Interfaces;
 using Ninject;
@@ -47,13 +52,16 @@ namespace CarShowroom.Server.DependecyInjection
         public void InjectHandlers()
         {
             Kernel.Bind<IHandlerExecutor>().To<HandlerExecutor>().InRequestScope();
+            Kernel.Bind<IHandler>().To<Handler<LoginModel, UserAnswerModel>>().InRequestScope();
+            Kernel.Bind<IHandler>().To<Handler<RegisterModel, UserAnswerModel>>().InRequestScope();
         }
 
         public void InjectHandlerServices()
         {
-
+            Kernel.Bind<IHandlerService<LoginModel, UserAnswerModel>>().To<LoginHandlerService>().InRequestScope();
+            Kernel.Bind<IHandlerService<RegisterModel, UserAnswerModel>>().To<RegistrateHandlerService>().InRequestScope();
         }
-        
+
         public void InjectServices()
         {
         }
