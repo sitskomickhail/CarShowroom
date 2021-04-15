@@ -29,13 +29,7 @@ namespace CarShowroom.Server.Factories
                 {
                     DataTransfer transfer = TransferHelper.ReadStream(stream, client);
 
-                    var result = await HandlerExecutor.ExecuteAction(transfer);
-
-                    DataReciever answer = new DataReciever
-                    {
-                        RequestResult = RequestResult.Success,
-                        Object = result
-                    };
+                    DataReciever answer = await HandlerExecutor.ExecuteAction(transfer);
                     
                     TransferHelper.WriteStream(stream, answer);
                 }

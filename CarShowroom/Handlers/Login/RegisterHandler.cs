@@ -1,4 +1,5 @@
 ﻿using CarShowroom.Entities.Models.DataTransfers;
+using CarShowroom.Entities.Models.Enums;
 using CarShowroom.Entities.Models.TransferModels;
 using CarShowroom.Handlers.Interfaces.Login;
 using CarShowroom.TransferHandlers.Interfaces;
@@ -14,7 +15,15 @@ namespace CarShowroom.Handlers.Login
 
         public DataReciever RegisterExecute(RegisterModel model)
         {
-            TcpTransferHandler.WriteStream($"{model.Login} + {model.Password} + {model.Role.ToString()}");
+            var jsonModel = JsonConvert.SerializeObject(model);
+            DataTransfer dataTransfer = new DataTransfer()
+            {
+                Action = RequestAction.Register,
+                Object = jsonModel
+            };
+
+            var jsonString = JsonConvert.SerializeObject(dataTransfer);
+            TcpTransferHandler.WriteStream(jsonString);
 
             var result = TcpTransferHandler.ReadStream();
             DataReciever dto = JsonConvert.DeserializeObject<DataReciever>(result);
