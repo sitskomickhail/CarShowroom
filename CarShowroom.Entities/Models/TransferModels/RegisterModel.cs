@@ -14,6 +14,6 @@ namespace CarShowroom.Entities.Models.TransferModels
 
         public string SecretPassword { get; set; }
 
-        public EnumRoles Role { get; set; } = EnumRoles.Administrator;
+        public EnumRoles Role { get; set; }
     }
 }

@@ -87,8 +87,7 @@ namespace CarShowroom.ViewModel
 
         private void SaveUserCommandExecuted(IWindow window)
         {
-            EnumRoles role = EnumRoles.Administrator;
-            EnumRoles.TryParse(SelectedRole, true, out role);
+            Enum.TryParse(SelectedRole, true, out EnumRoles role);
             RegisterModel.Role = role;
 
             var serverAnswer = RegisterHandler.RegisterExecute(RegisterModel);
