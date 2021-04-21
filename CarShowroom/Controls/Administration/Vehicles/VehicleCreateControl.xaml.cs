@@ -1,29 +1,30 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Windows.Controls;
 using System.Windows.Input;
+using CarShowroom.Entities.DatabaseModels;
 using CarShowroom.ViewModel.Administration.Vehicles;
 using Ninject;
 
 namespace CarShowroom.Controls.Administration.Vehicles
 {
     /// <summary>
-    /// Interaction logic for VehicleListControl.xaml
+    /// Interaction logic for VehicleCreateControl.xaml
     /// </summary>
-    public partial class VehicleListControl : UserControl
+    public partial class VehicleCreateControl : UserControl
     {
         public VehiclesListViewModel ViewModel { get; set; }
 
-        public VehicleListControl(VehiclesListViewModel viewModel)
+        public VehicleCreateControl(VehiclesListViewModel viewModel)
         {
             ViewModel = viewModel;
             DataContext = ViewModel;
-
             InitializeComponent();
         }
 
-        private void VehicleListControl_OnMouseDown(object sender, MouseButtonEventArgs e)
+        private void VehicleCreateControl_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
-            Debug.WriteLine("list see");
+            Debug.WriteLine("qqqqq");
         }
     }
 }

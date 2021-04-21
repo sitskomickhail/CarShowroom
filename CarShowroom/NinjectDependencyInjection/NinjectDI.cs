@@ -1,4 +1,6 @@
-﻿using CarShowroom.Handlers.Interfaces.Login;
+﻿using CarShowroom.Controls.Administration;
+using CarShowroom.Controls.Administration.Vehicles;
+using CarShowroom.Handlers.Interfaces.Login;
 using CarShowroom.Handlers.Login;
 using CarShowroom.TransferHandlers;
 using CarShowroom.TransferHandlers.Interfaces;
@@ -22,8 +24,9 @@ namespace CarShowroom.NinjectDependencyInjection
 
         public override void Load()
         {
-            InjectWindows();
             InjectViewModels();
+            InjectControls();
+            InjectWindows();
             InjectTcpHandler();
             InjectHandlers();
         }
@@ -36,14 +39,25 @@ namespace CarShowroom.NinjectDependencyInjection
             Kernel.Bind<RegisterWindow>().ToSelf().InSingletonScope();
         }
 
+        private void InjectControls()
+        {
+            Kernel.Bind<AdministrationBaseControl>().ToSelf().InSingletonScope();
+
+            Kernel.Bind<VehicleListControl>().ToSelf().InSingletonScope();
+            Kernel.Bind<VehicleCreateControl>().ToSelf().InSingletonScope();
+            Kernel.Bind<VehicleListEditControl>().ToSelf().InSingletonScope();
+        }
+
         private void InjectViewModels()
         {
             Kernel.Bind<AdministartorWindowViewModel>().ToSelf().InSingletonScope();
             Kernel.Bind<LoginWindowViewModel>().ToSelf().InSingletonScope();
             Kernel.Bind<EmployeeWindowViewModel>().ToSelf().InSingletonScope();
             Kernel.Bind<RegisterWindowViewModel>().ToSelf().InSingletonScope();
-            
-            Kernel.Bind<VehiclesListViewModel>().ToSelf().InRequestScope();
+
+            Kernel.Bind<VehiclesListViewModel>().ToSelf().InSingletonScope();
+            Kernel.Bind<VehicleEditListViewModel>().ToSelf().InSingletonScope();
+            Kernel.Bind<VehicleCreateViewModel>().ToSelf().InSingletonScope();
         }
 
         private void InjectTcpHandler()
@@ -53,7 +67,7 @@ namespace CarShowroom.NinjectDependencyInjection
 
         private void InjectHandlers()
         {
-            Kernel.Bind<IRegisterHandler>().To<RegisterHandler>();
+            Kernel.Bind<IRegisterHandler>().To<RegisterHandler>().InRequestScope();
             Kernel.Bind<ILoginHandler>().To<LoginHandler>().InRequestScope();
         }
     }

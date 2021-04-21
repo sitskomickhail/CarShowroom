@@ -5,9 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ViewModels="clr-namespace:CarShowroom.ViewModel"
         xmlns:local="clr-namespace:CarShowroom.View"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"
         x:Name="AdministratorWindowName"
         Icon="../Images/Icons/automobile.png"
+        xmlns:vehiclesCtrl="clr-namespace:CarShowroom.Controls.Administration"
+        xmlns:vctrl="clr-namespace:CarShowroom.Controls.Administration.Vehicles"
         Title="Showroom-Administrator" Height="650" Width="1200"
         Closing="AdministrationWindow_OnClosing">
     <Window.Resources>
@@ -45,10 +48,11 @@
                  VerticalAlignment="Top"
                  MinHeight="35">
             <Button Command="{Binding BackToLoginCommand}"
+                    CommandParameter="{Binding ElementName=AdministratorWindowName}"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Stretch"
                     MaxHeight="35">
-                <Image Source="../Images/Icons/cross.png"/>
+                <Image Source="../Images/Icons/logout.png"/>
             </Button>
         </ToolBar>
         <Grid Grid.Row="1">
@@ -68,9 +72,30 @@
                             </Border>
                         </StackPanel>
                     </TreeViewItem.Header>
-                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Show list of vehicles"/>
-                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Edit vehicles list"/>
-                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Create vehicle"/>
+                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Show list of vehicles" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonUp">
+                                <i:InvokeCommandAction Command="{Binding TreeViewItemSelectionCommand}"
+                                                       CommandParameter="VehicleListControl"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TreeViewItem>
+                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Edit vehicles list">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonUp">
+                                <i:InvokeCommandAction Command="{Binding TreeViewItemSelectionCommand}"
+                                                       CommandParameter="VehicleListEditControl"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TreeViewItem>
+                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Create vehicle">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonUp">
+                                <i:InvokeCommandAction Command="{Binding TreeViewItemSelectionCommand}"
+                                                       CommandParameter="VehicleCreateControl"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TreeViewItem>
                 </TreeViewItem>
                 <TreeViewItem>
                     <TreeViewItem.Header>
@@ -140,10 +165,12 @@
                     </TreeViewItem>
                 </TreeViewItem>
             </TreeView>
+            <UserControl Grid.Column="1"
+                         Content="{Binding Path=CurrentControl, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
         </Grid>
         <StatusBar Grid.Row="2">
             <Label FontSize="12">Status:</Label>
-            <!--<Label FontSize="12" Content="{Binding Path=Status, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></Label>-->
+            <Label FontSize="12" Content="{Binding Path=Status, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></Label>
         </StatusBar>
     </Grid>
 </Window>

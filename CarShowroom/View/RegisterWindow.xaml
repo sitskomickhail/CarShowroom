@@ -27,6 +27,7 @@
                  VerticalAlignment="Top"
                  MinHeight="35">
             <Button Command="{Binding BackToLoginCommand}"
+                    CommandParameter="{Binding ElementName=RegisterWindowName}"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Stretch"
                     MaxHeight="35">

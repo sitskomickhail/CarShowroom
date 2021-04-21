@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CarShowroom.Annotations;
 
 namespace CarShowroom.Models.Vehicles
 {
     public class VehicleGridModel
     {
+        public Guid Id { get; set; }
+
         public int Number { get; set; }
         
         [CanBeNull] public string Model { get; set; }
@@ -22,5 +20,7 @@ namespace CarShowroom.Models.Vehicles
         public bool IsSaled { get; set; }
 
         public bool IsMaintaining { get; set; }
+
+        public bool IsChanged { get; set; } = false;
     }
 }
