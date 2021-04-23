@@ -6,8 +6,7 @@
                            xmlns:local="clr-namespace:CarShowroom.Controls.Administration.Vehicles"
                            xmlns:administration="clr-namespace:CarShowroom.Controls.Administration"
                            mc:Ignorable="d" 
-                           d:DesignHeight="450" d:DesignWidth="800" Background="White"
-                           MouseDown="VehicleListControl_OnMouseDown">
+                           d:DesignHeight="450" d:DesignWidth="800" Background="White">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.9*"/>
@@ -93,7 +92,7 @@
                     CornerRadius="5">
                 <TextBox BorderBrush="Transparent"
                          FontSize="16"
-                         Text="{Binding Path=SearchParameter, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                         Text="{Binding Path=SearchModel.SearchParameter, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
             </Border>
 
             <Border Grid.Column="1"

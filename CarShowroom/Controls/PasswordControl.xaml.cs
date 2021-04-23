@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace CarShowroom.Controls
@@ -14,7 +16,17 @@ namespace CarShowroom.Controls
         public string SecurePassword
         {
             get { return (string)GetValue(SecurePasswordProperty); }
-            set { SetValue(SecurePasswordProperty, value); }
+            set
+            {
+                SetValue(SecurePasswordProperty, value);
+                if (value == String.Empty)
+                {
+                    var content = this.Content as Grid;
+                    var passwordBox = content.Children[0] as PasswordBox;
+
+                    passwordBox.Clear();
+                }
+            }
         }
 
         public PasswordControl()

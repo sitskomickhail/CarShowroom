@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -57,9 +58,9 @@ namespace CarShowroom.ViewModel
         {
             switch (control)
             {
-                case nameof(VehicleListControl): CurrentControl = VehicleListControl; break;
-                case nameof(VehicleCreateControl): CurrentControl = VehicleCreateControl; break;
-                case nameof(VehicleListEditControl): CurrentControl = VehicleListEditControl; break;
+                case nameof(VehicleListControl): VehicleListControl.LoadInitialData(); CurrentControl = VehicleListControl; break;
+                case nameof(VehicleCreateControl): VehicleCreateControl.LoadInitialData(); CurrentControl = VehicleCreateControl; break;
+                case nameof(VehicleListEditControl): VehicleListEditControl.LoadInitialData(); CurrentControl = VehicleListEditControl; break;
                 default: CurrentControl = new AdministrationBaseControl(); break;
             }
         }
@@ -72,6 +73,6 @@ namespace CarShowroom.ViewModel
             currentWindow.CloseWindow();
         }
 
-        public override void SetDefaultValues() { }
+        public override Task SetDefaultValues() { return Task.CompletedTask; }
     }
 }

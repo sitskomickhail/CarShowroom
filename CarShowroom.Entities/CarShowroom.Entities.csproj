@@ -73,6 +73,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AnswerModels\Users\UserAnswerModel.cs" />
+    <Compile Include="Models\AnswerModels\Vehicles\VehicleAnswerModel.cs" />
     <Compile Include="Models\DataTransfers\DataReciever.cs" />
     <Compile Include="Models\DataTransfers\DataTransfer.cs" />
     <Compile Include="Models\Enums\EnumRoles.cs" />
@@ -80,6 +81,9 @@
     <Compile Include="Models\Enums\RequestResult.cs" />
     <Compile Include="Models\TransferModels\LoginModel.cs" />
     <Compile Include="Models\TransferModels\RegisterModel.cs" />
+    <Compile Include="Models\TransferModels\Vehicles\CreateVehicleModel.cs" />
+    <Compile Include="Models\TransferModels\Vehicles\EditVehicleModel.cs" />
+    <Compile Include="Models\TransferModels\Vehicles\SearchVehicleModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

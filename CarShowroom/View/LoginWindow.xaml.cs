@@ -1,5 +1,7 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Windows;
+using CarShowroom.Controls;
 using CarShowroom.Interfaces;
 using CarShowroom.ViewModel;
 
@@ -28,6 +30,9 @@ namespace CarShowroom.View
         public void SetDefault()
         {
             ViewModel.SetDefaultValues();
+
+            var passwordControl = this.FindName("passwordBox") as PasswordControl;
+            passwordControl.SecurePassword = String.Empty;
 
             this.DataContext = ViewModel;
         }

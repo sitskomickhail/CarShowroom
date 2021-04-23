@@ -57,7 +57,7 @@
                                         Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBox Text="{Binding Path=Cost, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                            <TextBox Text="{Binding Path=Cost, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, Delay=250}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -65,7 +65,10 @@
                                         Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <CheckBox IsChecked="{Binding Path=IsSaled, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                            <CheckBox IsChecked="{Binding Path=IsSaled, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                      HorizontalContentAlignment="Center"
+                                      HorizontalAlignment="Center"
+                                      IsEnabled="False"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -73,15 +76,10 @@
                                         Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <CheckBox IsChecked="{Binding Path=IsMaintaining, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Id"
-                                        Width="*">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Label Content="{Binding Path=Id}"/>
+                            <CheckBox IsChecked="{Binding Path=IsMaintaining, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                      HorizontalContentAlignment="Center"
+                                      HorizontalAlignment="Center"
+                                      IsEnabled="False"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -89,23 +87,24 @@
                                         CanUserResize="False">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Background="Transparent"
+                            <Border BorderBrush="Green"
+                                        Background="LightGreen"
+                                        BorderThickness="1"
+                                        CornerRadius="4">
+                                <Button Background="Transparent"
                                     BorderBrush="Transparent"
                                     Click="ButtonBase_OnClick"
-                                    x:Name="{Binding Path=Id}">
-                                <Border BorderBrush="Green"
-                                        Background="LightGreen"
-                                        BorderThickness="2"
-                                        CornerRadius="4">
+                                    DataContext="{Binding Path=Id}">
                                     <StackPanel HorizontalAlignment="Center"
                                                 CanHorizontallyScroll="False"
                                                 Orientation="Horizontal">
-                                    <Image Source="../../../Images/Icons/save.png"
-                                           Height="20"/>
-                                    <Label FontWeight="Bold">Save</Label>
-                                </StackPanel>
-                                </Border>
-                            </Button>
+                                        <Image Source="../../../Images/Icons/save.png"
+                                           Height="17"/>
+                                        <Label FontWeight="Bold"
+                                               FontSize="10">Save</Label>
+                                    </StackPanel>
+                                </Button>
+                            </Border>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -125,7 +124,7 @@
                     CornerRadius="5">
                 <TextBox BorderBrush="Transparent"
                          FontSize="16"
-                         Text="{Binding Path=SearchParameter, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                         Text="{Binding Path=SearchModel.SearchParameter, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
             </Border>
 
             <Border Grid.Column="1"

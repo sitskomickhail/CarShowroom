@@ -4,6 +4,11 @@
     {
         Login,
         Register,
-        Logout
+        Logout,
+
+        CreateVehicle,
+        GetVehicles,
+        SearchVehicles,
+        EditVehicle
     }
 }

@@ -1,7 +1,9 @@
 ﻿using CarShowroom.Controls.Administration;
 using CarShowroom.Controls.Administration.Vehicles;
 using CarShowroom.Handlers.Interfaces.Login;
+using CarShowroom.Handlers.Interfaces.Vehicles;
 using CarShowroom.Handlers.Login;
+using CarShowroom.Handlers.Vehicles;
 using CarShowroom.TransferHandlers;
 using CarShowroom.TransferHandlers.Interfaces;
 using CarShowroom.View;
@@ -10,6 +12,9 @@ using CarShowroom.ViewModel.Administration.Vehicles;
 using Ninject;
 using Ninject.Modules;
 using Ninject.Web.Common;
+using System;
+using AutoMapper;
+using CarShowroom.Mappers;
 
 namespace CarShowroom.NinjectDependencyInjection
 {
@@ -24,11 +29,22 @@ namespace CarShowroom.NinjectDependencyInjection
 
         public override void Load()
         {
+            InjectMapper();
             InjectViewModels();
             InjectControls();
             InjectWindows();
             InjectTcpHandler();
             InjectHandlers();
+        }
+
+        private void InjectMapper()
+        {
+            var mapperConfiguration = new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile<VehicleProfile>();
+            });
+
+            Kernel.Bind<IMapper>().ToConstructor(c => new Mapper(mapperConfiguration)).InSingletonScope();
         }
 
         private void InjectWindows()
@@ -69,6 +85,10 @@ namespace CarShowroom.NinjectDependencyInjection
         {
             Kernel.Bind<IRegisterHandler>().To<RegisterHandler>().InRequestScope();
             Kernel.Bind<ILoginHandler>().To<LoginHandler>().InRequestScope();
+            Kernel.Bind<ICreateVehicleHandler>().To<CreateVehicleHandler>().InRequestScope();
+            Kernel.Bind<IEditVehicleHandler>().To<EditVehicleHandler>().InRequestScope();
+            Kernel.Bind<IGetVehicleListHandler>().To<GetVehicleListHandler>().InRequestScope();
+            Kernel.Bind<ISearchVehiclesHandler>().To<SearchVehiclesHandler>().InRequestScope();
         }
     }
 }

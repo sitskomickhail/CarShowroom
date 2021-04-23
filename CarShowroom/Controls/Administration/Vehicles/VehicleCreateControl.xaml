@@ -6,8 +6,7 @@
                            xmlns:local="clr-namespace:CarShowroom.Controls.Administration.Vehicles"
                            xmlns:administration="clr-namespace:CarShowroom.Controls.Administration"
                            mc:Ignorable="d" 
-                           d:DesignHeight="450" d:DesignWidth="800" Background="White"
-                           MouseDown="VehicleCreateControl_OnMouseDown">
+                           d:DesignHeight="450" d:DesignWidth="800" Background="White">
     <UserControl.Resources>
         <Style x:Key="ElementStyle">
             <Setter Property="Control.FontSize" Value="16"/>
@@ -36,7 +35,9 @@
                     BorderBrush="Black"
                     BorderThickness="2"
                     CornerRadius="5">
-                <TextBox BorderBrush="Transparent"></TextBox>
+                <TextBox BorderBrush="Transparent"
+                         HorizontalContentAlignment="Center"
+                         Text="{Binding Path=CreateVehicle.Model, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </Border>
         </Grid>
         <Grid Grid.Row="1" 
@@ -51,7 +52,9 @@
                     BorderBrush="Black"
                     BorderThickness="2"
                     CornerRadius="5">
-                <TextBox BorderBrush="Transparent"></TextBox>
+                <TextBox BorderBrush="Transparent"
+                         HorizontalContentAlignment="Center"
+                         Text="{Binding Path=CreateVehicle.Mark, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </Border>
         </Grid>
         <Grid Grid.Row="2" 
@@ -66,7 +69,15 @@
                     BorderBrush="Black"
                     BorderThickness="2"
                     CornerRadius="5">
-                <TextBox BorderBrush="Transparent"></TextBox>
+                <ComboBox Background="Transparent"
+                          HorizontalContentAlignment="Center"
+                          Text="{Binding Path=IsSalable, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                    <ComboBoxItem IsSelected="True"
+                                  Content="Yes" 
+                                  HorizontalContentAlignment="Center"/>
+                    <ComboBoxItem Content="No"
+                                  HorizontalContentAlignment="Center"/>
+                </ComboBox>
             </Border>
         </Grid>
         <Grid Grid.Row="3" 
@@ -81,7 +92,9 @@
                     BorderBrush="Black"
                     BorderThickness="2"
                     CornerRadius="5">
-                <TextBox BorderBrush="Transparent"></TextBox>
+                <TextBox BorderBrush="Transparent"
+                         HorizontalContentAlignment="Center"
+                         Text="{Binding Path=CreateVehicle.Cost, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=250}"></TextBox>
             </Border>
         </Grid>
         <Grid Grid.Row="4" 
@@ -93,6 +106,7 @@
                     CornerRadius="5">
                 <Button Background="Transparent"
                         BorderBrush="Transparent"
+                        Command="{Binding SaveVehicleCommand }"
                     Content="Save"></Button>
             </Border>
         </Grid>

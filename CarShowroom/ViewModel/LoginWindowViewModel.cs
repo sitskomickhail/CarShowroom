@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using CarShowroom.Entities.Models.AnswerModels.Users;
 using CarShowroom.Entities.Models.Enums;
@@ -81,10 +82,13 @@ namespace CarShowroom.ViewModel
             RegisterWindow.Show();
         }
         
-        public override void SetDefaultValues()
+        public override Task SetDefaultValues()
         {
             this.LoginModel = new LoginModel();
+            this.LoginModel.Password = String.Empty;
             this.InfoMessage = "Welcome! Enter your credentials";
+
+            return Task.CompletedTask;
         }
     }
 }

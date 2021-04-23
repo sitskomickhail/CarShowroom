@@ -28,6 +28,6 @@ namespace CarShowroom.ViewModel
             currentWindow.CloseWindow();
         }
 
-        public override void SetDefaultValues() { }
+        public override Task SetDefaultValues() { return Task.CompletedTask; }
     }
 }

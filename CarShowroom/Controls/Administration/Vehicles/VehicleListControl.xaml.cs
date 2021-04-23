@@ -1,15 +1,14 @@
-﻿using System.Diagnostics;
+﻿using System.Threading.Tasks;
 using System.Windows.Controls;
-using System.Windows.Input;
+using CarShowroom.Interfaces;
 using CarShowroom.ViewModel.Administration.Vehicles;
-using Ninject;
 
 namespace CarShowroom.Controls.Administration.Vehicles
 {
     /// <summary>
     /// Interaction logic for VehicleListControl.xaml
     /// </summary>
-    public partial class VehicleListControl : UserControl
+    public partial class VehicleListControl : UserControl, IControl
     {
         public VehiclesListViewModel ViewModel { get; set; }
 
@@ -21,9 +20,9 @@ namespace CarShowroom.Controls.Administration.Vehicles
             InitializeComponent();
         }
 
-        private void VehicleListControl_OnMouseDown(object sender, MouseButtonEventArgs e)
+        public async Task LoadInitialData()
         {
-            Debug.WriteLine("list see");
+            ViewModel.SetDefaultValues();
         }
     }
 }
