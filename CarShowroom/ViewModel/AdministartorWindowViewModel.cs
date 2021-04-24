@@ -1,5 +1,12 @@
-﻿using System.Windows;
+﻿using System;
+using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
+using CarShowroom.Controls.Administration;
+using CarShowroom.Controls.Administration.Vehicles;
 using CarShowroom.Interfaces;
 using CarShowroom.View;
 using CarShowroom.ViewModel.Base;
@@ -13,11 +20,49 @@ namespace CarShowroom.ViewModel
         [Inject]
         public LoginWindow LoginWindow { get; set; }
 
+        [Inject] public VehicleListControl VehicleListControl { get; set; }
+
+        [Inject] public VehicleCreateControl VehicleCreateControl { get; set; }
+
+        [Inject] public VehicleListEditControl VehicleListEditControl { get; set; }
+
+        private UserControl _currentControl;
+        public UserControl CurrentControl
+        {
+            get { return _currentControl; }
+            set { _currentControl = value; OnPropertyChanged(); }
+        }
+
+
         public ICommand BackToLoginCommand { get; set; }
+
+        public ICommand TreeViewItemSelectionCommand { get; set; }
+
+        private string _status;
+        public string Status
+        {
+            get { return _status; }
+            set { _status = value; OnPropertyChanged(); }
+        }
+
 
         public AdministartorWindowViewModel()
         {
-            BackToLoginCommand = new RelayCommand<IWindow>(OnBackToLoginCommandExecuted, null);
+            BackToLoginCommand = new RelayCommand<IWindow>(OnBackToLoginCommandExecuted);
+            TreeViewItemSelectionCommand = new RelayCommand<string>(OnSelectionElementChoise);
+            //CurrentControl = new AdministrationBaseControl();
+            CurrentControl = new UserControl();
+        }
+
+        private void OnSelectionElementChoise(string control)
+        {
+            switch (control)
+            {
+                case nameof(VehicleListControl): VehicleListControl.LoadInitialData(); CurrentControl = VehicleListControl; break;
+                case nameof(VehicleCreateControl): VehicleCreateControl.LoadInitialData(); CurrentControl = VehicleCreateControl; break;
+                case nameof(VehicleListEditControl): VehicleListEditControl.LoadInitialData(); CurrentControl = VehicleListEditControl; break;
+                default: CurrentControl = new AdministrationBaseControl(); break;
+            }
         }
 
         private void OnBackToLoginCommandExecuted(IWindow currentWindow)
@@ -28,6 +73,6 @@ namespace CarShowroom.ViewModel
             currentWindow.CloseWindow();
         }
 
-        public override void SetDefaultValues() { }
+        public override Task SetDefaultValues() { return Task.CompletedTask; }
     }
 }

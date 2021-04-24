@@ -11,12 +11,12 @@ namespace CarShowroom.View
     public partial class AdministrationWindow : IWindow
     {
         public AdministartorWindowViewModel ViewModel { get; set; }
-        
+
         public AdministrationWindow(AdministartorWindowViewModel viewModel)
         {
             ViewModel = viewModel;
             this.DataContext = viewModel;
-            
+
             InitializeComponent();
         }
 
@@ -28,7 +28,7 @@ namespace CarShowroom.View
         public void SetDefault()
         {
             ViewModel.SetDefaultValues();
-            
+
             this.DataContext = ViewModel;
         }
 

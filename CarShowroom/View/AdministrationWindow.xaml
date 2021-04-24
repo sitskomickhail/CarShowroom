@@ -5,34 +5,172 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ViewModels="clr-namespace:CarShowroom.ViewModel"
         xmlns:local="clr-namespace:CarShowroom.View"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"
         x:Name="AdministratorWindowName"
         Icon="../Images/Icons/automobile.png"
+        xmlns:vehiclesCtrl="clr-namespace:CarShowroom.Controls.Administration"
+        xmlns:vctrl="clr-namespace:CarShowroom.Controls.Administration.Vehicles"
         Title="Showroom-Administrator" Height="650" Width="1200"
         Closing="AdministrationWindow_OnClosing">
+    <Window.Resources>
+        <Style x:Key="TreeViewStyle">
+            <Setter Property="Control.FontSize" Value="14"/>
+            <Setter Property="TreeView.BorderBrush" Value="Black"/>
+        </Style>
+        <Style x:Key="TreeViewItemBorder">
+            <Setter Property="Border.BorderBrush" Value="LightGray"/>
+            <Setter Property="Border.BorderThickness" Value="2"/>
+            <Setter Property="Border.MinWidth" Value="175"/>
+            <Setter Property="Border.CornerRadius" Value="10"/>
+            <Setter Property="Border.Background" Value="LightGray"/>
+            <Setter Property="Border.Margin" Value="5, 2, 0, 0"/>
+        </Style>
+        <Style x:Key="TreeViewItemLabel">
+            <Setter Property="Label.FontWeight" Value="Bold"/>
+        </Style>
+        <Style x:Key="TreeViewItemElement">
+            <Setter Property="Control.Margin" Value="20, 0, 0, 0"/>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="35"></RowDefinition>
-            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
         </Grid.RowDefinitions>
-        <ToolBarTray VerticalAlignment="Top">
-            <ToolBar  Height="35" 
-                      VerticalAlignment="Top"
-                      HorizontalAlignment="Right"
-                      MinHeight="35" >
-                <ToggleButton Command="{Binding BackToLoginCommand}"
-                              CommandParameter="{Binding ElementName=AdministratorWindowName}"
-                              HorizontalAlignment="Right"
-                              MaxHeight="35">
-                    <Image Source="../Images/Icons/cross.png"/>
-                </ToggleButton>
-            </ToolBar>
-        </ToolBarTray>
+        <ToolBar Grid.Row="0"
+                 Height="35" 
+                 VerticalAlignment="Top"
+                 MinHeight="35"/>
+        <ToolBar Grid.Row="0" HorizontalAlignment="Right"
+                 Height="35" 
+                 VerticalAlignment="Top"
+                 MinHeight="35">
+            <Button Command="{Binding BackToLoginCommand}"
+                    CommandParameter="{Binding ElementName=AdministratorWindowName}"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Stretch"
+                    MaxHeight="35">
+                <Image Source="../Images/Icons/logout.png"/>
+            </Button>
+        </ToolBar>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.2*"></ColumnDefinition>
-                <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                <ColumnDefinition Width="0.23*"></ColumnDefinition>
+                <ColumnDefinition Width="0.77*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
+            <TreeView Grid.Column="0" 
+                      Style="{StaticResource TreeViewStyle}">
+                <TreeViewItem>
+                    <TreeViewItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Images/Icons/bus.png" 
+                                       MaxHeight="20"/>
+                            <Border Style="{StaticResource TreeViewItemBorder}">
+                                <Label Style="{StaticResource TreeViewItemLabel}">Vehicles</Label>
+                            </Border>
+                        </StackPanel>
+                    </TreeViewItem.Header>
+                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Show list of vehicles" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonUp">
+                                <i:InvokeCommandAction Command="{Binding TreeViewItemSelectionCommand}"
+                                                       CommandParameter="VehicleListControl"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TreeViewItem>
+                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Edit vehicles list">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonUp">
+                                <i:InvokeCommandAction Command="{Binding TreeViewItemSelectionCommand}"
+                                                       CommandParameter="VehicleListEditControl"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TreeViewItem>
+                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Create vehicle">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonUp">
+                                <i:InvokeCommandAction Command="{Binding TreeViewItemSelectionCommand}"
+                                                       CommandParameter="VehicleCreateControl"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TreeViewItem>
+                </TreeViewItem>
+                <TreeViewItem>
+                    <TreeViewItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Images/Icons/key.png" 
+                                   MaxHeight="20"/>
+                            <Border Style="{StaticResource TreeViewItemBorder}">
+                                <Label Style="{StaticResource TreeViewItemLabel}">Users</Label>
+                            </Border>
+                        </StackPanel>
+                    </TreeViewItem.Header>
+                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Show list of users"/>
+                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Edit users list"/>
+                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Create user"/>
+                </TreeViewItem>
+                <TreeViewItem>
+                    <TreeViewItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Images/Icons/business.png" 
+                                   MaxHeight="20"/>
+                            <Border Style="{StaticResource TreeViewItemBorder}">
+                                <Label Style="{StaticResource TreeViewItemLabel}">Clients</Label>
+                            </Border>
+                        </StackPanel>
+                    </TreeViewItem.Header>
+                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Show list of clients"/>
+                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Edit clients list"/>
+                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Create client"/>
+                </TreeViewItem>
+                <TreeViewItem>
+                    <TreeViewItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Images/Icons/documents.png" 
+                                   MaxHeight="20"/>
+                            <Border Style="{StaticResource TreeViewItemBorder}">
+                                <Label Style="{StaticResource TreeViewItemLabel}"
+                                       Content="Sales and Maintenances"></Label>
+                            </Border>
+                        </StackPanel>
+                    </TreeViewItem.Header>
+                    <TreeViewItem>
+                        <TreeViewItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="../Images/Icons/sales.png" 
+                                       MaxHeight="20"/>
+                                <Border Style="{StaticResource TreeViewItemBorder}">
+                                    <Label Style="{StaticResource TreeViewItemLabel}">Sales</Label>
+                                </Border>
+                            </StackPanel>
+                        </TreeViewItem.Header>
+                        <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Show list of sales"/>
+                        <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Create sale"/>
+                    </TreeViewItem>
+                    <TreeViewItem>
+                        <TreeViewItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="../Images/Icons/gear.png" 
+                                       MaxHeight="20"/>
+                                <Border Style="{StaticResource TreeViewItemBorder}">
+                                    <Label Style="{StaticResource TreeViewItemLabel}">Maintenances</Label>
+                                </Border>
+                            </StackPanel>
+                        </TreeViewItem.Header>
+                        <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Show list of maintenances"/>
+                        <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Edit maintenances list"/>
+                        <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Create maintenance"/>
+                    </TreeViewItem>
+                </TreeViewItem>
+            </TreeView>
+            <UserControl Grid.Column="1"
+                         Content="{Binding Path=CurrentControl, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
         </Grid>
+        <StatusBar Grid.Row="2">
+            <Label FontSize="12">Status:</Label>
+            <Label FontSize="12" Content="{Binding Path=Status, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></Label>
+        </StatusBar>
     </Grid>
 </Window>

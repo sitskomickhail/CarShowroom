@@ -1,25 +1,24 @@
-﻿using CarShowroom.Entities.Models.DataTransfers;
+﻿using System;
+using CarShowroom.Entities.Models.DataTransfers;
 using CarShowroom.Entities.Models.Enums;
-using CarShowroom.Entities.Models.TransferModels;
-using CarShowroom.Handlers.Interfaces.Login;
+using CarShowroom.Handlers.Interfaces.Vehicles;
 using CarShowroom.TransferHandlers.Interfaces;
 using Newtonsoft.Json;
 using Ninject;
 
-namespace CarShowroom.Handlers.Login
+namespace CarShowroom.Handlers.Vehicles
 {
-    public class LoginHandler : ILoginHandler
+    public class GetVehicleListHandler : IGetVehicleListHandler
     {
         [Inject]
         public ITcpTransferHandler TcpTransferHandler { get; set; }
 
-        public DataReciever LoginExecute(LoginModel model)
+        public DataReciever GetVehicleList()
         {
-            var jsonModel = JsonConvert.SerializeObject(model);
             DataTransfer dataTransfer = new DataTransfer()
             {
-                Action = RequestAction.Login,
-                Object = jsonModel
+                Action = RequestAction.GetVehicles,
+                Object = String.Empty
             };
 
             var jsonString = JsonConvert.SerializeObject(dataTransfer);

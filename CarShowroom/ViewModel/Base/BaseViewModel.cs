@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using CarShowroom.Annotations;
 
 namespace CarShowroom.ViewModel.Base
@@ -14,6 +15,6 @@ namespace CarShowroom.ViewModel.Base
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public abstract void SetDefaultValues();
+        public abstract Task SetDefaultValues();
     }
 }

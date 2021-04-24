@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using CarShowroom.Entities.Models.Enums;
@@ -107,10 +108,12 @@ namespace CarShowroom.ViewModel
             RegisterWindow.CloseWindow();
         }
 
-        public override void SetDefaultValues()
+        public override Task SetDefaultValues()
         {
             RegisterModel = new RegisterModel();
             RepeatPassword = String.Empty;
+
+            return Task.CompletedTask;
         }
     }
 }
