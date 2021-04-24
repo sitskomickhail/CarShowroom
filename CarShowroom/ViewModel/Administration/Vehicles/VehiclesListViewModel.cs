@@ -53,28 +53,6 @@ namespace CarShowroom.ViewModel.Administration.Vehicles
         public VehiclesListViewModel()
         {
             _vehicleCollection = new ObservableCollection<VehicleGridModel>();
-            VehicleCollection.Add(new VehicleGridModel()
-            {
-                Id = Guid.NewGuid(),
-                Number = 1,
-                Cost = 2420.3m,
-                IsMaintaining = true,
-                IsSaled = false,
-                Salable = true,
-                Mark = "Mercedes-Benz",
-                Model = "C-64"
-            });
-            VehicleCollection.Add(new VehicleGridModel()
-            {
-                Id = Guid.NewGuid(),
-                Number = 2,
-                Cost = 4750.5m,
-                IsMaintaining = false,
-                IsSaled = true,
-                Salable = false,
-                Mark = "BMW",
-                Model = "X6"
-            });
             
             SearchVehicles = new RelayCommand(SearchVehiclesCommandExecuted);
         }

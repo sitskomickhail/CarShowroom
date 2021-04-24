@@ -4,7 +4,6 @@
     {
         Login,
         Register,
-        Logout,
 
         CreateVehicle,
         GetVehicles,

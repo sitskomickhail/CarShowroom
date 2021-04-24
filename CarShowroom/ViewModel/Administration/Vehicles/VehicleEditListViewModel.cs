@@ -54,28 +54,6 @@ namespace CarShowroom.ViewModel.Administration.Vehicles
         public VehicleEditListViewModel()
         {
             _vehicleCollection = new ObservableCollection<VehicleGridModel>();
-            VehicleCollection.Add(new VehicleGridModel()
-            {
-                Id = Guid.NewGuid(),
-                Number = 1,
-                Cost = 2420.3m,
-                IsMaintaining = true,
-                IsSaled = false,
-                Salable = true,
-                Mark = "Mercedes-Benz",
-                Model = "C-64"
-            });
-            VehicleCollection.Add(new VehicleGridModel()
-            {
-                Id = Guid.NewGuid(),
-                Number = 2,
-                Cost = 4750.5m,
-                IsMaintaining = false,
-                IsSaled = true,
-                Salable = false,
-                Mark = "BMW",
-                Model = "X6"
-            });
 
             SaveVehicleCommand = new RelayCommand<Guid>(SaveVehicleCommandExecuted);
             SearchVehicles = new RelayCommand(SearchVehiclesCommandExecuted);
@@ -104,7 +82,7 @@ namespace CarShowroom.ViewModel.Administration.Vehicles
             if (recievedData.RequestResult == RequestResult.Success)
             {
                 var vehicleResult = JsonConvert.DeserializeObject<VehicleAnswerModel>(recievedData.Object);
-                
+
                 var vehicleGridItem = Mapper.Map<VehicleGridModel>(vehicleResult);
                 vehicleGridItem.Number = choosedAuto.Number;
 
