@@ -27,7 +27,6 @@ namespace CarShowroom.Server.Handlers
                 switch (dataTransfer.Action)
                 {
                     case RequestAction.Login: answer = await LoginHandler.ExecuteAction(dataTransfer); break;
-                    case RequestAction.Logout: break;
                     case RequestAction.Register: answer = await RegisterHandler.ExecuteAction(dataTransfer); break;
                     default: throw new Exception("Action type was not found");
                 }
