@@ -36,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.10.1.1\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -112,12 +115,17 @@
     <Compile Include="HandlerServices\Interfaces\IHandlerService.cs" />
     <Compile Include="HandlerServices\Users\LoginHandlerService.cs" />
     <Compile Include="HandlerServices\Users\RegistrateHandlerService.cs" />
+    <Compile Include="HandlerServices\Vehicles\CreateVehicleHandlerService.cs" />
+    <Compile Include="HandlerServices\Vehicles\EditVehicleHandlerService.cs" />
+    <Compile Include="HandlerServices\Vehicles\GetVehiclesHandlerService.cs" />
+    <Compile Include="HandlerServices\Vehicles\SearchVehiclesHandlerService.cs" />
     <Compile Include="Handlers\Base\Handler.cs" />
     <Compile Include="Handlers\Base\IHandler.cs" />
     <Compile Include="Handlers\HandlerExecutor.cs" />
     <Compile Include="Handlers\Interfaces\IHandlerExecutor.cs" />
     <Compile Include="Helpers\TransferHelper.cs" />
     <Compile Include="Helpers\UserHelper.cs" />
+    <Compile Include="Profiles\VehicleProfile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ClientListenerService.cs" />

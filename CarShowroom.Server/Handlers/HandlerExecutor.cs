@@ -28,6 +28,10 @@ namespace CarShowroom.Server.Handlers
                 {
                     case RequestAction.Login: answer = await LoginHandler.ExecuteAction(dataTransfer); break;
                     case RequestAction.Register: answer = await RegisterHandler.ExecuteAction(dataTransfer); break;
+                    case RequestAction.CreateVehicle: break;
+                    case RequestAction.EditVehicle: break;
+                    case RequestAction.GetVehicles: break;
+                    case RequestAction.SearchVehicles: break;
                     default: throw new Exception("Action type was not found");
                 }
             }

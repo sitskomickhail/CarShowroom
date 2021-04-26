@@ -1,6 +1,6 @@
-﻿using System;
-using CarShowroom.Entities.Models.DataTransfers;
+﻿using CarShowroom.Entities.Models.DataTransfers;
 using CarShowroom.Entities.Models.Enums;
+using CarShowroom.Entities.Models.TransferModels.Vehicles;
 using CarShowroom.Handlers.Interfaces.Vehicles;
 using CarShowroom.TransferHandlers.Interfaces;
 using Newtonsoft.Json;
@@ -15,10 +15,13 @@ namespace CarShowroom.Handlers.Vehicles
 
         public DataReciever GetVehicleList()
         {
+            GetVehicleListModel model = new GetVehicleListModel();
+            string jsonObject = JsonConvert.SerializeObject(model);
+
             DataTransfer dataTransfer = new DataTransfer()
             {
                 Action = RequestAction.GetVehicles,
-                Object = String.Empty
+                Object = jsonObject
             };
 
             var jsonString = JsonConvert.SerializeObject(dataTransfer);
