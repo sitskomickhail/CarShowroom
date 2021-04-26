@@ -14,8 +14,12 @@ using Ninject.Modules;
 using Ninject.Web.Common;
 using System;
 using AutoMapper;
+using CarShowroom.Controls.Administration.Users;
 using CarShowroom.Handlers;
+using CarShowroom.Handlers.Interfaces.Users;
+using CarShowroom.Handlers.Users;
 using CarShowroom.Profiles;
+using CarShowroom.ViewModel.Administration.Users;
 
 namespace CarShowroom.NinjectDependencyInjection
 {
@@ -43,6 +47,7 @@ namespace CarShowroom.NinjectDependencyInjection
             var mapperConfiguration = new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile<VehicleProfile>();
+                cfg.AddProfile<UserProfile>();
             });
 
             Kernel.Bind<IMapper>().ToConstructor(c => new Mapper(mapperConfiguration)).InSingletonScope();
@@ -63,6 +68,10 @@ namespace CarShowroom.NinjectDependencyInjection
             Kernel.Bind<VehicleListControl>().ToSelf().InSingletonScope();
             Kernel.Bind<VehicleCreateControl>().ToSelf().InSingletonScope();
             Kernel.Bind<VehicleListEditControl>().ToSelf().InSingletonScope();
+
+            Kernel.Bind<UserCreateControl>().ToSelf().InSingletonScope();
+            Kernel.Bind<UserEditControl>().ToSelf().InSingletonScope();
+            Kernel.Bind<UserListControl>().ToSelf().InSingletonScope();
         }
 
         private void InjectViewModels()
@@ -75,6 +84,10 @@ namespace CarShowroom.NinjectDependencyInjection
             Kernel.Bind<VehiclesListViewModel>().ToSelf().InSingletonScope();
             Kernel.Bind<VehicleEditListViewModel>().ToSelf().InSingletonScope();
             Kernel.Bind<VehicleCreateViewModel>().ToSelf().InSingletonScope();
+
+            Kernel.Bind<UserListViewModel>().ToSelf().InSingletonScope();
+            Kernel.Bind<UserEditViewModel>().ToSelf().InSingletonScope();
+            Kernel.Bind<UserCreateViewModel>().ToSelf().InSingletonScope();
         }
 
         private void InjectTcpHandler()
@@ -92,6 +105,10 @@ namespace CarShowroom.NinjectDependencyInjection
             Kernel.Bind<IGetVehicleListHandler>().To<GetVehicleListHandler>().InRequestScope();
             Kernel.Bind<ISearchVehiclesHandler>().To<SearchVehiclesHandler>().InRequestScope();
             Kernel.Bind<IDeleteVehicleHandler>().To<DeleteVehicleHandler>().InRequestScope();
+            Kernel.Bind<ICreateUserHandler>().To<CreateUserHandler>().InRequestScope();
+            Kernel.Bind<IGetUserListHandler>().To<GetUserListHandler>().InRequestScope();
+            Kernel.Bind<IDeleteUserHandler>().To<DeleteUserHandler>().InRequestScope();
+            Kernel.Bind<IEditUserHandler>().To<EditUserHandler>().InRequestScope();
         }
     }
 }

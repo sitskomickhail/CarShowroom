@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using CarShowroom.Controls.Administration;
+using CarShowroom.Controls.Administration.Users;
 using CarShowroom.Controls.Administration.Vehicles;
 using CarShowroom.Interfaces;
 using CarShowroom.View;
@@ -25,6 +26,12 @@ namespace CarShowroom.ViewModel
         [Inject] public VehicleCreateControl VehicleCreateControl { get; set; }
 
         [Inject] public VehicleListEditControl VehicleListEditControl { get; set; }
+
+        [Inject] public UserListControl UserListControl { get; set; }
+        
+        [Inject] public UserEditControl UserEditControl { get; set; }
+        
+        [Inject] public UserCreateControl UserCreateControl { get; set; }
 
         private UserControl _currentControl;
         public UserControl CurrentControl
@@ -61,6 +68,9 @@ namespace CarShowroom.ViewModel
                 case nameof(VehicleListControl): VehicleListControl.LoadInitialData(); CurrentControl = VehicleListControl; break;
                 case nameof(VehicleCreateControl): VehicleCreateControl.LoadInitialData(); CurrentControl = VehicleCreateControl; break;
                 case nameof(VehicleListEditControl): VehicleListEditControl.LoadInitialData(); CurrentControl = VehicleListEditControl; break;
+                case nameof(UserListControl): UserListControl.LoadInitialData(); CurrentControl = UserListControl; break;
+                case nameof(UserEditControl): UserEditControl.LoadInitialData(); CurrentControl = UserEditControl; break;
+                case nameof(UserCreateControl): UserCreateControl.LoadInitialData(); CurrentControl = UserCreateControl; break;
                 default: CurrentControl = new AdministrationBaseControl(); break;
             }
         }

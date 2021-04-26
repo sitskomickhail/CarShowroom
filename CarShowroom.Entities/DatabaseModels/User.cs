@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CarShowroom.Entities.DatabaseModels
@@ -13,6 +14,8 @@ namespace CarShowroom.Entities.DatabaseModels
         public string Login { get; set; }
 
         public string PasswordHash { get; set; }
+
+        public bool IsBlocked { get; set; }
 
         public string Salt { get; set; }
 

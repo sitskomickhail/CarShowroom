@@ -6,7 +6,7 @@ namespace CarShowroom.Entities.Models.TransferModels.Users
     {
         public string Name { get; set; }
 
-        public EnumRoles Role { get; set; }
+        public EnumRoles Role { get; set; } = EnumRoles.Employee;
 
         public string Login { get; set; }
 

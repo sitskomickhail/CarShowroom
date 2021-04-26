@@ -12,7 +12,7 @@
         DeleteVehicle,
 
         CreateUser,
-        ShowUsers,
+        GetUsers,
         DeleteUser,
         EditUser
     }
