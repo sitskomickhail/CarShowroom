@@ -13,11 +13,8 @@ namespace CarShowroom.Server.Factories
     public class TcpHandlerFactory
     {
         [Inject]
-        public SqlServerContext Context { get; set; }
+        public IKernel Kernel { get; set; }
 
-        [Inject]
-        public IHandlerExecutor HandlerExecutor { get; set; }
-        
         public async Task RunClientHandler(TcpClient client)
         {
             var stream = client.GetStream();
@@ -29,7 +26,8 @@ namespace CarShowroom.Server.Factories
                 {
                     DataTransfer transfer = TransferHelper.ReadStream(stream, client);
 
-                    DataReciever answer = await HandlerExecutor.ExecuteAction(transfer);
+                    IHandlerExecutor handlerExecutor = Kernel.Get<IHandlerExecutor>();
+                    DataReciever answer = await handlerExecutor.ExecuteAction(transfer);
                     
                     TransferHelper.WriteStream(stream, answer);
                 }

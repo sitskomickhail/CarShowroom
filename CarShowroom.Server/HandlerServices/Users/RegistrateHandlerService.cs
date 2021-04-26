@@ -6,6 +6,7 @@ using System.Linq;
 using System.Security.Authentication;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using CarShowroom.Entities.DatabaseModels;
 using CarShowroom.Entities.DatabaseModels.Context;
 using CarShowroom.Entities.Models.AnswerModels.Users;
@@ -19,10 +20,13 @@ namespace CarShowroom.Server.HandlerServices.Users
 {
     public class RegistrateHandlerService : IHandlerService<RegisterModel, UserAnswerModel>
     {
-        [Inject] 
+        [Inject]
         public SqlServerContext SqlContext { get; set; }
 
         private readonly string _administratorSecretPassword = "cbybq hs,fr";
+
+        [Inject]
+        public IMapper Mapper { get; set; }
 
         public async Task<UserAnswerModel> ExecuteAsync(RegisterModel model)
         {
@@ -66,12 +70,7 @@ namespace CarShowroom.Server.HandlerServices.Users
 
             await SqlContext.SaveChangesAsync();
 
-            UserAnswerModel answer = new UserAnswerModel()
-            {
-                Role = user.Role.RoleType,
-                Name = user.Name,
-                Id = user.Id
-            };
+            var answer = Mapper.Map<UserAnswerModel>(user);
 
             return answer;
         }

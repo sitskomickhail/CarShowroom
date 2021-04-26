@@ -6,6 +6,7 @@ using System.Linq;
 using System.Management.Instrumentation;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using CarShowroom.Entities.DatabaseModels.Context;
 using CarShowroom.Entities.Models.AnswerModels.Users;
 using CarShowroom.Entities.Models.TransferModels;
@@ -19,6 +20,9 @@ namespace CarShowroom.Server.HandlerServices.Users
     {
         [Inject]
         public SqlServerContext SqlContext { get; set; }
+
+        [Inject]
+        public IMapper Mapper { get; set; }
 
         public async Task<UserAnswerModel> ExecuteAsync(LoginModel model)
         {
@@ -36,12 +40,7 @@ namespace CarShowroom.Server.HandlerServices.Users
                 throw new InstanceNotFoundException("Login or password in not correct");
             }
 
-            var userAnswer = new UserAnswerModel()
-            {
-                Role = user.Role.RoleType,
-                Name = user.Name,
-                Id = user.Id
-            };
+            var userAnswer = Mapper.Map<UserAnswerModel>(user);
 
             return userAnswer;
         }

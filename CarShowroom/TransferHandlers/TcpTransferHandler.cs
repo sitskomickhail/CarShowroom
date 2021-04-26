@@ -30,7 +30,7 @@ namespace CarShowroom.TransferHandlers
 
         public string ReadStream()
         {
-            byte[] data = new byte[256];
+            byte[] data = new byte[100000];
             int bytes = Stream.Read(data, 0, data.Length); // получаем количество считанных байтов
             string message = Encoding.UTF8.GetString(data, 0, bytes);
 
