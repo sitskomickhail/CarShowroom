@@ -3,7 +3,7 @@ using CarShowroom.Entities.Models.AnswerModels.Vehicles;
 using CarShowroom.Entities.Models.TransferModels.Vehicles;
 using CarShowroom.Models.Vehicles;
 
-namespace CarShowroom.Mappers
+namespace CarShowroom.Profiles
 {
     public class VehicleProfile : Profile
     {
@@ -11,6 +11,7 @@ namespace CarShowroom.Mappers
         {
             CreateMap<VehicleAnswerModel, VehicleGridModel>();
             CreateMap<VehicleGridModel, EditVehicleModel>();
+            CreateMap<VehicleGridModel, DeleteVehicleModel>();
         }
     }
 }

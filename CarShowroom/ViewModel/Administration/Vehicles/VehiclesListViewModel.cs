@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Threading;
 using AutoMapper;
-using CarShowroom.Controls.Administration;
 using CarShowroom.Entities.Models.AnswerModels.Vehicles;
 using CarShowroom.Entities.Models.Enums;
 using CarShowroom.Entities.Models.TransferModels.Vehicles;
@@ -78,7 +72,7 @@ namespace CarShowroom.ViewModel.Administration.Vehicles
             SearchModel = new SearchVehicleModel();
             await Application.Current.Dispatcher.Invoke(async () =>
             {
-                var recievedData = GetVehicleListHandler.GetVehicleList();
+                var recievedData = GetVehicleListHandler.GetVehicleList(new GetVehicleListModel());
 
                 if (recievedData.RequestResult == RequestResult.Success)
                 {

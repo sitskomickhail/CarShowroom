@@ -3,8 +3,8 @@ using CarShowroom.Entities.Models.TransferModels.Vehicles;
 
 namespace CarShowroom.Handlers.Interfaces.Vehicles
 {
-    public interface IGetVehicleListHandler
+    public interface IDeleteVehicleHandler
     {
-        DataReciever GetVehicleList(GetVehicleListModel model);
+        DataReciever DeleteVehicle(DeleteVehicleModel model);
     }
 }
