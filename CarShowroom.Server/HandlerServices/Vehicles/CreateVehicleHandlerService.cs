@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using AutoMapper;
+using CarShowroom.Entities.DatabaseModels;
 using CarShowroom.Entities.DatabaseModels.Context;
 using CarShowroom.Entities.Models.AnswerModels.Vehicles;
 using CarShowroom.Entities.Models.TransferModels.Vehicles;
@@ -16,9 +14,19 @@ namespace CarShowroom.Server.HandlerServices.Vehicles
         [Inject]
         public SqlServerContext SqlContext { get; set; }
 
-        public Task<VehicleAnswerModel> ExecuteAsync(CreateVehicleModel model)
+        [Inject]
+        public IMapper Mapper { get; set; }
+
+        public async Task<VehicleAnswerModel> ExecuteAsync(CreateVehicleModel model)
         {
-            throw new NotImplementedException();
+            Vehicle vehicle = Mapper.Map<Vehicle>(model);
+
+            SqlContext.Vehicles.Add(vehicle);
+            await SqlContext.SaveChangesAsync();
+
+            var vehicleAnswer = Mapper.Map<VehicleAnswerModel>(vehicle);
+
+            return vehicleAnswer;
         }
     }
 }

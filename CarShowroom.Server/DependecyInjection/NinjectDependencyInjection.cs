@@ -12,6 +12,7 @@ using CarShowroom.Server.Handlers.Interfaces;
 using CarShowroom.Server.HandlerServices.Interfaces;
 using CarShowroom.Server.HandlerServices.Users;
 using CarShowroom.Server.HandlerServices.Vehicles;
+using CarShowroom.Server.Profiles;
 using CarShowroom.Server.Services;
 using CarShowroom.Server.Services.Interfaces;
 using Ninject;
@@ -36,6 +37,7 @@ namespace CarShowroom.Server.DependecyInjection
             InjectFactory();
             InjectHandlers();
             InjectHandlerServices();
+            InjectMapper();
             InjectServices();
         }
 
@@ -46,19 +48,24 @@ namespace CarShowroom.Server.DependecyInjection
 
         private void InjectFactory()
         {
-            Kernel.Bind<TcpHandlerFactory>().ToSelf().InSingletonScope();
+            Kernel.Bind<TcpHandlerFactory>().ToSelf().InRequestScope();
         }
 
         public void InjectListenerService()
         {
-            Kernel.Bind<IClientListenerService>().To<ClientListenerService>().InSingletonScope();
+            Kernel.Bind<IClientListenerService>().To<ClientListenerService>().InRequestScope();
         }
 
         public void InjectHandlers()
         {
             Kernel.Bind<IHandlerExecutor>().To<HandlerExecutor>().InRequestScope();
+
             Kernel.Bind<IHandler>().To<Handler<LoginModel, UserAnswerModel>>().InRequestScope();
             Kernel.Bind<IHandler>().To<Handler<RegisterModel, UserAnswerModel>>().InRequestScope();
+            Kernel.Bind<IHandler>().To<Handler<CreateVehicleModel, VehicleAnswerModel>>().InRequestScope();
+            Kernel.Bind<IHandler>().To<Handler<SearchVehicleModel, List<VehicleAnswerModel>>>().InRequestScope();
+            Kernel.Bind<IHandler>().To<Handler<GetVehicleListModel, List<VehicleAnswerModel>>>().InRequestScope();
+            Kernel.Bind<IHandler>().To<Handler<EditVehicleModel, VehicleAnswerModel>>().InRequestScope();
         }
 
         public void InjectHandlerServices()

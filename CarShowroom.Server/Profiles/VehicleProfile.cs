@@ -11,7 +11,9 @@ namespace CarShowroom.Server.Profiles
         {
             CreateMap<CreateVehicleModel, Vehicle>();
 
-            CreateMap<Vehicle, VehicleAnswerModel>();
+            CreateMap<Vehicle, VehicleAnswerModel>()
+                .ForMember(v => v.IsSaled, opts => opts.MapFrom(v => v.Sale != null))
+                .ForMember(v => v.IsMaintaining, opts => opts.MapFrom(v => v.Maintenance != null));
         }
     }
 }
