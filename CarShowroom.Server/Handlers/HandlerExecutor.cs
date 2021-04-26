@@ -33,6 +33,9 @@ namespace CarShowroom.Server.Handlers
         [Inject]
         public Handler<EditVehicleModel, VehicleAnswerModel> EditVehicleHandler { get; set; }
 
+        [Inject]
+        public Handler<DeleteVehicleModel, VehicleAnswerModel> DeleteVehicleHandler { get; set; }
+
         public async Task<DataReciever> ExecuteAction(DataTransfer dataTransfer)
         {
             DataReciever answer = new DataReciever();
@@ -47,6 +50,7 @@ namespace CarShowroom.Server.Handlers
                     case RequestAction.EditVehicle: answer = await EditVehicleHandler.ExecuteAction(dataTransfer); break;
                     case RequestAction.GetVehicles: answer = await GetVehiclesHandler.ExecuteAction(dataTransfer); break;
                     case RequestAction.SearchVehicles: answer = await SearchVehiclesHandler.ExecuteAction(dataTransfer); break;
+                    case RequestAction.DeleteVehicle: answer = await DeleteVehicleHandler.ExecuteAction(dataTransfer); break;
                     default: throw new Exception("Action type was not found");
                 }
             }

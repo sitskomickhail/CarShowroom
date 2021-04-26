@@ -10,5 +10,10 @@
         SearchVehicles,
         EditVehicle,
         DeleteVehicle,
+
+        CreateUser,
+        ShowUsers,
+        DeleteUser,
+        EditUser
     }
 }

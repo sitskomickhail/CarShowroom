@@ -66,6 +66,7 @@ namespace CarShowroom.Server.DependecyInjection
             Kernel.Bind<IHandler>().To<Handler<SearchVehicleModel, List<VehicleAnswerModel>>>().InRequestScope();
             Kernel.Bind<IHandler>().To<Handler<GetVehicleListModel, List<VehicleAnswerModel>>>().InRequestScope();
             Kernel.Bind<IHandler>().To<Handler<EditVehicleModel, VehicleAnswerModel>>().InRequestScope();
+            Kernel.Bind<IHandler>().To<Handler<DeleteVehicleModel, VehicleAnswerModel>>().InRequestScope();
         }
 
         public void InjectHandlerServices()
@@ -76,6 +77,7 @@ namespace CarShowroom.Server.DependecyInjection
             Kernel.Bind<IHandlerService<SearchVehicleModel, List<VehicleAnswerModel>>>().To<SearchVehiclesHandlerService>().InRequestScope();
             Kernel.Bind<IHandlerService<GetVehicleListModel, List<VehicleAnswerModel>>>().To<GetVehiclesHandlerService>().InRequestScope();
             Kernel.Bind<IHandlerService<EditVehicleModel, VehicleAnswerModel>>().To<EditVehicleHandlerService>().InRequestScope();
+            Kernel.Bind<IHandlerService<DeleteVehicleModel, VehicleAnswerModel>>().To<DeleteVehicleHandlerService>().InRequestScope();
         }
 
         private void InjectMapper()
@@ -83,6 +85,7 @@ namespace CarShowroom.Server.DependecyInjection
             var mapperConfiguration = new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile<VehicleProfile>();
+                cfg.AddProfile<UserProfile>();
             });
 
             Kernel.Bind<IMapper>().ToConstructor(c => new Mapper(mapperConfiguration)).InSingletonScope();

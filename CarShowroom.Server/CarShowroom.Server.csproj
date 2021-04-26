@@ -116,6 +116,7 @@
     <Compile Include="HandlerServices\Users\LoginHandlerService.cs" />
     <Compile Include="HandlerServices\Users\RegistrateHandlerService.cs" />
     <Compile Include="HandlerServices\Vehicles\CreateVehicleHandlerService.cs" />
+    <Compile Include="HandlerServices\Vehicles\DeleteVehicleHandlerService.cs" />
     <Compile Include="HandlerServices\Vehicles\EditVehicleHandlerService.cs" />
     <Compile Include="HandlerServices\Vehicles\GetVehiclesHandlerService.cs" />
     <Compile Include="HandlerServices\Vehicles\SearchVehiclesHandlerService.cs" />
@@ -125,6 +126,7 @@
     <Compile Include="Handlers\Interfaces\IHandlerExecutor.cs" />
     <Compile Include="Helpers\TransferHelper.cs" />
     <Compile Include="Helpers\UserHelper.cs" />
+    <Compile Include="Profiles\UserProfile.cs" />
     <Compile Include="Profiles\VehicleProfile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
