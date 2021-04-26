@@ -30,6 +30,9 @@ namespace CarShowroom.ViewModel.Administration.Vehicles
         public IEditVehicleHandler EditVehicleHandler { get; set; }
 
         [Inject]
+        public IDeleteVehicleHandler DeleteVehicleHandler { get; set; }
+
+        [Inject]
         public IMapper Mapper { get; set; }
 
         private ObservableCollection<VehicleGridModel> _vehicleCollection;
@@ -51,11 +54,23 @@ namespace CarShowroom.ViewModel.Administration.Vehicles
 
         public ICommand SaveVehicleCommand { get; set; }
 
+        public ICommand DeleteVehicleCommand { get; set; }
+
         public VehicleEditListViewModel()
         {
             _vehicleCollection = new ObservableCollection<VehicleGridModel>();
 
+            VehicleCollection.Add(new VehicleGridModel()
+            {
+                Number =  1,
+                Cost =  20,
+                IsSaled = true,
+                Model = "BMW",
+                Mark = "C-6"
+            });
+
             SaveVehicleCommand = new RelayCommand<Guid>(SaveVehicleCommandExecuted);
+            DeleteVehicleCommand = new RelayCommand<Guid>(DeleteVehicleCommandExecuted);
             SearchVehicles = new RelayCommand(SearchVehiclesCommandExecuted);
         }
 
@@ -90,12 +105,25 @@ namespace CarShowroom.ViewModel.Administration.Vehicles
             }
         }
 
+        private void DeleteVehicleCommandExecuted(Guid vehicleId)
+        {
+            var choosedAuto = VehicleCollection.FirstOrDefault(v => v.Id == vehicleId);
+            var deleteVehicle = Mapper.Map<DeleteVehicleModel>(choosedAuto);
+
+            var recievedData = DeleteVehicleHandler.DeleteVehicle(deleteVehicle);
+
+            if (recievedData.RequestResult == RequestResult.Success)
+            {
+                VehicleCollection.Remove(choosedAuto);
+            }
+        }
+
         public override async Task SetDefaultValues()
         {
             SearchModel = new SearchVehicleModel();
             await Application.Current.Dispatcher.Invoke(async () =>
             {
-                var recievedData = GetVehicleListHandler.GetVehicleList();
+                var recievedData = GetVehicleListHandler.GetVehicleList(new GetVehicleListModel());
 
                 if (recievedData.RequestResult == RequestResult.Success)
                 {

@@ -87,24 +87,44 @@
                                         CanUserResize="False">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Border BorderBrush="Green"
+                            <StackPanel Orientation="Horizontal">
+                                <Border BorderBrush="Green"
                                         Background="LightGreen"
                                         BorderThickness="1"
                                         CornerRadius="4">
-                                <Button Background="Transparent"
+                                    <Button Background="Transparent"
                                     BorderBrush="Transparent"
-                                    Click="ButtonBase_OnClick"
+                                    Click="SaveButton_OnClick"
                                     DataContext="{Binding Path=Id}">
-                                    <StackPanel HorizontalAlignment="Center"
+                                        <StackPanel HorizontalAlignment="Center"
                                                 CanHorizontallyScroll="False"
                                                 Orientation="Horizontal">
-                                        <Image Source="../../../Images/Icons/save.png"
+                                            <Image Source="../../../Images/Icons/save.png"
                                            Height="17"/>
-                                        <Label FontWeight="Bold"
+                                            <Label FontWeight="Bold"
                                                FontSize="10">Save</Label>
-                                    </StackPanel>
-                                </Button>
-                            </Border>
+                                        </StackPanel>
+                                    </Button>
+                                </Border>
+                                <Border BorderBrush="Red"
+                                        Background="LightCoral"
+                                        BorderThickness="1"
+                                        CornerRadius="4">
+                                    <Button Background="Transparent"
+                                    BorderBrush="Transparent"
+                                    Click="DeleteButton_OnClick"
+                                    DataContext="{Binding Path=Id}">
+                                        <StackPanel HorizontalAlignment="Center"
+                                                CanHorizontallyScroll="False"
+                                                Orientation="Horizontal">
+                                            <Image Source="../../../Images/Icons/garbage.png"
+                                           Height="17"/>
+                                            <Label FontWeight="Bold"
+                                               FontSize="10">Delete</Label>
+                                        </StackPanel>
+                                    </Button>
+                                </Border>
+                            </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

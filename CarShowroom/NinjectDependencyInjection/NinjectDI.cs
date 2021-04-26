@@ -14,7 +14,8 @@ using Ninject.Modules;
 using Ninject.Web.Common;
 using System;
 using AutoMapper;
-using CarShowroom.Mappers;
+using CarShowroom.Handlers;
+using CarShowroom.Profiles;
 
 namespace CarShowroom.NinjectDependencyInjection
 {
@@ -79,6 +80,7 @@ namespace CarShowroom.NinjectDependencyInjection
         private void InjectTcpHandler()
         {
             Kernel.Bind<ITcpTransferHandler>().To<TcpTransferHandler>().InSingletonScope();
+            Kernel.Bind<BaseClientHandler>().ToSelf().InRequestScope();
         }
 
         private void InjectHandlers()
@@ -89,6 +91,7 @@ namespace CarShowroom.NinjectDependencyInjection
             Kernel.Bind<IEditVehicleHandler>().To<EditVehicleHandler>().InRequestScope();
             Kernel.Bind<IGetVehicleListHandler>().To<GetVehicleListHandler>().InRequestScope();
             Kernel.Bind<ISearchVehiclesHandler>().To<SearchVehiclesHandler>().InRequestScope();
+            Kernel.Bind<IDeleteVehicleHandler>().To<DeleteVehicleHandler>().InRequestScope();
         }
     }
 }

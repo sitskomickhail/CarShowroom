@@ -8,6 +8,7 @@
         CreateVehicle,
         GetVehicles,
         SearchVehicles,
-        EditVehicle
+        EditVehicle,
+        DeleteVehicle,
     }
 }
