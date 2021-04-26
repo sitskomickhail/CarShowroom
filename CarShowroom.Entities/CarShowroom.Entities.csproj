@@ -82,7 +82,9 @@
     <Compile Include="Models\TransferModels\LoginModel.cs" />
     <Compile Include="Models\TransferModels\RegisterModel.cs" />
     <Compile Include="Models\TransferModels\Vehicles\CreateVehicleModel.cs" />
+    <Compile Include="Models\TransferModels\Vehicles\DeleteVehicleModel.cs" />
     <Compile Include="Models\TransferModels\Vehicles\EditVehicleModel.cs" />
+    <Compile Include="Models\TransferModels\Vehicles\GetVehicleListModel.cs" />
     <Compile Include="Models\TransferModels\Vehicles\SearchVehicleModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -19,7 +19,7 @@ namespace CarShowroom
             var tcpConnection = ninject.Kernel.Get<ITcpTransferHandler>();
             tcpConnection.CreateConnection("127.0.0.1", 5545);
 
-            var window = ninject.Kernel.Get<LoginWindow>();
+            var window = ninject.Kernel.Get<AdministrationWindow>();
             window.Show();
 
             base.OnStartup(e);

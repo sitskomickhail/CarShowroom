@@ -95,22 +95,25 @@
     <Compile Include="Controls\PasswordControl.xaml.cs">
       <DependentUpon>PasswordControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Handlers\BaseClientHandler.cs" />
     <Compile Include="Handlers\Interfaces\Login\ILoginHandler.cs" />
     <Compile Include="Handlers\Interfaces\Login\IRegisterHandler.cs" />
     <Compile Include="Handlers\Interfaces\Vehicles\ICreateVehicleHandler.cs" />
+    <Compile Include="Handlers\Interfaces\Vehicles\IDeleteVehicleHandler.cs" />
     <Compile Include="Handlers\Interfaces\Vehicles\IEditVehicleHandler.cs" />
     <Compile Include="Handlers\Interfaces\Vehicles\IGetVehicleListHandler.cs" />
     <Compile Include="Handlers\Interfaces\Vehicles\ISearchVehiclesHandler.cs" />
     <Compile Include="Handlers\Login\LoginHandler.cs" />
     <Compile Include="Handlers\Login\RegisterHandler.cs" />
     <Compile Include="Handlers\Vehicles\CreateVehicleHandler.cs" />
+    <Compile Include="Handlers\Vehicles\DeleteVehicleHandler.cs" />
     <Compile Include="Handlers\Vehicles\EditVehicleHandler.cs" />
     <Compile Include="Handlers\Vehicles\GetVehicleListHandler.cs" />
     <Compile Include="Handlers\Vehicles\SearchVehiclesHandler.cs" />
     <Compile Include="Helpers\RelayCommand.cs" />
     <Compile Include="Interfaces\IControl.cs" />
     <Compile Include="Interfaces\IWindow.cs" />
-    <Compile Include="Mappers\VehicleProfile.cs" />
+    <Compile Include="Profiles\VehicleProfile.cs" />
     <Compile Include="Models\Vehicles\VehicleGridModel.cs" />
     <Compile Include="NinjectDependencyInjection\NinjectDI.cs" />
     <Compile Include="Properties\Annotations.cs" />
@@ -241,6 +244,8 @@
   <ItemGroup>
     <Resource Include="Images\Icons\save.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\Icons\garbage.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

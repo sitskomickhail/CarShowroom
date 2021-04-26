@@ -5,11 +5,11 @@ using CarShowroom.Handlers.Interfaces.Vehicles;
 
 namespace CarShowroom.Handlers.Vehicles
 {
-    public class GetVehicleListHandler : BaseClientHandler, IGetVehicleListHandler
+    public class DeleteVehicleHandler : BaseClientHandler, IDeleteVehicleHandler
     {
-        public override RequestAction RequestAction => RequestAction.GetVehicles;
+        public override RequestAction RequestAction => RequestAction.DeleteVehicle;
 
-        public DataReciever GetVehicleList(GetVehicleListModel model)
+        public DataReciever DeleteVehicle(DeleteVehicleModel model)
         {
             return SendObject(model);
         }

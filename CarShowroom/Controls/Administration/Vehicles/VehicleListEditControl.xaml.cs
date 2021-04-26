@@ -21,12 +21,29 @@ namespace CarShowroom.Controls.Administration.Vehicles
 
             InitializeComponent();
         }
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void SaveButton_OnClick(object sender, RoutedEventArgs e)
         {
             Button clickedButton = sender as Button;
             Guid vehicleId = Guid.Parse(clickedButton.DataContext.ToString());
 
             ViewModel.SaveVehicleCommand.Execute(vehicleId);
+        }
+
+        private void DeleteButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            var result = MessageBox.Show("Do you really want to delete this vehicle?",
+                            "Warning",
+                            MessageBoxButton.YesNo,
+                            MessageBoxImage.Question,
+                            MessageBoxResult.No);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                Button clickedButton = sender as Button;
+                Guid vehicleId = Guid.Parse(clickedButton.DataContext.ToString());
+
+                ViewModel.DeleteVehicleCommand.Execute(vehicleId);
+            }
         }
 
         public async Task LoadInitialData()
