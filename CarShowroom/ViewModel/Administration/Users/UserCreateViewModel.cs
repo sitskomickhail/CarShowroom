@@ -29,7 +29,7 @@ namespace CarShowroom.ViewModel.Administration.Users
             set
             {
                 _role = value;
-                _createUser.Role = EnumRoles.Client.ToString() == value ? EnumRoles.Client : EnumRoles.Employee;
+                _createUser.Role = EnumRoles.Administrator.ToString() == value ? EnumRoles.Administrator : EnumRoles.Employee;
                 OnPropertyChanged();
             }
         }
@@ -54,7 +54,7 @@ namespace CarShowroom.ViewModel.Administration.Users
         public override Task SetDefaultValues()
         {
             CreateUser = new CreateUserModel();
-            Role = EnumRoles.Client.ToString();
+            Role = EnumRoles.Administrator.ToString();
 
             return Task.CompletedTask;
         }

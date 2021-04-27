@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CarShowroom.Entities.DatabaseModels
@@ -13,7 +14,13 @@ namespace CarShowroom.Entities.DatabaseModels
 
         public string? Address { get; set; }
 
+        [EmailAddress]
         public string? Email { get; set; }
+
+        [Phone]
+        public string? Number { get; set; }
+
+        public User User { get; set; }
 
         public ICollection<Sale> Sales { get; set; }
 

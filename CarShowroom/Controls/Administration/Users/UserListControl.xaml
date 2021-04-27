@@ -55,33 +55,6 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                <DataGridTemplateColumn Header="↯"
-                                        CanUserResize="False">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <Border BorderBrush="Wheat"
-                                        Background="AntiqueWhite"
-                                        BorderThickness="1"
-                                        CornerRadius="4">
-                                    <Button Background="Transparent"
-                                    BorderBrush="Transparent"
-                                    Click="ViewButton_OnClick"
-                                    DataContext="{Binding Path=Id}">
-                                        <StackPanel HorizontalAlignment="Center"
-                                                CanHorizontallyScroll="False"
-                                                Orientation="Horizontal">
-                                            <Image Source="../../../Images/Icons/find.png"
-                                           Height="17"/>
-                                            <Label FontWeight="Bold"
-                                               FontSize="10">View</Label>
-                                        </StackPanel>
-                                    </Button>
-                                </Border>
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Grid Grid.Row="1"

@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using AutoMapper;
-using CarShowroom.Entities.DatabaseModels;
 using CarShowroom.Entities.Models.AnswerModels.Users;
 using CarShowroom.Entities.Models.Enums;
 using CarShowroom.Entities.Models.TransferModels.Users;
@@ -51,14 +50,6 @@ namespace CarShowroom.ViewModel.Administration.Users
         public UserEditViewModel()
         {
             UserCollection = new ObservableCollection<UserGridModel>();
-            
-            UserCollection.Add(new UserGridModel()
-            {
-                Number = 1,
-                IsBlocked = true,
-                Name = "Eugene",
-                Role = "Employee"
-            });
 
             SearchUsersCommand = new RelayCommand(SearchUsersCommandExecuted);
             SaveUserCommand = new RelayCommand<Guid>(SaveUserCommandExecuted);

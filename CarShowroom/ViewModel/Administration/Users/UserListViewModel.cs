@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -11,7 +8,6 @@ using CarShowroom.Entities.Models.AnswerModels.Users;
 using CarShowroom.Entities.Models.Enums;
 using CarShowroom.Entities.Models.TransferModels.Users;
 using CarShowroom.Handlers.Interfaces.Users;
-using CarShowroom.Handlers.Users;
 using CarShowroom.Models.Users;
 using CarShowroom.ViewModel.Base;
 using GalaSoft.MvvmLight.CommandWpf;
@@ -39,27 +35,11 @@ namespace CarShowroom.ViewModel.Administration.Users
 
         public ICommand SearchUsersCommand { get; set; }
 
-        public ICommand ViewUserCommand { get; set; }
-
         public UserListViewModel()
         {
             UserCollection = new ObservableCollection<UserGridModel>();
 
-            UserCollection.Add(new UserGridModel()
-            {
-                Number = 1,
-                IsBlocked = true,
-                Name = "Eugene",
-                Role = "Employee"
-            });
-
             SearchUsersCommand = new RelayCommand(SearchUsersCommandExecuted);
-            ViewUserCommand = new RelayCommand(ViewUserCommandExecuted);
-        }
-
-        private void ViewUserCommandExecuted()
-        {
-            
         }
 
         private void SearchUsersCommandExecuted()

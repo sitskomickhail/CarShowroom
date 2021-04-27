@@ -1,5 +1,5 @@
 ﻿using System;
-using System.ComponentModel;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CarShowroom.Entities.DatabaseModels
@@ -20,5 +20,7 @@ namespace CarShowroom.Entities.DatabaseModels
         public string Salt { get; set; }
 
         public Role Role { get; set; }
+
+        public ICollection<Client> Clients { get; set; }
     }
 }

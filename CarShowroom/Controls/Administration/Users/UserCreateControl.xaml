@@ -57,7 +57,7 @@
                           HorizontalContentAlignment="Center"
                           Text="{Binding Path=Role, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                     <ComboBoxItem IsSelected="True"
-                                  Content="Client"
+                                  Content="Administrator"
                                   HorizontalContentAlignment="Center"/>
                     <ComboBoxItem Content="Employee" 
                                   HorizontalContentAlignment="Center"/>

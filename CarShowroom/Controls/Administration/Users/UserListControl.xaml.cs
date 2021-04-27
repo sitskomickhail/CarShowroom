@@ -36,10 +36,5 @@ namespace CarShowroom.Controls.Administration.Users
         {
             await ViewModel.SetDefaultValues();
         }
-
-        private void ViewButton_OnClick(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
