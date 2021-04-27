@@ -39,7 +39,13 @@ namespace CarShowroom.ViewModel.Administration.Users
             set { _usersListModel = value; OnPropertyChanged(); }
         }
 
-        public ObservableCollection<UserGridModel> UserCollection { get; set; }
+        private ObservableCollection<UserGridModel> _userCollection;
+        public ObservableCollection<UserGridModel> UserCollection
+        {
+            get => _userCollection;
+            set
+            { _userCollection = value; OnPropertyChanged(); }
+        }
 
         public ICommand SearchUsersCommand { get; set; }
 
@@ -50,6 +56,7 @@ namespace CarShowroom.ViewModel.Administration.Users
         public UserEditViewModel()
         {
             UserCollection = new ObservableCollection<UserGridModel>();
+            UserListModel = new GetUsersListModel();
 
             SearchUsersCommand = new RelayCommand(SearchUsersCommandExecuted);
             SaveUserCommand = new RelayCommand<Guid>(SaveUserCommandExecuted);
@@ -72,7 +79,7 @@ namespace CarShowroom.ViewModel.Administration.Users
             }
         }
 
-        public void DeleteUserCommandExecuted(Guid userId)
+        public void SaveUserCommandExecuted(Guid userId)
         {
             var choosedUser = UserCollection.FirstOrDefault(u => u.Id == userId);
             var editUser = Mapper.Map<EditUserModel>(choosedUser);
@@ -90,7 +97,7 @@ namespace CarShowroom.ViewModel.Administration.Users
             }
         }
 
-        public void SaveUserCommandExecuted(Guid userId)
+        public void DeleteUserCommandExecuted(Guid userId)
         {
             var choosedUser = UserCollection.FirstOrDefault(u => u.Id == userId);
             var deleteUser = Mapper.Map<DeleteUserModel>(choosedUser);
@@ -106,7 +113,7 @@ namespace CarShowroom.ViewModel.Administration.Users
         public override async Task SetDefaultValues()
         {
             UserListModel = new GetUsersListModel();
-            UserCollection = new ObservableCollection<UserGridModel>();
+            _userCollection = new ObservableCollection<UserGridModel>();
 
             await Application.Current.Dispatcher.Invoke(async () =>
             {

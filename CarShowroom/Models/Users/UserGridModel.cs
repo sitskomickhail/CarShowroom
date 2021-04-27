@@ -10,6 +10,8 @@ namespace CarShowroom.Models.Users
 
         public string Name { get; set; }
 
+        public string Login { get; set; }
+
         public bool IsBlocked { get; set; }
 
         public string Role { get; set; }

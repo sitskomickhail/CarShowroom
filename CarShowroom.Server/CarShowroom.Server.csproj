@@ -113,6 +113,10 @@
     <Compile Include="DependecyInjection\NinjectDependencyInjection.cs" />
     <Compile Include="Factories\TcpHandlerFactory.cs" />
     <Compile Include="HandlerServices\Interfaces\IHandlerService.cs" />
+    <Compile Include="HandlerServices\Users\CreateUserHandlerService.cs" />
+    <Compile Include="HandlerServices\Users\DeleteUserHandlerService.cs" />
+    <Compile Include="HandlerServices\Users\EditUserHandlerService.cs" />
+    <Compile Include="HandlerServices\Users\GetUserListHandlerService.cs" />
     <Compile Include="HandlerServices\Users\LoginHandlerService.cs" />
     <Compile Include="HandlerServices\Users\RegistrateHandlerService.cs" />
     <Compile Include="HandlerServices\Vehicles\CreateVehicleHandlerService.cs" />

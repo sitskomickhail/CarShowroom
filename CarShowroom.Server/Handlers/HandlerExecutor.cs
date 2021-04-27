@@ -6,6 +6,7 @@ using CarShowroom.Entities.Models.AnswerModels.Vehicles;
 using CarShowroom.Entities.Models.DataTransfers;
 using CarShowroom.Entities.Models.Enums;
 using CarShowroom.Entities.Models.TransferModels;
+using CarShowroom.Entities.Models.TransferModels.Users;
 using CarShowroom.Entities.Models.TransferModels.Vehicles;
 using CarShowroom.Server.Handlers.Base;
 using CarShowroom.Server.Handlers.Interfaces;
@@ -15,26 +16,27 @@ namespace CarShowroom.Server.Handlers
 {
     public class HandlerExecutor : IHandlerExecutor
     {
-        [Inject]
-        public Handler<LoginModel, UserAnswerModel> LoginHandler { get; set; }
+        [Inject] public Handler<LoginModel, UserAnswerModel> LoginHandler { get; set; }
 
-        [Inject]
-        public Handler<RegisterModel, UserAnswerModel> RegisterHandler { get; set; }
+        [Inject] public Handler<RegisterModel, UserAnswerModel> RegisterHandler { get; set; }
 
-        [Inject]
-        public Handler<CreateVehicleModel, VehicleAnswerModel> CreateVehicleHandler { get; set; }
+        [Inject] public Handler<CreateVehicleModel, VehicleAnswerModel> CreateVehicleHandler { get; set; }
 
-        [Inject]
-        public Handler<SearchVehicleModel, List<VehicleAnswerModel>> SearchVehiclesHandler { get; set; }
+        [Inject] public Handler<SearchVehicleModel, List<VehicleAnswerModel>> SearchVehiclesHandler { get; set; }
 
-        [Inject]
-        public Handler<GetVehicleListModel, List<VehicleAnswerModel>> GetVehiclesHandler { get; set; }
+        [Inject] public Handler<GetVehicleListModel, List<VehicleAnswerModel>> GetVehiclesHandler { get; set; }
 
-        [Inject]
-        public Handler<EditVehicleModel, VehicleAnswerModel> EditVehicleHandler { get; set; }
+        [Inject] public Handler<EditVehicleModel, VehicleAnswerModel> EditVehicleHandler { get; set; }
 
-        [Inject]
-        public Handler<DeleteVehicleModel, VehicleAnswerModel> DeleteVehicleHandler { get; set; }
+        [Inject] public Handler<DeleteVehicleModel, VehicleAnswerModel> DeleteVehicleHandler { get; set; }
+
+        [Inject] public Handler<CreateUserModel, UserAnswerModel> CreateUserHandler { get; set; }
+
+        [Inject] public Handler<EditUserModel, UserAnswerModel> EditUserHandler { get; set; }
+
+        [Inject] public Handler<DeleteUserModel, UserAnswerModel> DeleteUserHandler { get; set; }
+
+        [Inject] public Handler<GetUsersListModel, List<UserAnswerModel>> GetUserListHandler { get; set; }
 
         public async Task<DataReciever> ExecuteAction(DataTransfer dataTransfer)
         {
@@ -51,6 +53,10 @@ namespace CarShowroom.Server.Handlers
                     case RequestAction.GetVehicles: answer = await GetVehiclesHandler.ExecuteAction(dataTransfer); break;
                     case RequestAction.SearchVehicles: answer = await SearchVehiclesHandler.ExecuteAction(dataTransfer); break;
                     case RequestAction.DeleteVehicle: answer = await DeleteVehicleHandler.ExecuteAction(dataTransfer); break;
+                    case RequestAction.GetUsers: answer = await GetUserListHandler.ExecuteAction(dataTransfer); break;
+                    case RequestAction.CreateUser: answer = await CreateUserHandler.ExecuteAction(dataTransfer); break;
+                    case RequestAction.DeleteUser: answer = await DeleteUserHandler.ExecuteAction(dataTransfer); break;
+                    case RequestAction.EditUser: answer = await EditUserHandler.ExecuteAction(dataTransfer); break;
                     default: throw new Exception("Action type was not found");
                 }
             }
