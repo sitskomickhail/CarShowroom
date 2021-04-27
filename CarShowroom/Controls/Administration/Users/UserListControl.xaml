@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
 
         <DataGrid Grid.Row="0" 
-                  ItemsSource="{Binding Path=UserCollection, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
+                  ItemsSource="{Binding Path=UserCollection, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                   AutoGenerateColumns="False"
                   AreRowDetailsFrozen="True"
                   CanUserAddRows="False">
@@ -32,6 +32,14 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Label Content="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Login"
+                                        Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding Path=Login, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -60,7 +68,8 @@
         <Grid Grid.Row="1"
               Margin="5">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.7*"/>
+                <ColumnDefinition Width="0.15*"/>
+                <ColumnDefinition Width="0.65*"/>
                 <ColumnDefinition Width="0.3*"/>
             </Grid.ColumnDefinitions>
 
@@ -68,13 +77,31 @@
                     BorderBrush="AntiqueWhite"
                     BorderThickness="3"
                     Margin="5"
-                    CornerRadius="5">
-                <TextBox BorderBrush="Transparent"
-                         FontSize="16"
-                         Text="{Binding Path=SearchModel.SearchParameter, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                    CornerRadius="5"
+                    Background="AliceBlue">
+                <StackPanel Orientation="Horizontal"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center">
+                    <Label FontSize="14"
+                           Padding="-5"
+                           Background="Transparent">Show all</Label>
+                    <CheckBox Margin="5, 3, 0, 0"
+                              Background="Transparent"
+                              IsChecked="{Binding Path=UserListModel.UserBlocked, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                </StackPanel>
             </Border>
 
             <Border Grid.Column="1"
+                    BorderBrush="AntiqueWhite"
+                    BorderThickness="3"
+                    Margin="5"
+                    CornerRadius="5">
+                <TextBox BorderBrush="Transparent"
+                         FontSize="16"
+                         Text="{Binding Path=UserListModel.SearchParameter, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+            </Border>
+
+            <Border Grid.Column="2"
                     BorderBrush="AntiqueWhite"
                     BorderThickness="3"
                     CornerRadius="5"

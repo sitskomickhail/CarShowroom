@@ -35,6 +35,11 @@ namespace CarShowroom.Server.HandlerServices.Users
                 throw new InstanceNotFoundException("Login or password in not correct");
             }
 
+            if (user.IsBlocked)
+            {
+                throw new Exception("Login or password in not correct");
+            }
+
             if (!UserHelper.IsPasswordValid(model.Password, user.PasswordHash, user.Salt))
             {
                 throw new InstanceNotFoundException("Login or password in not correct");

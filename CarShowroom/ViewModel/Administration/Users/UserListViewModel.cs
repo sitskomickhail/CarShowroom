@@ -31,13 +31,20 @@ namespace CarShowroom.ViewModel.Administration.Users
             set { _usersListModel = value; OnPropertyChanged(); }
         }
 
-        public ObservableCollection<UserGridModel> UserCollection { get; set; }
+        private ObservableCollection<UserGridModel> _userCollection;
+        public ObservableCollection<UserGridModel> UserCollection
+        {
+            get => _userCollection;
+            set
+            { _userCollection = value; OnPropertyChanged(); }
+        }
 
         public ICommand SearchUsersCommand { get; set; }
 
         public UserListViewModel()
         {
             UserCollection = new ObservableCollection<UserGridModel>();
+            UserListModel = new GetUsersListModel();
 
             SearchUsersCommand = new RelayCommand(SearchUsersCommandExecuted);
         }
@@ -60,7 +67,8 @@ namespace CarShowroom.ViewModel.Administration.Users
 
         public override async Task SetDefaultValues()
         {
-            UserCollection = new ObservableCollection<UserGridModel>();
+            UserListModel = new GetUsersListModel();
+            _userCollection = new ObservableCollection<UserGridModel>();
 
             await Application.Current.Dispatcher.Invoke(async () =>
             {
