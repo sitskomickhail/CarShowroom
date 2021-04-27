@@ -9,7 +9,8 @@
         mc:Ignorable="d"
         Icon="../Images/Icons/key.png"
         Title="Car Showroom" Height="300" Width="500"
-        Closing="LoginWindow_OnClosing">
+        Closing="LoginWindow_OnClosing"
+        WindowStartupLocation="CenterScreen">
     <Grid Margin="50, 55, 50, 55">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>

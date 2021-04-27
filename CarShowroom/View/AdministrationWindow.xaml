@@ -12,7 +12,8 @@
         xmlns:vehiclesCtrl="clr-namespace:CarShowroom.Controls.Administration"
         xmlns:vctrl="clr-namespace:CarShowroom.Controls.Administration.Vehicles"
         Title="Showroom-Administrator" Height="650" Width="1200"
-        Closing="AdministrationWindow_OnClosing">
+        Closing="AdministrationWindow_OnClosing"
+        WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Key="TreeViewStyle">
             <Setter Property="Control.FontSize" Value="14"/>
@@ -143,8 +144,14 @@
                         </StackPanel>
                     </TreeViewItem.Header>
                     <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Show list of clients"/>
-                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Edit clients list"/>
-                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Create client"/>
+                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Edit clients list">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonUp">
+                                <i:InvokeCommandAction Command="{Binding TreeViewItemSelectionCommand}"
+                                                       CommandParameter="ClientEditControl"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TreeViewItem>
                 </TreeViewItem>
                 <TreeViewItem>
                     <TreeViewItem.Header>
