@@ -10,6 +10,8 @@ namespace CarShowroom.Entities.Models.AnswerModels.Users
 
         public string Name { get; set; }
 
+        public bool IsBlocked { get; set; }
+
         public EnumRoles Role { get; set; }
     }
 }

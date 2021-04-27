@@ -26,6 +26,10 @@ namespace CarShowroom.Entities.DatabaseModels.Context
                 .HasMany(c => c.Sales)
                 .WithRequired(c => c.Client);
             
+            modelBuilder.Entity<Client>()
+                .HasRequired(c => c.User)
+                .WithMany(c => c.Clients);
+            
             base.OnModelCreating(modelBuilder);
         }
 

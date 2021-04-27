@@ -107,9 +107,30 @@
                             </Border>
                         </StackPanel>
                     </TreeViewItem.Header>
-                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Show list of users"/>
-                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Edit users list"/>
-                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Create user"/>
+                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Show list of users">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonUp">
+                                <i:InvokeCommandAction Command="{Binding TreeViewItemSelectionCommand}"
+                                                       CommandParameter="UserListControl"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TreeViewItem>
+                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Edit users list">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonUp">
+                                <i:InvokeCommandAction Command="{Binding TreeViewItemSelectionCommand}"
+                                                       CommandParameter="UserEditControl"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TreeViewItem>
+                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Create user">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonUp">
+                                <i:InvokeCommandAction Command="{Binding TreeViewItemSelectionCommand}"
+                                                       CommandParameter="UserCreateControl"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TreeViewItem>
                 </TreeViewItem>
                 <TreeViewItem>
                     <TreeViewItem.Header>

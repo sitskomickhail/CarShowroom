@@ -71,6 +71,14 @@
     <Compile Include="Migrations\202104121041199_CreatingDatabaseStructure.designer.cs">
       <DependentUpon>202104121041199_CreatingDatabaseStructure.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104261559123_Adding_new_User_column_IsBlocked.cs" />
+    <Compile Include="Migrations\202104261559123_Adding_new_User_column_IsBlocked.designer.cs">
+      <DependentUpon>202104261559123_Adding_new_User_column_IsBlocked.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104270646005_Adding_in_user_client_relationship.cs" />
+    <Compile Include="Migrations\202104270646005_Adding_in_user_client_relationship.designer.cs">
+      <DependentUpon>202104270646005_Adding_in_user_client_relationship.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AnswerModels\Users\UserAnswerModel.cs" />
     <Compile Include="Models\AnswerModels\Vehicles\VehicleAnswerModel.cs" />
@@ -98,6 +106,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104121041199_CreatingDatabaseStructure.resx">
       <DependentUpon>202104121041199_CreatingDatabaseStructure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104261559123_Adding_new_User_column_IsBlocked.resx">
+      <DependentUpon>202104261559123_Adding_new_User_column_IsBlocked.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104270646005_Adding_in_user_client_relationship.resx">
+      <DependentUpon>202104270646005_Adding_in_user_client_relationship.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

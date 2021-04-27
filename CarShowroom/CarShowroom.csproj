@@ -83,6 +83,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controls\Administration\AdministrationBaseControl.cs" />
+    <Compile Include="Controls\Administration\Users\UserCreateControl.xaml.cs">
+      <DependentUpon>UserCreateControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Administration\Users\UserEditControl.xaml.cs">
+      <DependentUpon>UserEditControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Administration\Users\UserListControl.xaml.cs">
+      <DependentUpon>UserListControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Administration\Vehicles\VehicleCreateControl.xaml.cs">
       <DependentUpon>VehicleCreateControl.xaml</DependentUpon>
     </Compile>
@@ -98,6 +107,10 @@
     <Compile Include="Handlers\BaseClientHandler.cs" />
     <Compile Include="Handlers\Interfaces\Login\ILoginHandler.cs" />
     <Compile Include="Handlers\Interfaces\Login\IRegisterHandler.cs" />
+    <Compile Include="Handlers\Interfaces\Users\ICreateUserHandler.cs" />
+    <Compile Include="Handlers\Interfaces\Users\IDeleteUserHandler.cs" />
+    <Compile Include="Handlers\Interfaces\Users\IGetUserListHandler.cs" />
+    <Compile Include="Handlers\Interfaces\Users\IEditUserHandler.cs" />
     <Compile Include="Handlers\Interfaces\Vehicles\ICreateVehicleHandler.cs" />
     <Compile Include="Handlers\Interfaces\Vehicles\IDeleteVehicleHandler.cs" />
     <Compile Include="Handlers\Interfaces\Vehicles\IEditVehicleHandler.cs" />
@@ -105,6 +118,10 @@
     <Compile Include="Handlers\Interfaces\Vehicles\ISearchVehiclesHandler.cs" />
     <Compile Include="Handlers\Login\LoginHandler.cs" />
     <Compile Include="Handlers\Login\RegisterHandler.cs" />
+    <Compile Include="Handlers\Users\CreateUserHandler.cs" />
+    <Compile Include="Handlers\Users\DeleteUserHandler.cs" />
+    <Compile Include="Handlers\Users\GetUserListHandler.cs" />
+    <Compile Include="Handlers\Users\EditUserHandler.cs" />
     <Compile Include="Handlers\Vehicles\CreateVehicleHandler.cs" />
     <Compile Include="Handlers\Vehicles\DeleteVehicleHandler.cs" />
     <Compile Include="Handlers\Vehicles\EditVehicleHandler.cs" />
@@ -113,6 +130,8 @@
     <Compile Include="Helpers\RelayCommand.cs" />
     <Compile Include="Interfaces\IControl.cs" />
     <Compile Include="Interfaces\IWindow.cs" />
+    <Compile Include="Models\Users\UserGridModel.cs" />
+    <Compile Include="Profiles\UserProfile.cs" />
     <Compile Include="Profiles\VehicleProfile.cs" />
     <Compile Include="Models\Vehicles\VehicleGridModel.cs" />
     <Compile Include="NinjectDependencyInjection\NinjectDI.cs" />
@@ -120,6 +139,9 @@
     <Compile Include="TransferHandlers\Interfaces\ITcpTransferHandler.cs" />
     <Compile Include="TransferHandlers\TcpTransferHandler.cs" />
     <Compile Include="ViewModel\AdministartorWindowViewModel.cs" />
+    <Compile Include="ViewModel\Administration\Users\UserCreateViewModel.cs" />
+    <Compile Include="ViewModel\Administration\Users\UserEditViewModel.cs" />
+    <Compile Include="ViewModel\Administration\Users\UserListViewModel.cs" />
     <Compile Include="ViewModel\Administration\Vehicles\VehicleCreateViewModel.cs" />
     <Compile Include="ViewModel\Administration\Vehicles\VehicleEditListViewModel.cs" />
     <Compile Include="ViewModel\Administration\Vehicles\VehiclesListViewModel.cs" />
@@ -143,6 +165,18 @@
     <Compile Include="View\RegisterWindow.xaml.cs">
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Controls\Administration\Users\UserCreateControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Administration\Users\UserEditControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Administration\Users\UserListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\Administration\Vehicles\VehicleCreateControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -246,6 +280,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Icons\garbage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\find.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

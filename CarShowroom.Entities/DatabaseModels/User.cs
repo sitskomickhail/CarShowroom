@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CarShowroom.Entities.DatabaseModels
@@ -14,8 +15,12 @@ namespace CarShowroom.Entities.DatabaseModels
 
         public string PasswordHash { get; set; }
 
+        public bool IsBlocked { get; set; }
+
         public string Salt { get; set; }
 
         public Role Role { get; set; }
+
+        public ICollection<Client> Clients { get; set; }
     }
 }
