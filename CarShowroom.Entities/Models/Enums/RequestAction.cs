@@ -14,6 +14,11 @@
         CreateUser,
         GetUsers,
         DeleteUser,
-        EditUser
+        EditUser,
+
+        GetClients,
+        DeleteClient,
+        EditClient,
+        GetClientDeals,
     }
 }

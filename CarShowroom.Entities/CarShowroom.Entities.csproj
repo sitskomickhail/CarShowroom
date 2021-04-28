@@ -80,6 +80,10 @@
       <DependentUpon>202104270646005_Adding_in_user_client_relationship.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AnswerModels\Clients\ClientAnswerModel.cs" />
+    <Compile Include="Models\AnswerModels\Clients\ClientDealsAnswerModel.cs" />
+    <Compile Include="Models\AnswerModels\Maintenances\MaintenanceAnswerModel.cs" />
+    <Compile Include="Models\AnswerModels\Sales\SaleAnswerModel.cs" />
     <Compile Include="Models\AnswerModels\Users\UserAnswerModel.cs" />
     <Compile Include="Models\AnswerModels\Vehicles\VehicleAnswerModel.cs" />
     <Compile Include="Models\DataTransfers\DataReciever.cs" />
@@ -87,6 +91,10 @@
     <Compile Include="Models\Enums\EnumRoles.cs" />
     <Compile Include="Models\Enums\RequestAction.cs" />
     <Compile Include="Models\Enums\RequestResult.cs" />
+    <Compile Include="Models\TransferModels\Clients\DeleteClientModel.cs" />
+    <Compile Include="Models\TransferModels\Clients\EditClientModel.cs" />
+    <Compile Include="Models\TransferModels\Clients\GetClientInfoModel.cs" />
+    <Compile Include="Models\TransferModels\Clients\GetClientListModel.cs" />
     <Compile Include="Models\TransferModels\LoginModel.cs" />
     <Compile Include="Models\TransferModels\RegisterModel.cs" />
     <Compile Include="Models\TransferModels\Users\CreateUserModel.cs" />
