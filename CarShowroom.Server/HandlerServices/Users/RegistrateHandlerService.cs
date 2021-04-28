@@ -68,6 +68,14 @@ namespace CarShowroom.Server.HandlerServices.Users
 
             SqlContext.Users.Add(user);
 
+            if (model.Role == EnumRoles.Client)
+            {
+                SqlContext.Clients.Add(new Client()
+                {
+                    User = user
+                });
+            }
+
             await SqlContext.SaveChangesAsync();
 
             var answer = Mapper.Map<UserAnswerModel>(user);
