@@ -8,7 +8,7 @@ namespace CarShowroom.Validators
     {
         public string Message { get => "Phone is not valid"; }
 
-        public Regex Regex { get; set; } = new Regex("^[+]*[-\\s\\./0-9]{0,3}[(]{1,2}[0-9]{2}[)]{0,1}[-\\s/0-9]{7,9}$");
+        public Regex Regex { get; set; } = new Regex("^[+]*[-\\s\\./0-9]{0,3}[(]{0,2}[0-9]{2}[)]{0,1}[-\\s/0-9]{7,9}$");
 
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {

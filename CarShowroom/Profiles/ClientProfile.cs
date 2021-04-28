@@ -12,6 +12,7 @@ namespace CarShowroom.Profiles
             CreateMap<ClientAnswerModel, ClientGridModel>().ForMember(cg => cg.PhoneNumber, opts => opts.MapFrom(ua => ua.Number));
 
             CreateMap<ClientGridModel, DeleteClientModel>();
+            CreateMap<ClientGridModel, GetClientInfoModel>();
             CreateMap<ClientGridModel, EditClientModel>().ForMember(ec => ec.Number, opts => opts.MapFrom(cg => cg.PhoneNumber));
         }
     }

@@ -98,6 +98,7 @@ namespace CarShowroom.NinjectDependencyInjection
             Kernel.Bind<UserCreateViewModel>().ToSelf().InSingletonScope();
 
             Kernel.Bind<ClientEditViewModel>().ToSelf().InSingletonScope();
+            Kernel.Bind<ClientListViewModel>().ToSelf().InSingletonScope();
         }
 
         private void InjectTcpHandler()
@@ -122,6 +123,7 @@ namespace CarShowroom.NinjectDependencyInjection
             Kernel.Bind<IGetClientListHandler>().To<GetClientListHandler>().InRequestScope();
             Kernel.Bind<IEditClientHandler>().To<EditClientHandler>().InRequestScope();
             Kernel.Bind<IDeleteClientHandler>().To<DeleteClientHandler>().InRequestScope();
+            Kernel.Bind<IGetClientDealInfoHandler>().To<GetClientDealInfoHandler>().InRequestScope();
         }
     }
 }

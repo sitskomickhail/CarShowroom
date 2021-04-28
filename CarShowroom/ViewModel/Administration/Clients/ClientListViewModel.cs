@@ -2,18 +2,16 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using AutoMapper;
+using CarShowroom.Controls.Administration.Clients;
 using CarShowroom.Entities.Models.AnswerModels.Clients;
-using CarShowroom.Entities.Models.AnswerModels.Users;
 using CarShowroom.Entities.Models.Enums;
 using CarShowroom.Entities.Models.TransferModels.Clients;
 using CarShowroom.Handlers.Interfaces.Clients;
 using CarShowroom.Models.Clients;
-using CarShowroom.Validators;
 using CarShowroom.ViewModel.Base;
 using GalaSoft.MvvmLight.CommandWpf;
 using Newtonsoft.Json;
@@ -21,16 +19,13 @@ using Ninject;
 
 namespace CarShowroom.ViewModel.Administration.Clients
 {
-    public class ClientEditViewModel : BaseViewModel
+    public class ClientListViewModel : BaseViewModel
     {
         [Inject]
         public IGetClientListHandler GetClientListHandler { get; set; }
 
         [Inject]
-        public IDeleteClientHandler DeleteClientHandler { get; set; }
-
-        [Inject]
-        public IEditClientHandler EditClientHandler { get; set; }
+        public IGetClientDealInfoHandler GetClientDealInfoHandler { get; set; }
 
         [Inject]
         public IMapper Mapper { get; set; }
@@ -42,6 +37,10 @@ namespace CarShowroom.ViewModel.Administration.Clients
             set { _getClientListModel = value; OnPropertyChanged(); }
         }
 
+        public ICommand ViewClientInfoCommand { get; set; }
+
+        public ICommand SearchClientsCommand { get; set; }
+
         private ObservableCollection<ClientGridModel> _clientCollection;
         public ObservableCollection<ClientGridModel> ClientCollection
         {
@@ -49,20 +48,13 @@ namespace CarShowroom.ViewModel.Administration.Clients
             set { _clientCollection = value; OnPropertyChanged(); }
         }
 
-        public ICommand SearchClientsCommand { get; set; }
-
-        public ICommand SaveClientCommand { get; set; }
-
-        public ICommand DeleteClientCommand { get; set; }
-
-        public ClientEditViewModel()
+        public ClientListViewModel()
         {
             ClientModel = new GetClientListModel();
             ClientCollection = new ObservableCollection<ClientGridModel>();
-            
+
             SearchClientsCommand = new RelayCommand(SearchClientsCommandExecuted);
-            SaveClientCommand = new RelayCommand<Guid>(SaveClientCommandExecuted);
-            DeleteClientCommand = new RelayCommand<Guid>(DeleteClientCommandExecuted);
+            ViewClientInfoCommand = new RelayCommand<Guid>(ViewClientInfoCommandExecuted);
         }
 
         private void SearchClientsCommandExecuted()
@@ -81,35 +73,19 @@ namespace CarShowroom.ViewModel.Administration.Clients
             }
         }
 
-        private void DeleteClientCommandExecuted(Guid clientId)
+        private void ViewClientInfoCommandExecuted(Guid clientId)
         {
-            var choosedClient = ClientCollection.FirstOrDefault(u => u.Id == clientId);
-            var deleteClient = Mapper.Map<DeleteClientModel>(choosedClient);
+            var choosedClient = ClientCollection.FirstOrDefault(c => c.Id == clientId);
+            var clientInfoModel = Mapper.Map<GetClientInfoModel>(choosedClient);
 
-            var recievedData = DeleteClientHandler.DeleteClient(deleteClient);
+            var recievedData = GetClientDealInfoHandler.GetClientDeal(clientInfoModel);
 
             if (recievedData.RequestResult == RequestResult.Success)
             {
-                ClientCollection.Remove(choosedClient);
-            }
-        }
+                var clientDealsInfo = JsonConvert.DeserializeObject<ClientDealsAnswerModel>(recievedData.Object);
 
-        private void SaveClientCommandExecuted(Guid clientId)
-        {
-            var choosedClient = ClientCollection.FirstOrDefault(u => u.Id == clientId);
-
-            var editClient = Mapper.Map<EditClientModel>(choosedClient);
-
-            var recievedData = EditClientHandler.EditClient(editClient);
-
-            if (recievedData.RequestResult == RequestResult.Success)
-            {
-                var clientResult = JsonConvert.DeserializeObject<ClientAnswerModel>(recievedData.Object);
-
-                var clientGridItem = Mapper.Map<ClientGridModel>(clientResult);
-                clientGridItem.Number = choosedClient.Number;
-
-                ClientCollection[ClientCollection.IndexOf(choosedClient)] = clientGridItem;
+                ClientDealsInfo dealsWindow = new ClientDealsInfo(clientDealsInfo);
+                dealsWindow.Show();
             }
         }
 

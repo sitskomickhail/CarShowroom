@@ -83,6 +83,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controls\Administration\AdministrationBaseControl.cs" />
+    <Compile Include="Controls\Administration\Clients\ClientDealsInfo.xaml.cs">
+      <DependentUpon>ClientDealsInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Administration\Clients\ClientEditControl.xaml.cs">
       <DependentUpon>ClientEditControl.xaml</DependentUpon>
     </Compile>
@@ -113,9 +116,11 @@
     <Compile Include="Handlers\BaseClientHandler.cs" />
     <Compile Include="Handlers\Clients\DeleteClientHandler.cs" />
     <Compile Include="Handlers\Clients\EditClientHandler.cs" />
+    <Compile Include="Handlers\Clients\GetClientDealInfoHandler.cs" />
     <Compile Include="Handlers\Clients\GetClientListHandler.cs" />
     <Compile Include="Handlers\Interfaces\Clients\IDeleteClientHandler.cs" />
     <Compile Include="Handlers\Interfaces\Clients\IEditClientHandler.cs" />
+    <Compile Include="Handlers\Interfaces\Clients\IGetClientDealInfoHandler.cs" />
     <Compile Include="Handlers\Interfaces\Clients\IGetClientListHandler.cs" />
     <Compile Include="Handlers\Interfaces\Login\ILoginHandler.cs" />
     <Compile Include="Handlers\Interfaces\Login\IRegisterHandler.cs" />
@@ -156,6 +161,7 @@
     <Compile Include="Validators\PhoneValidator.cs" />
     <Compile Include="ViewModel\AdministartorWindowViewModel.cs" />
     <Compile Include="ViewModel\Administration\Clients\ClientEditViewModel.cs" />
+    <Compile Include="ViewModel\Administration\Clients\ClientListViewModel.cs" />
     <Compile Include="ViewModel\Administration\Users\UserCreateViewModel.cs" />
     <Compile Include="ViewModel\Administration\Users\UserEditViewModel.cs" />
     <Compile Include="ViewModel\Administration\Users\UserListViewModel.cs" />
@@ -182,6 +188,10 @@
     <Compile Include="View\RegisterWindow.xaml.cs">
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Controls\Administration\Clients\ClientDealsInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\Administration\Clients\ClientEditControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -143,7 +143,14 @@
                             </Border>
                         </StackPanel>
                     </TreeViewItem.Header>
-                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Show list of clients"/>
+                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Show list of clients">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonUp">
+                                <i:InvokeCommandAction Command="{Binding TreeViewItemSelectionCommand}"
+                                                       CommandParameter="ClientListControl"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TreeViewItem>
                     <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Edit clients list">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonUp">

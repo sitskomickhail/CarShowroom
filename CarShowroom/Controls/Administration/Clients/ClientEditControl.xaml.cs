@@ -22,14 +22,12 @@ namespace CarShowroom.Controls.Administration.Clients
             InitializeComponent();
         }
 
-
-
         private void SaveButton_OnClick(object sender, RoutedEventArgs e)
         {
             Button clickedButton = sender as Button;
-            Guid vehicleId = Guid.Parse(clickedButton.DataContext.ToString());
+            Guid clientId = Guid.Parse(clickedButton.DataContext.ToString());
 
-            ViewModel.SaveClientCommand.Execute(vehicleId);
+            ViewModel.SaveClientCommand.Execute(clientId);
         }
 
         private void DeleteButton_OnClick(object sender, RoutedEventArgs e)
@@ -43,9 +41,9 @@ namespace CarShowroom.Controls.Administration.Clients
             if (result == MessageBoxResult.Yes)
             {
                 Button clickedButton = sender as Button;
-                Guid vehicleId = Guid.Parse(clickedButton.DataContext.ToString());
+                Guid clientId = Guid.Parse(clickedButton.DataContext.ToString());
 
-                ViewModel.DeleteClientCommand.Execute(vehicleId);
+                ViewModel.DeleteClientCommand.Execute(clientId);
             }
         }
 

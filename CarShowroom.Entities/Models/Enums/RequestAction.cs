@@ -19,5 +19,6 @@
         GetClients,
         DeleteClient,
         EditClient,
+        GetClientDeals,
     }
 }
