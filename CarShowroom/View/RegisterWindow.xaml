@@ -68,7 +68,7 @@
                               x:Name="RoleComboBox"
                               Text="{Binding Path=SelectedRole, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}">
                         <ComboBoxItem IsSelected="True"
-                                      Content="Employee"/>
+                                      Content="Client"/>
                         <ComboBoxItem Content="Administrator"/>
                     </ComboBox>
                 </Grid>

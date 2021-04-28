@@ -10,8 +10,6 @@ namespace CarShowroom.Entities.DatabaseModels
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
 
-        public string Name { get; set; }
-
         public string? Address { get; set; }
 
         [EmailAddress]
