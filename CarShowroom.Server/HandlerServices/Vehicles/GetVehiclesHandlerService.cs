@@ -20,7 +20,7 @@ namespace CarShowroom.Server.HandlerServices.Vehicles
 
         public async Task<List<VehicleAnswerModel>> ExecuteAsync(GetVehicleListModel model)
         {
-            var vehicleList = await SqlContext.Vehicles.ToListAsync();
+            var vehicleList = await SqlContext.Vehicles.Include(v => v.Sale).Include(v => v.Maintenance).ToListAsync();
 
             var answerList = Mapper.Map<List<VehicleAnswerModel>>(vehicleList);
 
