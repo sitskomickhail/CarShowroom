@@ -101,6 +101,7 @@
     <Compile Include="Models\TransferModels\Clients\GetClientListModel.cs" />
     <Compile Include="Models\TransferModels\LoginModel.cs" />
     <Compile Include="Models\TransferModels\RegisterModel.cs" />
+    <Compile Include="Models\TransferModels\Sales\GetSalesListModel.cs" />
     <Compile Include="Models\TransferModels\Users\CreateUserModel.cs" />
     <Compile Include="Models\TransferModels\Users\DeleteUserModel.cs" />
     <Compile Include="Models\TransferModels\Users\EditUserModel.cs" />

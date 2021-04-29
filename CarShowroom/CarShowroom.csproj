@@ -92,6 +92,12 @@
     <Compile Include="Controls\Administration\Clients\ClientListControl.xaml.cs">
       <DependentUpon>ClientListControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Administration\Sales\CreateSaleControl.xaml.cs">
+      <DependentUpon>CreateSaleControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Administration\Sales\SaleListControl.xaml.cs">
+      <DependentUpon>SaleListControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Administration\Users\UserCreateControl.xaml.cs">
       <DependentUpon>UserCreateControl.xaml</DependentUpon>
     </Compile>
@@ -148,8 +154,10 @@
     <Compile Include="Interfaces\IControl.cs" />
     <Compile Include="Interfaces\IWindow.cs" />
     <Compile Include="Models\Clients\ClientGridModel.cs" />
+    <Compile Include="Models\Sales\SaleGridModel.cs" />
     <Compile Include="Models\Users\UserGridModel.cs" />
     <Compile Include="Profiles\ClientProfile.cs" />
+    <Compile Include="Profiles\SaleProfile.cs" />
     <Compile Include="Profiles\UserProfile.cs" />
     <Compile Include="Profiles\VehicleProfile.cs" />
     <Compile Include="Models\Vehicles\VehicleGridModel.cs" />
@@ -162,6 +170,7 @@
     <Compile Include="ViewModel\AdministartorWindowViewModel.cs" />
     <Compile Include="ViewModel\Administration\Clients\ClientEditViewModel.cs" />
     <Compile Include="ViewModel\Administration\Clients\ClientListViewModel.cs" />
+    <Compile Include="ViewModel\Administration\Sales\SaleListViewModel.cs" />
     <Compile Include="ViewModel\Administration\Users\UserCreateViewModel.cs" />
     <Compile Include="ViewModel\Administration\Users\UserEditViewModel.cs" />
     <Compile Include="ViewModel\Administration\Users\UserListViewModel.cs" />
@@ -197,6 +206,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Administration\Clients\ClientListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Administration\Sales\CreateSaleControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Administration\Sales\SaleListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
