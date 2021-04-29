@@ -9,7 +9,7 @@ namespace CarShowroom.Profiles
     {
         public ClientProfile()
         {
-            CreateMap<ClientAnswerModel, ClientGridModel>().ForMember(cg => cg.PhoneNumber, opts => opts.MapFrom(ua => ua.Number));
+            CreateMap<ClientAnswerModel, ClientGridModel>().ForMember(c => c.PhoneNumber, opts => opts.MapFrom(c => c.Number));
 
             CreateMap<ClientGridModel, DeleteClientModel>();
             CreateMap<ClientGridModel, GetClientInfoModel>();

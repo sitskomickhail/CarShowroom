@@ -22,7 +22,7 @@
                 <DataGridTemplateColumn Header="#" CanUserResize="False">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Label Content="{Binding Path=Number}"/>
+                            <Label Content="{Binding Path=Position}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -157,7 +157,7 @@
                     CornerRadius="5">
                 <TextBox BorderBrush="Transparent"
                          FontSize="16"
-                         Text="{Binding Path=SearchModel.SearchParameter, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                         Text="{Binding Path=ClientModel.SearchParameter, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
             </Border>
 
             <Border Grid.Column="1"
