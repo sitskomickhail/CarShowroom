@@ -75,7 +75,7 @@ namespace CarShowroom.ViewModel.Administration.Clients
                 var gridList = Mapper.Map<List<ClientGridModel>>(vehiclesList);
 
                 int counter = 1;
-                gridList.ForEach(gl => gl.Number = counter++);
+                gridList.ForEach(gl => gl.Position = counter++);
 
                 ClientCollection = new ObservableCollection<ClientGridModel>(gridList);
             }
@@ -107,7 +107,7 @@ namespace CarShowroom.ViewModel.Administration.Clients
                 var clientResult = JsonConvert.DeserializeObject<ClientAnswerModel>(recievedData.Object);
 
                 var clientGridItem = Mapper.Map<ClientGridModel>(clientResult);
-                clientGridItem.Number = choosedClient.Number;
+                clientGridItem.Position = choosedClient.Position;
 
                 ClientCollection[ClientCollection.IndexOf(choosedClient)] = clientGridItem;
             }
@@ -128,7 +128,7 @@ namespace CarShowroom.ViewModel.Administration.Clients
                     var gridList = Mapper.Map<List<ClientGridModel>>(clientList);
 
                     int counter = 1;
-                    gridList.ForEach(gl => gl.Number = counter++);
+                    gridList.ForEach(gl => gl.Position = counter++);
 
                     ClientCollection = new ObservableCollection<ClientGridModel>(gridList);
                 }

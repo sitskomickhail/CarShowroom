@@ -112,6 +112,10 @@
   <ItemGroup>
     <Compile Include="DependecyInjection\NinjectDependencyInjection.cs" />
     <Compile Include="Factories\TcpHandlerFactory.cs" />
+    <Compile Include="HandlerServices\Clients\DeleteClientHandlerService.cs" />
+    <Compile Include="HandlerServices\Clients\EditClientHandlerService.cs" />
+    <Compile Include="HandlerServices\Clients\GetClientDealHandlerService.cs" />
+    <Compile Include="HandlerServices\Clients\GetClientListHandlerService.cs" />
     <Compile Include="HandlerServices\Interfaces\IHandlerService.cs" />
     <Compile Include="HandlerServices\Users\CreateUserHandlerService.cs" />
     <Compile Include="HandlerServices\Users\DeleteUserHandlerService.cs" />
@@ -130,6 +134,9 @@
     <Compile Include="Handlers\Interfaces\IHandlerExecutor.cs" />
     <Compile Include="Helpers\TransferHelper.cs" />
     <Compile Include="Helpers\UserHelper.cs" />
+    <Compile Include="Profiles\ClientProfile.cs" />
+    <Compile Include="Profiles\MaintenanceProfile.cs" />
+    <Compile Include="Profiles\SaleProfile.cs" />
     <Compile Include="Profiles\UserProfile.cs" />
     <Compile Include="Profiles\VehicleProfile.cs" />
     <Compile Include="Program.cs" />
