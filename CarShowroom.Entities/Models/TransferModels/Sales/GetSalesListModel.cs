@@ -6,6 +6,6 @@ namespace CarShowroom.Entities.Models.TransferModels.Sales
     {
         public string SearchParameter { get; set; } = String.Empty;
 
-        public bool AcceptedSale { get; set; }
+        public bool AcceptedSale { get; set; } = false;
     }
 }

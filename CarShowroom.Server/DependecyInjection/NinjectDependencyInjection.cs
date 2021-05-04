@@ -2,10 +2,12 @@
 using AutoMapper;
 using CarShowroom.Entities.DatabaseModels.Context;
 using CarShowroom.Entities.Models.AnswerModels.Clients;
+using CarShowroom.Entities.Models.AnswerModels.Sales;
 using CarShowroom.Entities.Models.AnswerModels.Users;
 using CarShowroom.Entities.Models.AnswerModels.Vehicles;
 using CarShowroom.Entities.Models.TransferModels;
 using CarShowroom.Entities.Models.TransferModels.Clients;
+using CarShowroom.Entities.Models.TransferModels.Sales;
 using CarShowroom.Entities.Models.TransferModels.Users;
 using CarShowroom.Entities.Models.TransferModels.Vehicles;
 using CarShowroom.Server.Factories;
@@ -14,6 +16,7 @@ using CarShowroom.Server.Handlers.Base;
 using CarShowroom.Server.Handlers.Interfaces;
 using CarShowroom.Server.HandlerServices.Clients;
 using CarShowroom.Server.HandlerServices.Interfaces;
+using CarShowroom.Server.HandlerServices.Sales;
 using CarShowroom.Server.HandlerServices.Users;
 using CarShowroom.Server.HandlerServices.Vehicles;
 using CarShowroom.Server.Profiles;
@@ -79,6 +82,8 @@ namespace CarShowroom.Server.DependecyInjection
             Kernel.Bind<IHandler>().To<Handler<GetClientInfoModel, ClientDealsAnswerModel>>().InRequestScope();
             Kernel.Bind<IHandler>().To<Handler<EditClientModel, ClientAnswerModel>>().InRequestScope();
             Kernel.Bind<IHandler>().To<Handler<DeleteClientModel, ClientAnswerModel>>().InRequestScope();
+            Kernel.Bind<IHandler>().To<Handler<GetSalesListModel, List<SaleAnswerModel>>>().InRequestScope();
+            Kernel.Bind<IHandler>().To<Handler<AcceptSaleModel, SaleAnswerModel>>().InRequestScope();
         }
 
         public void InjectHandlerServices()
@@ -98,6 +103,8 @@ namespace CarShowroom.Server.DependecyInjection
             Kernel.Bind<IHandlerService<GetClientInfoModel, ClientDealsAnswerModel>>().To<GetClientDealHandlerService>().InRequestScope();
             Kernel.Bind<IHandlerService<EditClientModel, ClientAnswerModel>>().To<EditClientHandlerService>().InRequestScope();
             Kernel.Bind<IHandlerService<DeleteClientModel, ClientAnswerModel>>().To<DeleteClientHandlerService>().InRequestScope();
+            Kernel.Bind<IHandlerService<AcceptSaleModel, SaleAnswerModel>>().To<AcceptSaleHandlerService>().InRequestScope();
+            Kernel.Bind<IHandlerService<GetSalesListModel, List<SaleAnswerModel>>>().To<GetSaleListHandlerService>().InRequestScope();
         }
 
         private void InjectMapper()
