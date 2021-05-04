@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using CarShowroom.Entities.Models.AnswerModels.Clients;
+using CarShowroom.Entities.Models.AnswerModels.Maintenances;
 using CarShowroom.Entities.Models.AnswerModels.Sales;
 using CarShowroom.Entities.Models.AnswerModels.Users;
 using CarShowroom.Entities.Models.AnswerModels.Vehicles;
@@ -9,6 +10,7 @@ using CarShowroom.Entities.Models.DataTransfers;
 using CarShowroom.Entities.Models.Enums;
 using CarShowroom.Entities.Models.TransferModels;
 using CarShowroom.Entities.Models.TransferModels.Clients;
+using CarShowroom.Entities.Models.TransferModels.Maintenances;
 using CarShowroom.Entities.Models.TransferModels.Sales;
 using CarShowroom.Entities.Models.TransferModels.Users;
 using CarShowroom.Entities.Models.TransferModels.Vehicles;
@@ -53,6 +55,10 @@ namespace CarShowroom.Server.Handlers
         [Inject] public Handler<GetSalesListModel, List<SaleAnswerModel>> GetSaleListHandler { get; set; }
 
         [Inject] public Handler<AcceptSaleModel, SaleAnswerModel> AcceptSaleHandler { get; set; }
+        
+        [Inject] public Handler<EditMaintenanceModel, MaintenanceAnswerModel> EditMaintenanceHandler { get; set; }
+        
+        [Inject] public Handler<GetMaintenanceListModel, List<MaintenanceAnswerModel>> GetMaintenanceListHandler { get; set; }
 
         public async Task<DataReciever> ExecuteAction(DataTransfer dataTransfer)
         {
@@ -79,6 +85,8 @@ namespace CarShowroom.Server.Handlers
                     case RequestAction.DeleteClient: answer = await DeleteClientHandler.ExecuteAction(dataTransfer); break;
                     case RequestAction.AcceptSale: answer = await AcceptSaleHandler.ExecuteAction(dataTransfer); break;
                     case RequestAction.GetSales: answer = await GetSaleListHandler.ExecuteAction(dataTransfer); break;
+                    case RequestAction.EditMaintenace: answer = await EditMaintenanceHandler.ExecuteAction(dataTransfer); break;
+                    case RequestAction.GetMaintenances: answer = await GetMaintenanceListHandler.ExecuteAction(dataTransfer); break;
                     default: throw new Exception("Action type was not found");
                 }
             }
