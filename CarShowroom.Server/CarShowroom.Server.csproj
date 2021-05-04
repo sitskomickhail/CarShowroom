@@ -117,6 +117,8 @@
     <Compile Include="HandlerServices\Clients\GetClientDealHandlerService.cs" />
     <Compile Include="HandlerServices\Clients\GetClientListHandlerService.cs" />
     <Compile Include="HandlerServices\Interfaces\IHandlerService.cs" />
+    <Compile Include="HandlerServices\Sales\AcceptSaleHandlerService.cs" />
+    <Compile Include="HandlerServices\Sales\GetSaleListHandlerService.cs" />
     <Compile Include="HandlerServices\Users\CreateUserHandlerService.cs" />
     <Compile Include="HandlerServices\Users\DeleteUserHandlerService.cs" />
     <Compile Include="HandlerServices\Users\EditUserHandlerService.cs" />

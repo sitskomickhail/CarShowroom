@@ -61,7 +61,8 @@
                                         Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Label Content="{Binding Path=SaleTime, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, StringFormat='{}{0:dd.MM.yyyy hh:mm:ss}'}"/>
+                            <Label Content="{Binding Path=SaleTime, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                   ContentStringFormat="dd.MM.yyyy HH:mm:ss"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -69,7 +70,8 @@
                                         Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Label Content="{Binding Path=PaymentAbove, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, StringFormat='{}{0:dd.MM.yyyy hh:mm:ss}'}"/>
+                            <Label Content="{Binding Path=PaymentAbove, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                   ContentStringFormat="dd.MM.yyyy HH:mm:ss"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
