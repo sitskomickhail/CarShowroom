@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
 using CarShowroom.Entities.Models.AnswerModels.Users;
+using CarShowroom.Entities.Models.DataTransfers;
 using CarShowroom.Entities.Models.Enums;
 using CarShowroom.Entities.Models.TransferModels;
 using CarShowroom.Handlers.Interfaces.Login;
@@ -57,38 +58,39 @@ namespace CarShowroom.ViewModel
             RegisterCommand = new RelayCommand(OnRegisterCommandExecuted);
         }
 
-        private void OnLoginCommandExecuted(IWindow currentWindow)
+        private async void OnLoginCommandExecuted(IWindow currentWindow)
         {
-            Task.Run(() =>
+            InfoMessage = "Waiting...";
+            DataReciever serverAnswer = null;
+
+            await Task.Run(async () =>
             {
-                Dispatcher.CurrentDispatcher.Invoke(() =>
+                await Dispatcher.CurrentDispatcher.Invoke(async () =>
                 {
-                    InfoMessage = "Waiting...";
-
-                    var serverAnswer = LoginHandler.LoginExecute(LoginModel);
-
-                    if (serverAnswer.RequestResult == RequestResult.Success)
-                    {
-                        var userModel = JsonConvert.DeserializeObject<UserAnswerModel>(serverAnswer.Object);
-
-                        switch (userModel.Role)
-                        {
-                            case EnumRoles.Administrator:
-                                AdministrationWindow.Show();
-                                break;
-                            case EnumRoles.Employee:
-                                EmployeeWindow.Show();
-                                break;
-                        }
-
-                        currentWindow.CloseWindow();
-                    }
-                    else
-                    {
-                        InfoMessage = serverAnswer.Message;
-                    }
+                    serverAnswer = LoginHandler.LoginExecute(LoginModel);
                 });
             });
+
+            if (serverAnswer.RequestResult == RequestResult.Success)
+            {
+                var userModel = JsonConvert.DeserializeObject<UserAnswerModel>(serverAnswer.Object);
+
+                switch (userModel.Role)
+                {
+                    case EnumRoles.Administrator:
+                        AdministrationWindow.Show();
+                        break;
+                    case EnumRoles.Employee:
+                        EmployeeWindow.Show();
+                        break;
+                }
+
+                currentWindow.CloseWindow();
+            }
+            else
+            {
+                InfoMessage = serverAnswer.Message;
+            }
         }
 
         private void OnRegisterCommandExecuted()

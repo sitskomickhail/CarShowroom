@@ -2,6 +2,8 @@
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Threading;
+using CarShowroom.Entities.Models.DataTransfers;
 using CarShowroom.Entities.Models.Enums;
 using CarShowroom.Entities.Models.TransferModels;
 using CarShowroom.Handlers.Interfaces.Login;
@@ -86,15 +88,25 @@ namespace CarShowroom.ViewModel
             BackToLoginCommand = new RelayCommand(BackToLoginCommandExecuted);
         }
 
-        private void SaveUserCommandExecuted(IWindow window)
+        private async void SaveUserCommandExecuted(IWindow window)
         {
             Enum.TryParse(SelectedRole, true, out EnumRoles role);
             RegisterModel.Role = role;
+            Status = "Posting request...";
 
-            var serverAnswer = RegisterHandler.RegisterExecute(RegisterModel);
+            DataReciever serverAnswer = null;
+
+            await Task.Run(async () =>
+            {
+                await Dispatcher.CurrentDispatcher.Invoke(async () =>
+                {
+                    serverAnswer = RegisterHandler.RegisterExecute(RegisterModel);
+                });
+            });
 
             if (serverAnswer.RequestResult == RequestResult.Success)
             {
+                Status = "Success";
                 window.CloseWindow();
             }
             else
