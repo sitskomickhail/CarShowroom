@@ -83,6 +83,10 @@
     <Compile Include="Migrations\202104281629307_delete_name_column_from_Client.designer.cs">
       <DependentUpon>202104281629307_delete_name_column_from_Client.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105041015372_Adding_Status_column_in_Sale.cs" />
+    <Compile Include="Migrations\202105041015372_Adding_Status_column_in_Sale.designer.cs">
+      <DependentUpon>202105041015372_Adding_Status_column_in_Sale.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AnswerModels\Clients\ClientAnswerModel.cs" />
     <Compile Include="Models\AnswerModels\Clients\ClientDealsAnswerModel.cs" />
@@ -95,12 +99,15 @@
     <Compile Include="Models\Enums\EnumRoles.cs" />
     <Compile Include="Models\Enums\RequestAction.cs" />
     <Compile Include="Models\Enums\RequestResult.cs" />
+    <Compile Include="Models\Enums\SaleStatus.cs" />
     <Compile Include="Models\TransferModels\Clients\DeleteClientModel.cs" />
     <Compile Include="Models\TransferModels\Clients\EditClientModel.cs" />
     <Compile Include="Models\TransferModels\Clients\GetClientInfoModel.cs" />
     <Compile Include="Models\TransferModels\Clients\GetClientListModel.cs" />
     <Compile Include="Models\TransferModels\LoginModel.cs" />
     <Compile Include="Models\TransferModels\RegisterModel.cs" />
+    <Compile Include="Models\TransferModels\Sales\AcceptSaleModel.cs" />
+    <Compile Include="Models\TransferModels\Sales\GetSalesListModel.cs" />
     <Compile Include="Models\TransferModels\Users\CreateUserModel.cs" />
     <Compile Include="Models\TransferModels\Users\DeleteUserModel.cs" />
     <Compile Include="Models\TransferModels\Users\EditUserModel.cs" />
@@ -127,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104281629307_delete_name_column_from_Client.resx">
       <DependentUpon>202104281629307_delete_name_column_from_Client.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105041015372_Adding_Status_column_in_Sale.resx">
+      <DependentUpon>202105041015372_Adding_Status_column_in_Sale.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

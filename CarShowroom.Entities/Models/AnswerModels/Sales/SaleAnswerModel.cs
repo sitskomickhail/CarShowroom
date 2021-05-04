@@ -1,6 +1,7 @@
 ﻿using System;
 using CarShowroom.Entities.Models.AnswerModels.Clients;
 using CarShowroom.Entities.Models.AnswerModels.Vehicles;
+using CarShowroom.Entities.Models.Enums;
 
 namespace CarShowroom.Entities.Models.AnswerModels.Sales
 {
@@ -19,5 +20,7 @@ namespace CarShowroom.Entities.Models.AnswerModels.Sales
         public string PaymentMethod { get; set; }
 
         public DateTime PaymentAbove { get; set; }
+
+        public SaleStatus Status { get; set; }
     }
 }
