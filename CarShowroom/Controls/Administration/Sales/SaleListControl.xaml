@@ -12,7 +12,7 @@
             <RowDefinition Height="0.1*"/>
         </Grid.RowDefinitions>
         <DataGrid Grid.Row="0" 
-                  ItemsSource="{Binding Path=ClientCollection, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
+                  ItemsSource="{Binding Path=SaleCollection, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                   AutoGenerateColumns="False"
                   AreRowDetailsFrozen="True"
                   CanUserAddRows="False">
@@ -70,6 +70,14 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Label Content="{Binding Path=PaymentAbove, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, StringFormat='{}{0:dd.MM.yyyy hh:mm:ss}'}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Status"
+                                        Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding Path=Status, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using CarShowroom.Entities.Models.Enums;
 
 namespace CarShowroom.Entities.DatabaseModels
 {
@@ -20,5 +20,7 @@ namespace CarShowroom.Entities.DatabaseModels
         public string? PaymentMethod { get; set; }
 
         public DateTime? PaymentAbove { get; set; }
+
+        public SaleStatus? Status { get; set; }
     }
 }

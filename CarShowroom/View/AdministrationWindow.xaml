@@ -181,8 +181,22 @@
                                 </Border>
                             </StackPanel>
                         </TreeViewItem.Header>
-                        <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Show list of sales"/>
-                        <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Create sale"/>
+                        <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Show list of sales">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseLeftButtonUp">
+                                    <i:InvokeCommandAction Command="{Binding TreeViewItemSelectionCommand}"
+                                                           CommandParameter="SaleListControl"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </TreeViewItem>
+                        <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Show sale requests">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseLeftButtonUp">
+                                    <i:InvokeCommandAction Command="{Binding TreeViewItemSelectionCommand}"
+                                                           CommandParameter="AcceptSalesControl"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </TreeViewItem>
                     </TreeViewItem>
                     <TreeViewItem>
                         <TreeViewItem.Header>

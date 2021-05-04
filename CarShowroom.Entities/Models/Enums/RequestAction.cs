@@ -20,5 +20,8 @@
         DeleteClient,
         EditClient,
         GetClientDeals,
+
+        GetSales,
+        AcceptSale
     }
 }

@@ -92,8 +92,8 @@
     <Compile Include="Controls\Administration\Clients\ClientListControl.xaml.cs">
       <DependentUpon>ClientListControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Administration\Sales\CreateSaleControl.xaml.cs">
-      <DependentUpon>CreateSaleControl.xaml</DependentUpon>
+    <Compile Include="Controls\Administration\Sales\AcceptSalesControl.xaml.cs">
+      <DependentUpon>AcceptSalesControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Administration\Sales\SaleListControl.xaml.cs">
       <DependentUpon>SaleListControl.xaml</DependentUpon>
@@ -130,6 +130,8 @@
     <Compile Include="Handlers\Interfaces\Clients\IGetClientListHandler.cs" />
     <Compile Include="Handlers\Interfaces\Login\ILoginHandler.cs" />
     <Compile Include="Handlers\Interfaces\Login\IRegisterHandler.cs" />
+    <Compile Include="Handlers\Interfaces\Sales\IAcceptSaleHandler.cs" />
+    <Compile Include="Handlers\Interfaces\Sales\IGetSalesListHandler.cs" />
     <Compile Include="Handlers\Interfaces\Users\ICreateUserHandler.cs" />
     <Compile Include="Handlers\Interfaces\Users\IDeleteUserHandler.cs" />
     <Compile Include="Handlers\Interfaces\Users\IGetUserListHandler.cs" />
@@ -141,6 +143,8 @@
     <Compile Include="Handlers\Interfaces\Vehicles\ISearchVehiclesHandler.cs" />
     <Compile Include="Handlers\Login\LoginHandler.cs" />
     <Compile Include="Handlers\Login\RegisterHandler.cs" />
+    <Compile Include="Handlers\Sales\AcceptSaleHandler.cs" />
+    <Compile Include="Handlers\Sales\GetSalesListHandler.cs" />
     <Compile Include="Handlers\Users\CreateUserHandler.cs" />
     <Compile Include="Handlers\Users\DeleteUserHandler.cs" />
     <Compile Include="Handlers\Users\GetUserListHandler.cs" />
@@ -170,6 +174,7 @@
     <Compile Include="ViewModel\AdministartorWindowViewModel.cs" />
     <Compile Include="ViewModel\Administration\Clients\ClientEditViewModel.cs" />
     <Compile Include="ViewModel\Administration\Clients\ClientListViewModel.cs" />
+    <Compile Include="ViewModel\Administration\Sales\AcceptSalesViewModel.cs" />
     <Compile Include="ViewModel\Administration\Sales\SaleListViewModel.cs" />
     <Compile Include="ViewModel\Administration\Users\UserCreateViewModel.cs" />
     <Compile Include="ViewModel\Administration\Users\UserEditViewModel.cs" />
@@ -209,7 +214,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\Administration\Sales\CreateSaleControl.xaml">
+    <Page Include="Controls\Administration\Sales\AcceptSalesControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

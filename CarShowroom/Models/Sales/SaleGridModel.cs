@@ -1,4 +1,5 @@
 ﻿using System;
+using CarShowroom.Entities.Models.Enums;
 
 namespace CarShowroom.Models.Sales
 {
@@ -6,7 +7,7 @@ namespace CarShowroom.Models.Sales
     {
         public Guid Id { get; set; }
 
-        public string Position { get; set; }
+        public int Position { get; set; }
 
         public string Client { get; set; }
 
@@ -19,5 +20,7 @@ namespace CarShowroom.Models.Sales
         public string PaymentMethod { get; set; }
 
         public DateTime PaymentAbove { get; set; }
+
+        public string Status { get; set; }
     }
 }
