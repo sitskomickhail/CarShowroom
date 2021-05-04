@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
-using System.Windows.Navigation;
 using CarShowroom.Entities.Models.Enums;
 using CarShowroom.Entities.Models.TransferModels.Vehicles;
 using CarShowroom.Handlers.Interfaces.Vehicles;
@@ -54,7 +50,15 @@ namespace CarShowroom.ViewModel.Administration.Vehicles
         {
             var recievedData = CreateVehicleHandler.CreateVehicle(CreateVehicle);
 
-            if (recievedData.RequestResult == RequestResult.Success) { }
+            if (recievedData.RequestResult == RequestResult.Success)
+            {
+                MessageBox.Show("Vehicle created successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+                CreateVehicle = new CreateVehicleModel();
+            }
+            else
+            {
+                MessageBox.Show(recievedData.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         public override Task SetDefaultValues()

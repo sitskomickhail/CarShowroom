@@ -62,6 +62,9 @@ namespace CarShowroom.ViewModel.Administration.Vehicles
                     var vehiclesList = JsonConvert.DeserializeObject<List<VehicleAnswerModel>>(recievedData.Object);
                     var gridList = Mapper.Map<List<VehicleGridModel>>(vehiclesList);
 
+                    int counter = 1;
+                    gridList.ForEach(gl => gl.Number = counter++);
+
                     VehicleCollection = new ObservableCollection<VehicleGridModel>(gridList);
                 }
             }

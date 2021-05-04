@@ -19,7 +19,8 @@
                   ItemsSource="{Binding Path=VehicleCollection, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                   AutoGenerateColumns="False"
                   AreRowDetailsFrozen="True"
-                  CanUserAddRows="False">
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False">
 
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="#" CanUserResize="False">
@@ -30,7 +31,8 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn Header="Model"
-                                        Width="*">
+                                        Width="*"
+                                        CanUserSort="True">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBox Text="{Binding Path=Model, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
@@ -61,7 +63,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Is sold"
+                <DataGridTemplateColumn Header="Sold"
                                         Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -72,7 +74,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Is on maintaining"
+                <DataGridTemplateColumn Header="Have repairs"
                                         Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

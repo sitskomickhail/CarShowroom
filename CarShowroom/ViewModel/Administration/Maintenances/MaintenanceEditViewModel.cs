@@ -83,6 +83,11 @@ namespace CarShowroom.ViewModel.Administration.Maintenances
             if (recievedData.RequestResult == RequestResult.Success)
             {
                 SearchMaintenancesCommandExecuted();
+                MessageBox.Show("Maintenance info saved successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+            }
+            else
+            {
+                MessageBox.Show(recievedData.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

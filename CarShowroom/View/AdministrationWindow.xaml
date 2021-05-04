@@ -230,9 +230,5 @@
             <UserControl Grid.Column="1"
                          Content="{Binding Path=CurrentControl, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
         </Grid>
-        <StatusBar Grid.Row="2">
-            <Label FontSize="12">Status:</Label>
-            <Label FontSize="12" Content="{Binding Path=Status, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></Label>
-        </StatusBar>
     </Grid>
 </Window>
