@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using CarShowroom.Entities.Models.Enums;
 using CarShowroom.Entities.Models.TransferModels.Users;
@@ -48,7 +49,15 @@ namespace CarShowroom.ViewModel.Administration.Users
         {
             var recievedData = CreateUserHandler.CreateUser(CreateUser);
 
-            if (recievedData.RequestResult == RequestResult.Success) { }
+            if (recievedData.RequestResult == RequestResult.Success)
+            {
+                MessageBox.Show("User created successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+                CreateUser = new CreateUserModel();
+            }
+            else
+            {
+                MessageBox.Show(recievedData.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         public override Task SetDefaultValues()

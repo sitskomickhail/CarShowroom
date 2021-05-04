@@ -94,6 +94,11 @@ namespace CarShowroom.ViewModel.Administration.Users
                 userGridItem.Number = choosedUser.Number;
 
                 UserCollection[UserCollection.IndexOf(choosedUser)] = userGridItem;
+                MessageBox.Show("User info saved successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+            }
+            else
+            {
+                MessageBox.Show(recievedData.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -107,6 +112,10 @@ namespace CarShowroom.ViewModel.Administration.Users
             if (recievedData.RequestResult == RequestResult.Success)
             {
                 UserCollection.Remove(choosedUser);
+            }
+            else
+            {
+                MessageBox.Show(recievedData.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

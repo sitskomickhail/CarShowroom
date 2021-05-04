@@ -60,15 +60,6 @@ namespace CarShowroom.ViewModel.Administration.Vehicles
         {
             _vehicleCollection = new ObservableCollection<VehicleGridModel>();
 
-            VehicleCollection.Add(new VehicleGridModel()
-            {
-                Number =  1,
-                Cost =  20,
-                IsSaled = true,
-                Model = "BMW",
-                Mark = "C-6"
-            });
-
             SaveVehicleCommand = new RelayCommand<Guid>(SaveVehicleCommandExecuted);
             DeleteVehicleCommand = new RelayCommand<Guid>(DeleteVehicleCommandExecuted);
             SearchVehicles = new RelayCommand(SearchVehiclesCommandExecuted);
@@ -82,6 +73,9 @@ namespace CarShowroom.ViewModel.Administration.Vehicles
             {
                 var vehiclesList = JsonConvert.DeserializeObject<List<VehicleAnswerModel>>(recievedData.Object);
                 var gridList = Mapper.Map<List<VehicleGridModel>>(vehiclesList);
+
+                int counter = 1;
+                gridList.ForEach(gl => gl.Number = counter++);
 
                 VehicleCollection = new ObservableCollection<VehicleGridModel>(gridList);
             }
@@ -102,6 +96,11 @@ namespace CarShowroom.ViewModel.Administration.Vehicles
                 vehicleGridItem.Number = choosedAuto.Number;
 
                 VehicleCollection[VehicleCollection.IndexOf(choosedAuto)] = vehicleGridItem;
+                MessageBox.Show("Vehicle info saved successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+            }
+            else
+            {
+                MessageBox.Show(recievedData.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -115,6 +114,10 @@ namespace CarShowroom.ViewModel.Administration.Vehicles
             if (recievedData.RequestResult == RequestResult.Success)
             {
                 VehicleCollection.Remove(choosedAuto);
+            }
+            else
+            {
+                MessageBox.Show(recievedData.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

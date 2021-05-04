@@ -92,6 +92,10 @@ namespace CarShowroom.ViewModel.Administration.Clients
             {
                 ClientCollection.Remove(choosedClient);
             }
+            else
+            {
+                MessageBox.Show(recievedData.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void SaveClientCommandExecuted(Guid clientId)
@@ -110,6 +114,11 @@ namespace CarShowroom.ViewModel.Administration.Clients
                 clientGridItem.Position = choosedClient.Position;
 
                 ClientCollection[ClientCollection.IndexOf(choosedClient)] = clientGridItem;
+                MessageBox.Show("Client info saved successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+            }
+            else
+            {
+                MessageBox.Show(recievedData.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 using CarShowroom.Controls.Administration;
@@ -55,18 +51,9 @@ namespace CarShowroom.ViewModel
             set { _currentControl = value; OnPropertyChanged(); }
         }
 
-
         public ICommand BackToLoginCommand { get; set; }
 
         public ICommand TreeViewItemSelectionCommand { get; set; }
-
-        private string _status;
-        public string Status
-        {
-            get { return _status; }
-            set { _status = value; OnPropertyChanged(); }
-        }
-
 
         public AdministartorWindowViewModel()
         {

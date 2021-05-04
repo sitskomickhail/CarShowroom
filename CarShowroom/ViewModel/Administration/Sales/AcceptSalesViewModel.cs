@@ -90,17 +90,31 @@ namespace CarShowroom.ViewModel.Administration.Sales
         private void AcceptSaleCommandExecuted(Guid saleId)
         {
             var acceptModel = new AcceptSaleModel() { Id = saleId, IsAccepted = true };
-            AcceptSaleHandler.ChangeSaleStatus(acceptModel);
+            var recievedData = AcceptSaleHandler.ChangeSaleStatus(acceptModel);
 
-            SearchSalesCommandExecuted();
+            if (recievedData.RequestResult == RequestResult.Success)
+            {
+                SearchSalesCommandExecuted();
+            }
+            else
+            {
+                MessageBox.Show(recievedData.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void DeclineSaleCommandExecuted(Guid saleId)
         {
             var acceptModel = new AcceptSaleModel() { Id = saleId, IsAccepted = false };
-            AcceptSaleHandler.ChangeSaleStatus(acceptModel);
+            var recievedData = AcceptSaleHandler.ChangeSaleStatus(acceptModel);
 
-            SearchSalesCommandExecuted();
+            if (recievedData.RequestResult == RequestResult.Success)
+            {
+                SearchSalesCommandExecuted();
+            }
+            else
+            {
+                MessageBox.Show(recievedData.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         public override async Task SetDefaultValues()

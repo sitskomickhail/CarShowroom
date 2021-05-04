@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
+using System.Data.Entity.Core;
+using System.Data.Entity.Infrastructure;
 using System.Threading.Tasks;
 using AutoMapper;
 using CarShowroom.Entities.DatabaseModels.Context;
@@ -28,7 +30,14 @@ namespace CarShowroom.Server.HandlerServices.Vehicles
             }
 
             SqlContext.Vehicles.Remove(vehicle);
-            await SqlContext.SaveChangesAsync();
+            try
+            {
+                await SqlContext.SaveChangesAsync();
+            }
+            catch (DbUpdateException)
+            {
+                throw new Exception("This vehicle have stored history of sales or maintenances");
+            }
 
             var answerVehicle = Mapper.Map<VehicleAnswerModel>(vehicle);
 

@@ -16,7 +16,8 @@
                   ItemsSource="{Binding Path=ClientCollection, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                   AutoGenerateColumns="False"
                   AreRowDetailsFrozen="True"
-                  CanUserAddRows="False">
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False">
 
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="#" CanUserResize="False">
