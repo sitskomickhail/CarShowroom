@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
+using System.Windows.Threading;
 using CarShowroom.Entities.Models.AnswerModels.Users;
 using CarShowroom.Entities.Models.Enums;
 using CarShowroom.Entities.Models.TransferModels;
@@ -24,10 +26,10 @@ namespace CarShowroom.ViewModel
 
         [Inject]
         public RegisterWindow RegisterWindow { get; set; }
-        
+
         [Inject]
         public ILoginHandler LoginHandler { get; set; }
-        
+
         private string _infoMessage = "Welcome! Enter your credentials";
 
         public string InfoMessage
@@ -57,31 +59,43 @@ namespace CarShowroom.ViewModel
 
         private void OnLoginCommandExecuted(IWindow currentWindow)
         {
-            var serverAnswer = LoginHandler.LoginExecute(LoginModel);
-
-            if (serverAnswer.RequestResult == RequestResult.Success)
+            Task.Run(() =>
             {
-                var userModel = JsonConvert.DeserializeObject<UserAnswerModel>(serverAnswer.Object);
-
-                switch (userModel.Role)
+                Dispatcher.CurrentDispatcher.Invoke(() =>
                 {
-                    case EnumRoles.Administrator: AdministrationWindow.Show(); break;
-                    case EnumRoles.Employee: EmployeeWindow.Show(); break;
-                }
+                    InfoMessage = "Waiting...";
 
-                currentWindow.CloseWindow();
-            }
-            else
-            {
-                InfoMessage = serverAnswer.Message;
-            }
+                    var serverAnswer = LoginHandler.LoginExecute(LoginModel);
+
+                    if (serverAnswer.RequestResult == RequestResult.Success)
+                    {
+                        var userModel = JsonConvert.DeserializeObject<UserAnswerModel>(serverAnswer.Object);
+
+                        switch (userModel.Role)
+                        {
+                            case EnumRoles.Administrator:
+                                AdministrationWindow.Show();
+                                break;
+                            case EnumRoles.Employee:
+                                EmployeeWindow.Show();
+                                break;
+                        }
+
+                        currentWindow.CloseWindow();
+                    }
+                    else
+                    {
+                        InfoMessage = serverAnswer.Message;
+                    }
+                });
+            });
         }
 
         private void OnRegisterCommandExecuted()
         {
             RegisterWindow.Show();
         }
-        
+
         public override Task SetDefaultValues()
         {
             this.LoginModel = new LoginModel();
