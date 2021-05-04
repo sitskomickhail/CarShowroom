@@ -105,6 +105,8 @@
     <Compile Include="Models\TransferModels\Clients\GetClientInfoModel.cs" />
     <Compile Include="Models\TransferModels\Clients\GetClientListModel.cs" />
     <Compile Include="Models\TransferModels\LoginModel.cs" />
+    <Compile Include="Models\TransferModels\Maintenances\EditMaintenanceModel.cs" />
+    <Compile Include="Models\TransferModels\Maintenances\GetMaintenanceListModel.cs" />
     <Compile Include="Models\TransferModels\RegisterModel.cs" />
     <Compile Include="Models\TransferModels\Sales\AcceptSaleModel.cs" />
     <Compile Include="Models\TransferModels\Sales\GetSalesListModel.cs" />

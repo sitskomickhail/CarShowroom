@@ -92,6 +92,12 @@
     <Compile Include="Controls\Administration\Clients\ClientListControl.xaml.cs">
       <DependentUpon>ClientListControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Administration\Maintenances\MaintenanceEditControl.xaml.cs">
+      <DependentUpon>MaintenanceEditControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Administration\Maintenances\MaintenanceListControl.xaml.cs">
+      <DependentUpon>MaintenanceListControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Administration\Sales\AcceptSalesControl.xaml.cs">
       <DependentUpon>AcceptSalesControl.xaml</DependentUpon>
     </Compile>
@@ -130,6 +136,8 @@
     <Compile Include="Handlers\Interfaces\Clients\IGetClientListHandler.cs" />
     <Compile Include="Handlers\Interfaces\Login\ILoginHandler.cs" />
     <Compile Include="Handlers\Interfaces\Login\IRegisterHandler.cs" />
+    <Compile Include="Handlers\Interfaces\Maintenances\IEditMaintenanceHandler.cs" />
+    <Compile Include="Handlers\Interfaces\Maintenances\IGetMaintenancesHandler.cs" />
     <Compile Include="Handlers\Interfaces\Sales\IAcceptSaleHandler.cs" />
     <Compile Include="Handlers\Interfaces\Sales\IGetSalesListHandler.cs" />
     <Compile Include="Handlers\Interfaces\Users\ICreateUserHandler.cs" />
@@ -143,6 +151,8 @@
     <Compile Include="Handlers\Interfaces\Vehicles\ISearchVehiclesHandler.cs" />
     <Compile Include="Handlers\Login\LoginHandler.cs" />
     <Compile Include="Handlers\Login\RegisterHandler.cs" />
+    <Compile Include="Handlers\Maintenances\EditMaintenanceHandler.cs" />
+    <Compile Include="Handlers\Maintenances\GetMaintenanceHandler.cs" />
     <Compile Include="Handlers\Sales\AcceptSaleHandler.cs" />
     <Compile Include="Handlers\Sales\GetSalesListHandler.cs" />
     <Compile Include="Handlers\Users\CreateUserHandler.cs" />
@@ -158,9 +168,11 @@
     <Compile Include="Interfaces\IControl.cs" />
     <Compile Include="Interfaces\IWindow.cs" />
     <Compile Include="Models\Clients\ClientGridModel.cs" />
+    <Compile Include="Models\Maintenances\MaintenanceGridModel.cs" />
     <Compile Include="Models\Sales\SaleGridModel.cs" />
     <Compile Include="Models\Users\UserGridModel.cs" />
     <Compile Include="Profiles\ClientProfile.cs" />
+    <Compile Include="Profiles\MaintenanceProfile.cs" />
     <Compile Include="Profiles\SaleProfile.cs" />
     <Compile Include="Profiles\UserProfile.cs" />
     <Compile Include="Profiles\VehicleProfile.cs" />
@@ -174,6 +186,8 @@
     <Compile Include="ViewModel\AdministartorWindowViewModel.cs" />
     <Compile Include="ViewModel\Administration\Clients\ClientEditViewModel.cs" />
     <Compile Include="ViewModel\Administration\Clients\ClientListViewModel.cs" />
+    <Compile Include="ViewModel\Administration\Maintenances\MaintenanceEditViewModel.cs" />
+    <Compile Include="ViewModel\Administration\Maintenances\MaintenanceListViewModel.cs" />
     <Compile Include="ViewModel\Administration\Sales\AcceptSalesViewModel.cs" />
     <Compile Include="ViewModel\Administration\Sales\SaleListViewModel.cs" />
     <Compile Include="ViewModel\Administration\Users\UserCreateViewModel.cs" />
@@ -211,6 +225,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Administration\Clients\ClientListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Administration\Maintenances\MaintenanceEditControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Administration\Maintenances\MaintenanceListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
