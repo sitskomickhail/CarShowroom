@@ -208,9 +208,22 @@
                                 </Border>
                             </StackPanel>
                         </TreeViewItem.Header>
-                        <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Show list of maintenances"/>
-                        <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Edit maintenances list"/>
-                        <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Create maintenance"/>
+                        <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Show list of maintenances">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseLeftButtonUp">
+                                    <i:InvokeCommandAction Command="{Binding TreeViewItemSelectionCommand}"
+                                                           CommandParameter="MaintenanceListControl"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </TreeViewItem>
+                        <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Edit maintenances list">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseLeftButtonUp">
+                                    <i:InvokeCommandAction Command="{Binding TreeViewItemSelectionCommand}"
+                                                           CommandParameter="MaintenanceEditControl"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </TreeViewItem>
                     </TreeViewItem>
                 </TreeViewItem>
             </TreeView>

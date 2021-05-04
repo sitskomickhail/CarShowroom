@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using CarShowroom.Controls.Administration;
 using CarShowroom.Controls.Administration.Clients;
+using CarShowroom.Controls.Administration.Maintenances;
 using CarShowroom.Controls.Administration.Sales;
 using CarShowroom.Controls.Administration.Users;
 using CarShowroom.Controls.Administration.Vehicles;
@@ -42,6 +43,10 @@ namespace CarShowroom.ViewModel
         [Inject] public SaleListControl SaleListControl { get; set; }
 
         [Inject] public AcceptSalesControl AcceptSalesControl { get; set; }
+
+        [Inject] public MaintenanceListControl MaintenanceListControl { get; set; }
+
+        [Inject] public MaintenanceEditControl MaintenanceEditControl { get; set; }
         
         private UserControl _currentControl;
         public UserControl CurrentControl
@@ -85,6 +90,8 @@ namespace CarShowroom.ViewModel
                 case nameof(ClientListControl): ClientListControl.LoadInitialData(); CurrentControl = ClientListControl; break;
                 case nameof(SaleListControl): SaleListControl.LoadInitialData(); CurrentControl = SaleListControl; break;
                 case nameof(AcceptSalesControl): AcceptSalesControl.LoadInitialData(); CurrentControl = AcceptSalesControl; break;
+                case nameof(MaintenanceListControl): MaintenanceListControl.LoadInitialData(); CurrentControl = MaintenanceListControl; break;
+                case nameof(MaintenanceEditControl): MaintenanceEditControl.LoadInitialData(); CurrentControl = MaintenanceEditControl; break;
                 default: CurrentControl = new AdministrationBaseControl(); break;
             }
         }

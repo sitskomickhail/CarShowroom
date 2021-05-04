@@ -22,6 +22,9 @@
         GetClientDeals,
 
         GetSales,
-        AcceptSale
+        AcceptSale,
+
+        GetMaintenances,
+        EditMaintenace
     }
 }
