@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Input;
+using CarShowroom.Controls.Client;
 using CarShowroom.Interfaces;
 using CarShowroom.View;
 using CarShowroom.ViewModel.Base;
@@ -14,13 +16,25 @@ namespace CarShowroom.ViewModel
         [Inject]
         public LoginWindow LoginWindow { get; set; }
 
+        [Inject]
+        public ClientInformationControl InformationControl { get; set; }
+
         public ICommand BackToLoginCommand { get; set; }
+
+        public ICommand TabItemChooseCommand { get; set; }
 
         public Guid CurrentUserId { get; set; }
 
         public ClientWindowViewModel()
         {
             BackToLoginCommand = new RelayCommand<IWindow>(OnBackToLoginCommandExecuted);
+            TabItemChooseCommand = new RelayCommand(OnTabItemChooseCommandExecuted);
+        }
+
+        private async void OnTabItemChooseCommandExecuted()
+        {
+            await InformationControl.LoadInitialData();
+
         }
 
         private void OnBackToLoginCommandExecuted(IWindow currentWindow)
@@ -31,6 +45,11 @@ namespace CarShowroom.ViewModel
             currentWindow.CloseWindow();
         }
 
-        public override Task SetDefaultValues() { return Task.CompletedTask; }
+        public override Task SetDefaultValues()
+        {
+            InformationControl.ViewModel.CurrentUserId = CurrentUserId;
+
+            return Task.CompletedTask;
+        }
     }
 }

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CarShowroom.View"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
         Title="ClientWindow" Height="650" Width="1200"
         x:Name="ClienWindowName"
@@ -13,7 +13,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="35"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="35"></RowDefinition>
         </Grid.RowDefinitions>
         <ToolBar Grid.Row="0"
                  Height="35" 
@@ -45,6 +44,11 @@
                         </StackPanel>
                     </Border>
                 </TabItem.Header>
+                <TabItem.Content>
+                    <UserControl Margin="20"
+                                 Grid.Column="1"
+                                 Content="{Binding Path=InformationControl, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                </TabItem.Content>
             </TabItem>
             <TabItem>
                 <TabItem.Header>
@@ -74,6 +78,11 @@
                     </Border>
                 </TabItem.Header>
             </TabItem>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding TabItemChooseCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
         </TabControl>
     </Grid>
 </Window>

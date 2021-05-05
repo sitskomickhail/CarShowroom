@@ -2,29 +2,30 @@
 {
     public enum RequestAction
     {
-        Login,
-        Register,
+        Login = 1,
+        Register = 2,
 
-        CreateVehicle,
-        GetVehicles,
-        SearchVehicles,
-        EditVehicle,
-        DeleteVehicle,
+        CreateVehicle = 3,
+        GetVehicles = 4,
+        SearchVehicles = 5,
+        EditVehicle = 6,
+        DeleteVehicle = 7,
 
-        CreateUser,
-        GetUsers,
-        DeleteUser,
-        EditUser,
+        CreateUser = 8,
+        GetUsers = 9,
+        DeleteUser = 10,
+        EditUser = 11,
 
-        GetClients,
-        DeleteClient,
-        EditClient,
-        GetClientDeals,
+        GetClients = 12,
+        DeleteClient = 13,
+        EditClient = 14,
+        GetClientDeals = 15,
+        GetClientByUserId = 21,
 
-        GetSales,
-        AcceptSale,
+        GetSales = 16,
+        AcceptSale = 17,
 
-        GetMaintenances,
-        EditMaintenace
+        GetMaintenances = 18,
+        EditMaintenace = 20
     }
 }

@@ -102,6 +102,7 @@
     <Compile Include="Models\Enums\SaleStatus.cs" />
     <Compile Include="Models\TransferModels\Clients\DeleteClientModel.cs" />
     <Compile Include="Models\TransferModels\Clients\EditClientModel.cs" />
+    <Compile Include="Models\TransferModels\Clients\GetClientByUserIdModel.cs" />
     <Compile Include="Models\TransferModels\Clients\GetClientInfoModel.cs" />
     <Compile Include="Models\TransferModels\Clients\GetClientListModel.cs" />
     <Compile Include="Models\TransferModels\LoginModel.cs" />
