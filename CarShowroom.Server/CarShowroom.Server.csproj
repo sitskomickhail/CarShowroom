@@ -114,6 +114,7 @@
     <Compile Include="Factories\TcpHandlerFactory.cs" />
     <Compile Include="HandlerServices\Clients\DeleteClientHandlerService.cs" />
     <Compile Include="HandlerServices\Clients\EditClientHandlerService.cs" />
+    <Compile Include="HandlerServices\Clients\GetClientByUserIdHandlerService.cs" />
     <Compile Include="HandlerServices\Clients\GetClientDealHandlerService.cs" />
     <Compile Include="HandlerServices\Clients\GetClientListHandlerService.cs" />
     <Compile Include="HandlerServices\Interfaces\IHandlerService.cs" />
