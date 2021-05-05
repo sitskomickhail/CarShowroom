@@ -110,6 +110,7 @@
     <Compile Include="Models\TransferModels\Maintenances\GetMaintenanceListModel.cs" />
     <Compile Include="Models\TransferModels\RegisterModel.cs" />
     <Compile Include="Models\TransferModels\Sales\AcceptSaleModel.cs" />
+    <Compile Include="Models\TransferModels\Sales\CreateSaleModel.cs" />
     <Compile Include="Models\TransferModels\Sales\GetSalesListModel.cs" />
     <Compile Include="Models\TransferModels\Users\CreateUserModel.cs" />
     <Compile Include="Models\TransferModels\Users\DeleteUserModel.cs" />

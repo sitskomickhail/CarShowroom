@@ -24,6 +24,7 @@
 
         GetSales = 16,
         AcceptSale = 17,
+        CreateSale = 22,
 
         GetMaintenances = 18,
         EditMaintenace = 20
