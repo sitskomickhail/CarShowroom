@@ -122,16 +122,21 @@
     <Compile Include="Controls\Administration\Vehicles\VehicleListEditControl.xaml.cs">
       <DependentUpon>VehicleListEditControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Client\ClientInformationControl.xaml.cs">
+      <DependentUpon>ClientInformationControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PasswordControl.xaml.cs">
       <DependentUpon>PasswordControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Handlers\BaseClientHandler.cs" />
     <Compile Include="Handlers\Clients\DeleteClientHandler.cs" />
     <Compile Include="Handlers\Clients\EditClientHandler.cs" />
+    <Compile Include="Handlers\Clients\GetClientByUserIdHandler.cs" />
     <Compile Include="Handlers\Clients\GetClientDealInfoHandler.cs" />
     <Compile Include="Handlers\Clients\GetClientListHandler.cs" />
     <Compile Include="Handlers\Interfaces\Clients\IDeleteClientHandler.cs" />
     <Compile Include="Handlers\Interfaces\Clients\IEditClientHandler.cs" />
+    <Compile Include="Handlers\Interfaces\Clients\IGetClientByUserIdHandler.cs" />
     <Compile Include="Handlers\Interfaces\Clients\IGetClientDealInfoHandler.cs" />
     <Compile Include="Handlers\Interfaces\Clients\IGetClientListHandler.cs" />
     <Compile Include="Handlers\Interfaces\Login\ILoginHandler.cs" />
@@ -168,6 +173,7 @@
     <Compile Include="Interfaces\IControl.cs" />
     <Compile Include="Interfaces\IWindow.cs" />
     <Compile Include="Models\Clients\ClientGridModel.cs" />
+    <Compile Include="Models\Clients\ClientInformationModel.cs" />
     <Compile Include="Models\Maintenances\MaintenanceGridModel.cs" />
     <Compile Include="Models\Sales\SaleGridModel.cs" />
     <Compile Include="Models\Users\UserGridModel.cs" />
@@ -198,6 +204,7 @@
     <Compile Include="ViewModel\Administration\Vehicles\VehiclesListViewModel.cs" />
     <Compile Include="ViewModel\Base\BaseViewModel.cs" />
     <Compile Include="ViewModel\ClientWindowViewModel.cs" />
+    <Compile Include="ViewModel\Client\InformationControlViewModel.cs" />
     <Compile Include="ViewModel\EmployeeWindowViewModel.cs" />
     <Compile Include="ViewModel\LoginWindowViewModel.cs" />
     <Compile Include="ViewModel\RegisterWindowViewModel.cs" />
@@ -269,6 +276,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Administration\Vehicles\VehicleListEditControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Client\ClientInformationControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -375,5 +386,9 @@
     <Resource Include="Images\Icons\home.png" />
     <Resource Include="Images\Icons\speed.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\pencil.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

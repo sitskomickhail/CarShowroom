@@ -17,6 +17,7 @@ using CarShowroom.Controls.Administration.Clients;
 using CarShowroom.Controls.Administration.Maintenances;
 using CarShowroom.Controls.Administration.Sales;
 using CarShowroom.Controls.Administration.Users;
+using CarShowroom.Controls.Client;
 using CarShowroom.Handlers;
 using CarShowroom.Handlers.Clients;
 using CarShowroom.Handlers.Interfaces.Clients;
@@ -31,6 +32,7 @@ using CarShowroom.ViewModel.Administration.Clients;
 using CarShowroom.ViewModel.Administration.Maintenances;
 using CarShowroom.ViewModel.Administration.Sales;
 using CarShowroom.ViewModel.Administration.Users;
+using CarShowroom.ViewModel.Client;
 
 namespace CarShowroom.NinjectDependencyInjection
 {
@@ -96,6 +98,8 @@ namespace CarShowroom.NinjectDependencyInjection
 
             Kernel.Bind<MaintenanceEditControl>().ToSelf().InSingletonScope();
             Kernel.Bind<MaintenanceListControl>().ToSelf().InSingletonScope();
+
+            Kernel.Bind<ClientInformationControl>().ToSelf().InSingletonScope();
         }
 
         private void InjectViewModels()
@@ -122,6 +126,8 @@ namespace CarShowroom.NinjectDependencyInjection
 
             Kernel.Bind<MaintenanceListViewModel>().ToSelf().InSingletonScope();
             Kernel.Bind<MaintenanceEditViewModel>().ToSelf().InSingletonScope();
+
+            Kernel.Bind<InformationControlViewModel>().ToSelf().InSingletonScope();
         }
 
         private void InjectTcpHandler()
@@ -151,6 +157,7 @@ namespace CarShowroom.NinjectDependencyInjection
             Kernel.Bind<IAcceptSaleHandler>().To<AcceptSaleHandler>().InRequestScope();
             Kernel.Bind<IEditMaintenanceHandler>().To<EditMaintenanceHandler>().InRequestScope();
             Kernel.Bind<IGetMaintenancesHandler>().To<GetMaintenancesHandler>().InRequestScope();
+            Kernel.Bind<IGetClientByUserIdHandler>().To<GetClientByUserIdHandler>().InRequestScope();
         }
     }
 }

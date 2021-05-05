@@ -88,6 +88,7 @@ namespace CarShowroom.ViewModel
                         break;
                     case EnumRoles.Client:
                         ClientWindow.ViewModel.CurrentUserId = userModel.Id;
+                        ClientWindow.SetDefault();
                         ClientWindow.Show();
                         break;
                 }
