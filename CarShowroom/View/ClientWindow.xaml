@@ -1,0 +1,79 @@
+﻿<Window x:Class="CarShowroom.View.ClientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarShowroom.View"
+        mc:Ignorable="d"
+        Title="ClientWindow" Height="650" Width="1200"
+        x:Name="ClienWindowName"
+        Closing="ClientWindow_OnClosing"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+        </Grid.RowDefinitions>
+        <ToolBar Grid.Row="0"
+                 Height="35" 
+                 VerticalAlignment="Top"
+                 MinHeight="35"/>
+        <ToolBar Grid.Row="0" HorizontalAlignment="Right"
+                 Height="35" 
+                 VerticalAlignment="Top"
+                 MinHeight="35">
+            <Button Command="{Binding BackToLoginCommand}"
+                    CommandParameter="{Binding ElementName=ClienWindowName}"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Stretch"
+                    MaxHeight="35">
+                <Image Source="../Images/Icons/logout.png"/>
+            </Button>
+        </ToolBar>
+        <TabControl Grid.Row="1">
+            <TabItem>
+                <TabItem.Header>
+                    <Border BorderThickness="3"
+                            BorderBrush="LightGray"
+                            CornerRadius="5"
+                            Padding="2">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Images/Icons/home.png"
+                                   MaxHeight="25"></Image>
+                            <Label FontWeight="Bold">Личная информация</Label>
+                        </StackPanel>
+                    </Border>
+                </TabItem.Header>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <Border BorderThickness="3"
+                            BorderBrush="LightGray"
+                            CornerRadius="5"
+                            Padding="2">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Images/Icons/sales.png"
+                                   MaxHeight="25"></Image>
+                            <Label FontWeight="Bold">Торговая площадка</Label>
+                        </StackPanel>
+                    </Border>
+                </TabItem.Header>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <Border BorderThickness="3"
+                            BorderBrush="LightGray"
+                            CornerRadius="5"
+                            Padding="2">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Images/Icons/speed.png"
+                                   MaxHeight="25"></Image>
+                            <Label FontWeight="Bold">Записаться на ремонт</Label>
+                        </StackPanel>
+                    </Border>
+                </TabItem.Header>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

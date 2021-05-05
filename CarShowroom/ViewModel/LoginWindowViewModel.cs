@@ -29,6 +29,9 @@ namespace CarShowroom.ViewModel
         public RegisterWindow RegisterWindow { get; set; }
 
         [Inject]
+        public ClientWindow ClientWindow { get; set; }
+
+        [Inject]
         public ILoginHandler LoginHandler { get; set; }
 
         private string _infoMessage = "Welcome! Enter your credentials";
@@ -82,6 +85,10 @@ namespace CarShowroom.ViewModel
                         break;
                     case EnumRoles.Employee:
                         EmployeeWindow.Show();
+                        break;
+                    case EnumRoles.Client:
+                        ClientWindow.ViewModel.CurrentUserId = userModel.Id;
+                        ClientWindow.Show();
                         break;
                 }
 
