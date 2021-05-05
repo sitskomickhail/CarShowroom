@@ -73,6 +73,7 @@ namespace CarShowroom.NinjectDependencyInjection
             Kernel.Bind<AdministrationWindow>().ToSelf().InSingletonScope();
             Kernel.Bind<EmployeeWindow>().ToSelf().InSingletonScope();
             Kernel.Bind<RegisterWindow>().ToSelf().InSingletonScope();
+            Kernel.Bind<ClientWindow>().ToSelf().InSingletonScope();
         }
 
         private void InjectControls()
@@ -103,6 +104,7 @@ namespace CarShowroom.NinjectDependencyInjection
             Kernel.Bind<LoginWindowViewModel>().ToSelf().InSingletonScope();
             Kernel.Bind<EmployeeWindowViewModel>().ToSelf().InSingletonScope();
             Kernel.Bind<RegisterWindowViewModel>().ToSelf().InSingletonScope();
+            Kernel.Bind<ClientWindowViewModel>().ToSelf().InSingletonScope();
 
             Kernel.Bind<VehiclesListViewModel>().ToSelf().InSingletonScope();
             Kernel.Bind<VehicleEditListViewModel>().ToSelf().InSingletonScope();
