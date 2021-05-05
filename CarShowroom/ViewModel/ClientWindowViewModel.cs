@@ -45,11 +45,10 @@ namespace CarShowroom.ViewModel
             currentWindow.CloseWindow();
         }
 
-        public override Task SetDefaultValues()
+        public override async Task SetDefaultValues()
         {
             InformationControl.ViewModel.CurrentUserId = CurrentUserId;
-
-            return Task.CompletedTask;
+            await InformationControl.LoadInitialData();
         }
     }
 }

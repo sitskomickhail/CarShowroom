@@ -89,6 +89,7 @@ namespace CarShowroom.Server.DependecyInjection
             Kernel.Bind<IHandler>().To<Handler<AcceptSaleModel, SaleAnswerModel>>().InRequestScope();
             Kernel.Bind<IHandler>().To<Handler<EditMaintenanceModel, MaintenanceAnswerModel>>().InRequestScope();
             Kernel.Bind<IHandler>().To<Handler<GetMaintenanceListModel, List<MaintenanceAnswerModel>>>().InRequestScope();
+            Kernel.Bind<IHandler>().To<Handler<GetClientByUserIdModel, ClientAnswerModel>>().InRequestScope();
         }
 
         public void InjectHandlerServices()
@@ -112,6 +113,7 @@ namespace CarShowroom.Server.DependecyInjection
             Kernel.Bind<IHandlerService<GetSalesListModel, List<SaleAnswerModel>>>().To<GetSaleListHandlerService>().InRequestScope();
             Kernel.Bind<IHandlerService<GetMaintenanceListModel, List<MaintenanceAnswerModel>>>().To<GetMaintenanceListHandlerService>().InRequestScope();
             Kernel.Bind<IHandlerService<EditMaintenanceModel, MaintenanceAnswerModel>>().To<EditMaintenanceHandlerService>().InRequestScope();
+            Kernel.Bind<IHandlerService<GetClientByUserIdModel, ClientAnswerModel>>().To<GetClientByUserIdHandlerService>().InRequestScope();
         }
 
         private void InjectMapper()

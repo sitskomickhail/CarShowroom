@@ -59,6 +59,8 @@ namespace CarShowroom.Server.Handlers
         [Inject] public Handler<EditMaintenanceModel, MaintenanceAnswerModel> EditMaintenanceHandler { get; set; }
         
         [Inject] public Handler<GetMaintenanceListModel, List<MaintenanceAnswerModel>> GetMaintenanceListHandler { get; set; }
+        
+        [Inject] public Handler<GetClientByUserIdModel, ClientAnswerModel> GetClientByUserIdHandler { get; set; }
 
         public async Task<DataReciever> ExecuteAction(DataTransfer dataTransfer)
         {
@@ -87,6 +89,7 @@ namespace CarShowroom.Server.Handlers
                     case RequestAction.GetSales: answer = await GetSaleListHandler.ExecuteAction(dataTransfer); break;
                     case RequestAction.EditMaintenace: answer = await EditMaintenanceHandler.ExecuteAction(dataTransfer); break;
                     case RequestAction.GetMaintenances: answer = await GetMaintenanceListHandler.ExecuteAction(dataTransfer); break;
+                    case RequestAction.GetClientByUserId: answer = await GetClientByUserIdHandler.ExecuteAction(dataTransfer); break;
                     default: throw new Exception("Action type was not found");
                 }
             }
