@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
+using System.Windows.Threading;
 using CarShowroom.Entities.Models.AnswerModels.Users;
+using CarShowroom.Entities.Models.DataTransfers;
 using CarShowroom.Entities.Models.Enums;
 using CarShowroom.Entities.Models.TransferModels;
 using CarShowroom.Handlers.Interfaces.Login;
@@ -24,10 +27,10 @@ namespace CarShowroom.ViewModel
 
         [Inject]
         public RegisterWindow RegisterWindow { get; set; }
-        
+
         [Inject]
         public ILoginHandler LoginHandler { get; set; }
-        
+
         private string _infoMessage = "Welcome! Enter your credentials";
 
         public string InfoMessage
@@ -55,9 +58,18 @@ namespace CarShowroom.ViewModel
             RegisterCommand = new RelayCommand(OnRegisterCommandExecuted);
         }
 
-        private void OnLoginCommandExecuted(IWindow currentWindow)
+        private async void OnLoginCommandExecuted(IWindow currentWindow)
         {
-            var serverAnswer = LoginHandler.LoginExecute(LoginModel);
+            InfoMessage = "Waiting...";
+            DataReciever serverAnswer = null;
+
+            await Task.Run(async () =>
+            {
+                await Dispatcher.CurrentDispatcher.Invoke(async () =>
+                {
+                    serverAnswer = LoginHandler.LoginExecute(LoginModel);
+                });
+            });
 
             if (serverAnswer.RequestResult == RequestResult.Success)
             {
@@ -65,8 +77,12 @@ namespace CarShowroom.ViewModel
 
                 switch (userModel.Role)
                 {
-                    case EnumRoles.Administrator: AdministrationWindow.Show(); break;
-                    case EnumRoles.Employee: EmployeeWindow.Show(); break;
+                    case EnumRoles.Administrator:
+                        AdministrationWindow.Show();
+                        break;
+                    case EnumRoles.Employee:
+                        EmployeeWindow.Show();
+                        break;
                 }
 
                 currentWindow.CloseWindow();
@@ -81,7 +97,7 @@ namespace CarShowroom.ViewModel
         {
             RegisterWindow.Show();
         }
-        
+
         public override Task SetDefaultValues()
         {
             this.LoginModel = new LoginModel();
