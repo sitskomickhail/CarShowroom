@@ -30,7 +30,7 @@
                 <Image Source="../Images/Icons/logout.png"/>
             </Button>
         </ToolBar>
-        <TabControl Grid.Row="1">
+        <TabControl Grid.Row="1" >
             <TabItem>
                 <TabItem.Header>
                     <Border BorderThickness="3"
@@ -63,6 +63,11 @@
                         </StackPanel>
                     </Border>
                 </TabItem.Header>
+                <TabItem.Content>
+                    <UserControl Margin="20"
+                                 Grid.Column="1"
+                                 Content="{Binding Path=MarketplaceControl, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                </TabItem.Content>
             </TabItem>
             <TabItem>
                 <TabItem.Header>

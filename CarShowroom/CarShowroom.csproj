@@ -125,6 +125,9 @@
     <Compile Include="Controls\Client\ClientInformationControl.xaml.cs">
       <DependentUpon>ClientInformationControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Client\MarketplaceControl.xaml.cs">
+      <DependentUpon>MarketplaceControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PasswordControl.xaml.cs">
       <DependentUpon>PasswordControl.xaml</DependentUpon>
     </Compile>
@@ -145,6 +148,7 @@
     <Compile Include="Handlers\Interfaces\Maintenances\IGetMaintenancesHandler.cs" />
     <Compile Include="Handlers\Interfaces\Sales\IAcceptSaleHandler.cs" />
     <Compile Include="Handlers\Interfaces\Sales\IGetSalesListHandler.cs" />
+    <Compile Include="Handlers\Interfaces\Sales\ICreateSaleHandler.cs" />
     <Compile Include="Handlers\Interfaces\Users\ICreateUserHandler.cs" />
     <Compile Include="Handlers\Interfaces\Users\IDeleteUserHandler.cs" />
     <Compile Include="Handlers\Interfaces\Users\IGetUserListHandler.cs" />
@@ -159,6 +163,7 @@
     <Compile Include="Handlers\Maintenances\EditMaintenanceHandler.cs" />
     <Compile Include="Handlers\Maintenances\GetMaintenanceHandler.cs" />
     <Compile Include="Handlers\Sales\AcceptSaleHandler.cs" />
+    <Compile Include="Handlers\Sales\CreateSaleHandler.cs" />
     <Compile Include="Handlers\Sales\GetSalesListHandler.cs" />
     <Compile Include="Handlers\Users\CreateUserHandler.cs" />
     <Compile Include="Handlers\Users\DeleteUserHandler.cs" />
@@ -205,6 +210,7 @@
     <Compile Include="ViewModel\Base\BaseViewModel.cs" />
     <Compile Include="ViewModel\ClientWindowViewModel.cs" />
     <Compile Include="ViewModel\Client\InformationControlViewModel.cs" />
+    <Compile Include="ViewModel\Client\MarketplaceViewModel.cs" />
     <Compile Include="ViewModel\EmployeeWindowViewModel.cs" />
     <Compile Include="ViewModel\LoginWindowViewModel.cs" />
     <Compile Include="ViewModel\RegisterWindowViewModel.cs" />
@@ -280,6 +286,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Client\ClientInformationControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Client\MarketplaceControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -389,6 +399,11 @@
   <ItemGroup>
     <Resource Include="Images\Icons\pencil.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\Icons\cart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\wallet.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
