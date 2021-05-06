@@ -194,7 +194,7 @@
                                             Width="0.3*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Label Content="{Binding Path=Vehicle, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                    <Label Content="{Binding Path=TotalHours, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
@@ -202,7 +202,7 @@
                                             Width="0.3*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Label Content="{Binding Path=Vehicle, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                    <Label Content="{Binding Path=TotalCost, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>

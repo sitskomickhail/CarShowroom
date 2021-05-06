@@ -25,9 +25,23 @@ namespace CarShowroom.Server.HandlerServices.Maintenances
                                     .Include(m => m.Client)
                                     .Include(m => m.Client.User)
                                     .Where(m => m.Client.User.Id == model.UserId)
+                                    .GroupBy(m => m.Vehicle.Mark + " " + m.Vehicle.Model)
                                     .ToListAsync();
 
-            return new List<MaintenanceStatisticAnswerModel>();
+            var maintenancesStatistic = new List<MaintenanceStatisticAnswerModel>();
+            foreach (var clientMaintenance in clientMaintenances)
+            {
+                var statistic = new MaintenanceStatisticAnswerModel() { VehicleMark = clientMaintenance.Key };
+                foreach (var maintenance in clientMaintenance)
+                {
+                    statistic.TotalCost += maintenance.TotalCost ?? 0;
+                    statistic.TotalHours += maintenance.RepairingHours ?? 0;
+                }
+
+                maintenancesStatistic.Add(statistic);
+            }
+
+            return maintenancesStatistic;
         }
     }
 }

@@ -4,7 +4,7 @@
     {
         public string VehicleMark { get; set; }
 
-        public float TotalHours { get; set; }
+        public double TotalHours { get; set; }
 
         public decimal TotalCost { get; set; }
     }

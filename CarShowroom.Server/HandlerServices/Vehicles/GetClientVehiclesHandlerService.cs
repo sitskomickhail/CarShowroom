@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
@@ -26,7 +27,8 @@ namespace CarShowroom.Server.HandlerServices.Vehicles
                 .Include(v => v.Sales)
                 .Include(v => v.Sales.Select(s => s.Client))
                 .Include(v => v.Sales.Select(s => s.Client.User))
-                .Where(v => v.Sales.Any(s => s.Client.User.Id == model.UserId && s.Status == SaleStatus.Accepted))
+                .Where(v => v.Sales.Any(s => s.Client.User.Id == model.UserId && s.Status == SaleStatus.Accepted)
+                && v.Maintenances.All(m => m.MaintainUntil < DateTime.Now))
                 .ToListAsync();
 
             var vehiclesAnswer = Mapper.Map<List<VehicleAnswerModel>>(vehicles);

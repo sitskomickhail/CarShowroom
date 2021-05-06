@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,7 +25,9 @@ namespace CarShowroom.Server.HandlerServices.Maintenances
             var clientMaintenances = await SqlContext.Maintenances.Include(m => m.Client)
                                                                                  .Include(m => m.Client.User)
                                                                                  .Include(m => m.Vehicle)
-                                                                                 .Where(m => m.Client.User.Id == model.UserId)
+                                                                                 .Include(m => m.Vehicle.Sales)
+                                                                                 .Where(m => m.Client.User.Id == model.UserId && 
+                                                                                     (m.MaintainUntil > DateTime.Now || m.MaintainUntil == null))
                                                                                  .ToListAsync();
 
             var maintenancesAnswer = Mapper.Map<List<MaintenanceAnswerModel>>(clientMaintenances);
