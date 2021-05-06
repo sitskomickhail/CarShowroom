@@ -58,8 +58,8 @@ namespace CarShowroom.ViewModel.Client
         private ObservableCollection<MaintenanceStatisticsGridModel> _maintenanceStatistics;
         public ObservableCollection<MaintenanceStatisticsGridModel> MaintenanceStatistics
         {
-            get { return _maintenanceStatistics; }
-            set { _maintenanceStatistics = value; }
+            get => _maintenanceStatistics;
+            set { _maintenanceStatistics = value; OnPropertyChanged(); }
         }
 
         public ICommand AddRepairCommand { get; set; }
@@ -83,12 +83,12 @@ namespace CarShowroom.ViewModel.Client
 
         private void GetClientMaintenances()
         {
-            var recievedData = GetClientVehiclesHandler.GetClientVehicles(new GetClientVehiclesModel() { UserId = CurrentUserId });
+            var recievedData = GetClientMaintenancesHandler.GetClientMaintenances(new GetClientMaintenancesModel() { UserId = CurrentUserId });
 
             if (recievedData.RequestResult == RequestResult.Success)
             {
-                var vehiclesList = JsonConvert.DeserializeObject<List<MaintenanceAnswerModel>>(recievedData.Object);
-                var gridList = Mapper.Map<List<MaintenanceGridModel>>(vehiclesList);
+                var maintenanceList = JsonConvert.DeserializeObject<List<MaintenanceAnswerModel>>(recievedData.Object);
+                var gridList = Mapper.Map<List<MaintenanceGridModel>>(maintenanceList);
 
                 MaintenanceCollection = new ObservableCollection<MaintenanceGridModel>(gridList);
             }
