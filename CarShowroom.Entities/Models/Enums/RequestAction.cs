@@ -11,6 +11,7 @@
         EditVehicle = 6,
         DeleteVehicle = 7,
         GetSailingVehicles = 23,
+        GetClientVehicles = 26,
 
         CreateUser = 8,
         GetUsers = 9,
@@ -28,6 +29,8 @@
         CreateSale = 22,
 
         GetMaintenances = 18,
-        EditMaintenace = 20
+        EditMaintenace = 20,
+        GetMaintenanceStatistic = 24,
+        GetClientMaintenances = 25
     }
 }

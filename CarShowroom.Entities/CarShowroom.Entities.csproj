@@ -95,6 +95,7 @@
     <Compile Include="Models\AnswerModels\Clients\ClientAnswerModel.cs" />
     <Compile Include="Models\AnswerModels\Clients\ClientDealsAnswerModel.cs" />
     <Compile Include="Models\AnswerModels\Maintenances\MaintenanceAnswerModel.cs" />
+    <Compile Include="Models\AnswerModels\Maintenances\MaintenanceStatisticAnswerModel.cs" />
     <Compile Include="Models\AnswerModels\Sales\SaleAnswerModel.cs" />
     <Compile Include="Models\AnswerModels\Users\UserAnswerModel.cs" />
     <Compile Include="Models\AnswerModels\Vehicles\VehicleAnswerModel.cs" />
@@ -110,8 +111,11 @@
     <Compile Include="Models\TransferModels\Clients\GetClientInfoModel.cs" />
     <Compile Include="Models\TransferModels\Clients\GetClientListModel.cs" />
     <Compile Include="Models\TransferModels\LoginModel.cs" />
+    <Compile Include="Models\TransferModels\Maintenances\CreateMaintenanceModel.cs" />
     <Compile Include="Models\TransferModels\Maintenances\EditMaintenanceModel.cs" />
+    <Compile Include="Models\TransferModels\Maintenances\GetClientMaintenancesModel.cs" />
     <Compile Include="Models\TransferModels\Maintenances\GetMaintenanceListModel.cs" />
+    <Compile Include="Models\TransferModels\Maintenances\GetMaintenanceStatisticModel.cs" />
     <Compile Include="Models\TransferModels\RegisterModel.cs" />
     <Compile Include="Models\TransferModels\Sales\AcceptSaleModel.cs" />
     <Compile Include="Models\TransferModels\Sales\CreateSaleModel.cs" />
@@ -123,6 +127,7 @@
     <Compile Include="Models\TransferModels\Vehicles\CreateVehicleModel.cs" />
     <Compile Include="Models\TransferModels\Vehicles\DeleteVehicleModel.cs" />
     <Compile Include="Models\TransferModels\Vehicles\EditVehicleModel.cs" />
+    <Compile Include="Models\TransferModels\Vehicles\GetClientVehiclesModel.cs" />
     <Compile Include="Models\TransferModels\Vehicles\GetSailingVehiclesModel.cs" />
     <Compile Include="Models\TransferModels\Vehicles\GetVehicleListModel.cs" />
     <Compile Include="Models\TransferModels\Vehicles\SearchVehicleModel.cs" />
