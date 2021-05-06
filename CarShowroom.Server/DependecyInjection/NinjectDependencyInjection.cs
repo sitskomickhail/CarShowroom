@@ -92,6 +92,10 @@ namespace CarShowroom.Server.DependecyInjection
             Kernel.Bind<IHandler>().To<Handler<GetClientByUserIdModel, ClientAnswerModel>>().InRequestScope();
             Kernel.Bind<IHandler>().To<Handler<CreateSaleModel, List<SaleAnswerModel>>>().InRequestScope();
             Kernel.Bind<IHandler>().To<Handler<GetSailingVehiclesModel, List<VehicleAnswerModel>>>().InRequestScope();
+            Kernel.Bind<IHandler>().To<Handler<GetClientMaintenancesModel, List<MaintenanceAnswerModel>>>().InRequestScope();
+            Kernel.Bind<IHandler>().To<Handler<GetClientVehiclesModel, List<VehicleAnswerModel>>>().InRequestScope();
+            Kernel.Bind<IHandler>().To<Handler<CreateMaintenanceModel, MaintenanceAnswerModel>>().InRequestScope();
+            Kernel.Bind<IHandler>().To<Handler<GetMaintenanceStatisticModel, List<MaintenanceStatisticAnswerModel>>>().InRequestScope();
         }
 
         public void InjectHandlerServices()
@@ -118,6 +122,10 @@ namespace CarShowroom.Server.DependecyInjection
             Kernel.Bind<IHandlerService<GetClientByUserIdModel, ClientAnswerModel>>().To<GetClientByUserIdHandlerService>().InRequestScope();
             Kernel.Bind<IHandlerService<CreateSaleModel, List<SaleAnswerModel>>>().To<CreateSaleHandlerService>().InRequestScope();
             Kernel.Bind<IHandlerService<GetSailingVehiclesModel, List<VehicleAnswerModel>>>().To<GetSailingVehiclesHandlerService>().InRequestScope();
+            Kernel.Bind<IHandlerService<GetClientVehiclesModel, List<VehicleAnswerModel>>>().To<GetClientVehiclesHandlerService>().InRequestScope();
+            Kernel.Bind<IHandlerService<GetClientMaintenancesModel, List<MaintenanceAnswerModel>>>().To<GetClientMaintenancesHandlerService>().InRequestScope();
+            Kernel.Bind<IHandlerService<CreateMaintenanceModel, MaintenanceAnswerModel>>().To<CreateMaintenanceHandlerService>().InRequestScope();
+            Kernel.Bind<IHandlerService<GetMaintenanceStatisticModel, List<MaintenanceStatisticAnswerModel>>>().To<GetMaintenanceStatisticsHandlerService>().InRequestScope();
         }
 
         private void InjectMapper()
