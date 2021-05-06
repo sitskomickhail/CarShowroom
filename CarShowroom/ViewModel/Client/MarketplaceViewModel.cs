@@ -26,7 +26,7 @@ namespace CarShowroom.ViewModel.Client
         public IGetVehicleListHandler GetVehicleListHandler { get; set; }
 
         [Inject]
-        public ISearchVehiclesHandler SearchVehiclesHandler { get; set; }
+        public ISearchSailingVehiclesHandler SearchSailingVehiclesHandler { get; set; }
 
         [Inject]
         public ICreateSaleHandler CreateSaleHandler { get; set; }
@@ -51,8 +51,8 @@ namespace CarShowroom.ViewModel.Client
             set { _vehicleCartCollection = value; OnPropertyChanged(); }
         }
 
-        private SearchVehicleModel _searchModel;
-        public SearchVehicleModel SearchModel
+        private GetSailingVehiclesModel _searchModel;
+        public GetSailingVehiclesModel SearchModel
         {
             get { return _searchModel; }
             set { _searchModel = value; OnPropertyChanged(); }
@@ -124,7 +124,7 @@ namespace CarShowroom.ViewModel.Client
 
         private void SearchVehiclesCommandExecuted()
         {
-            var recievedData = SearchVehiclesHandler.SearchVehicles(SearchModel);
+            var recievedData = SearchSailingVehiclesHandler.SearchSailingVehicles(SearchModel);
 
             if (recievedData.RequestResult == RequestResult.Success)
             {
@@ -150,8 +150,9 @@ namespace CarShowroom.ViewModel.Client
         {
             VehicleCollection = new ObservableCollection<VehicleGridModel>();
             VehicleCartCollection = new ObservableCollection<VehicleGridModel>();
+            SearchModel = new GetSailingVehiclesModel();
+            SearchModel.UserId = CurrentUserId;
 
-            SearchModel = new SearchVehicleModel() { SalableOnly = true };
             PaymentMethod = "Банковская карта";
             TotalCartCost = 0;
 

@@ -21,7 +21,7 @@ namespace CarShowroom.Server.HandlerServices.Vehicles
 
         public async Task<List<VehicleAnswerModel>> ExecuteAsync(SearchVehicleModel model)
         {
-            var vehiclesList = await SqlContext.Vehicles.Include(v => v.Maintenance).Include(v => v.Sale).ToListAsync();
+            var vehiclesList = await SqlContext.Vehicles.Include(v => v.Maintenances).Include(v => v.Sales).ToListAsync();
 
             vehiclesList = vehiclesList.Select(v => v).Where(v => v.Model.Contains(model.SearchParameter) ||
                                                                   v.Mark.Contains(model.SearchParameter) ||
