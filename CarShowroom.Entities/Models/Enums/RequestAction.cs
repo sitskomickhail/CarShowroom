@@ -10,6 +10,7 @@
         SearchVehicles = 5,
         EditVehicle = 6,
         DeleteVehicle = 7,
+        GetSailingVehicles = 23,
 
         CreateUser = 8,
         GetUsers = 9,

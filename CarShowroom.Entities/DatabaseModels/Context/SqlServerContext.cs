@@ -11,11 +11,11 @@ namespace CarShowroom.Entities.DatabaseModels.Context
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Vehicle>()
-                .HasOptional(v => v.Sale)
+                .HasMany(v => v.Sales)
                 .WithRequired(s => s.Vehicle);
 
             modelBuilder.Entity<Vehicle>()
-                .HasOptional(v => v.Maintenance)
+                .HasMany(v => v.Maintenances)
                 .WithRequired(s => s.Vehicle);
 
             modelBuilder.Entity<Client>()

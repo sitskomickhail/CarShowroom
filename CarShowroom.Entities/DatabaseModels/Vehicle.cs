@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CarShowroom.Entities.DatabaseModels
@@ -16,8 +17,8 @@ namespace CarShowroom.Entities.DatabaseModels
         
         public decimal? Cost { get; set; }
 
-        public Sale? Sale { get; set; }
+        public List<Sale>? Sales { get; set; }
 
-        public Maintenance? Maintenance { get; set; }
+        public List<Maintenance>? Maintenances { get; set; }
     }
 }

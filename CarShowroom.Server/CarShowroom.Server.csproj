@@ -121,6 +121,7 @@
     <Compile Include="HandlerServices\Maintenances\EditMaintenanceHandlerService.cs" />
     <Compile Include="HandlerServices\Maintenances\GetMaintenanceListHandlerService.cs" />
     <Compile Include="HandlerServices\Sales\AcceptSaleHandlerService.cs" />
+    <Compile Include="HandlerServices\Sales\CreateSaleHandlerService.cs" />
     <Compile Include="HandlerServices\Sales\GetSaleListHandlerService.cs" />
     <Compile Include="HandlerServices\Users\CreateUserHandlerService.cs" />
     <Compile Include="HandlerServices\Users\DeleteUserHandlerService.cs" />
@@ -131,6 +132,7 @@
     <Compile Include="HandlerServices\Vehicles\CreateVehicleHandlerService.cs" />
     <Compile Include="HandlerServices\Vehicles\DeleteVehicleHandlerService.cs" />
     <Compile Include="HandlerServices\Vehicles\EditVehicleHandlerService.cs" />
+    <Compile Include="HandlerServices\Vehicles\GetSailingVehiclesHandlerService.cs" />
     <Compile Include="HandlerServices\Vehicles\GetVehiclesHandlerService.cs" />
     <Compile Include="HandlerServices\Vehicles\SearchVehiclesHandlerService.cs" />
     <Compile Include="Handlers\Base\Handler.cs" />

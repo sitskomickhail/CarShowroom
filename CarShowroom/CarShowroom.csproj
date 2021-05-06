@@ -157,6 +157,7 @@
     <Compile Include="Handlers\Interfaces\Vehicles\IDeleteVehicleHandler.cs" />
     <Compile Include="Handlers\Interfaces\Vehicles\IEditVehicleHandler.cs" />
     <Compile Include="Handlers\Interfaces\Vehicles\IGetVehicleListHandler.cs" />
+    <Compile Include="Handlers\Interfaces\Vehicles\ISearchSailingVehiclesHandler.cs" />
     <Compile Include="Handlers\Interfaces\Vehicles\ISearchVehiclesHandler.cs" />
     <Compile Include="Handlers\Login\LoginHandler.cs" />
     <Compile Include="Handlers\Login\RegisterHandler.cs" />
@@ -173,6 +174,7 @@
     <Compile Include="Handlers\Vehicles\DeleteVehicleHandler.cs" />
     <Compile Include="Handlers\Vehicles\EditVehicleHandler.cs" />
     <Compile Include="Handlers\Vehicles\GetVehicleListHandler.cs" />
+    <Compile Include="Handlers\Vehicles\SearchSailingVehiclesHandler.cs" />
     <Compile Include="Handlers\Vehicles\SearchVehiclesHandler.cs" />
     <Compile Include="Helpers\RelayCommand.cs" />
     <Compile Include="Interfaces\IControl.cs" />

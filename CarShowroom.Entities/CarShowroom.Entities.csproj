@@ -87,6 +87,10 @@
     <Compile Include="Migrations\202105041015372_Adding_Status_column_in_Sale.designer.cs">
       <DependentUpon>202105041015372_Adding_Status_column_in_Sale.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105060702543_UpdatingDatabaseSrtucture_Vehicle_Sales_Maintenances.cs" />
+    <Compile Include="Migrations\202105060702543_UpdatingDatabaseSrtucture_Vehicle_Sales_Maintenances.designer.cs">
+      <DependentUpon>202105060702543_UpdatingDatabaseSrtucture_Vehicle_Sales_Maintenances.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AnswerModels\Clients\ClientAnswerModel.cs" />
     <Compile Include="Models\AnswerModels\Clients\ClientDealsAnswerModel.cs" />
@@ -119,6 +123,7 @@
     <Compile Include="Models\TransferModels\Vehicles\CreateVehicleModel.cs" />
     <Compile Include="Models\TransferModels\Vehicles\DeleteVehicleModel.cs" />
     <Compile Include="Models\TransferModels\Vehicles\EditVehicleModel.cs" />
+    <Compile Include="Models\TransferModels\Vehicles\GetSailingVehiclesModel.cs" />
     <Compile Include="Models\TransferModels\Vehicles\GetVehicleListModel.cs" />
     <Compile Include="Models\TransferModels\Vehicles\SearchVehicleModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -141,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105041015372_Adding_Status_column_in_Sale.resx">
       <DependentUpon>202105041015372_Adding_Status_column_in_Sale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105060702543_UpdatingDatabaseSrtucture_Vehicle_Sales_Maintenances.resx">
+      <DependentUpon>202105060702543_UpdatingDatabaseSrtucture_Vehicle_Sales_Maintenances.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
