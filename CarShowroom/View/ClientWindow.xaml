@@ -82,6 +82,11 @@
                         </StackPanel>
                     </Border>
                 </TabItem.Header>
+                <TabItem.Content>
+                    <UserControl Margin="20"
+                                 Grid.Column="1"
+                                 Content="{Binding Path=MaintenanceControl, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                </TabItem.Content>
             </TabItem>
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="SelectionChanged">

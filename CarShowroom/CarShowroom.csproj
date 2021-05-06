@@ -125,6 +125,9 @@
     <Compile Include="Controls\Client\ClientInformationControl.xaml.cs">
       <DependentUpon>ClientInformationControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Client\MaintenanceControl.xaml.cs">
+      <DependentUpon>MaintenanceControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Client\MarketplaceControl.xaml.cs">
       <DependentUpon>MarketplaceControl.xaml</DependentUpon>
     </Compile>
@@ -144,8 +147,11 @@
     <Compile Include="Handlers\Interfaces\Clients\IGetClientListHandler.cs" />
     <Compile Include="Handlers\Interfaces\Login\ILoginHandler.cs" />
     <Compile Include="Handlers\Interfaces\Login\IRegisterHandler.cs" />
+    <Compile Include="Handlers\Interfaces\Maintenances\ICreateMaintenanceHandler.cs" />
     <Compile Include="Handlers\Interfaces\Maintenances\IEditMaintenanceHandler.cs" />
+    <Compile Include="Handlers\Interfaces\Maintenances\IGetClientMaintenancesHandler.cs" />
     <Compile Include="Handlers\Interfaces\Maintenances\IGetMaintenancesHandler.cs" />
+    <Compile Include="Handlers\Interfaces\Maintenances\IGetMaintenanceStatisticsHandler.cs" />
     <Compile Include="Handlers\Interfaces\Sales\IAcceptSaleHandler.cs" />
     <Compile Include="Handlers\Interfaces\Sales\IGetSalesListHandler.cs" />
     <Compile Include="Handlers\Interfaces\Sales\ICreateSaleHandler.cs" />
@@ -156,13 +162,17 @@
     <Compile Include="Handlers\Interfaces\Vehicles\ICreateVehicleHandler.cs" />
     <Compile Include="Handlers\Interfaces\Vehicles\IDeleteVehicleHandler.cs" />
     <Compile Include="Handlers\Interfaces\Vehicles\IEditVehicleHandler.cs" />
+    <Compile Include="Handlers\Interfaces\Vehicles\IGetClientVehiclesHandler.cs" />
     <Compile Include="Handlers\Interfaces\Vehicles\IGetVehicleListHandler.cs" />
     <Compile Include="Handlers\Interfaces\Vehicles\ISearchSailingVehiclesHandler.cs" />
     <Compile Include="Handlers\Interfaces\Vehicles\ISearchVehiclesHandler.cs" />
     <Compile Include="Handlers\Login\LoginHandler.cs" />
     <Compile Include="Handlers\Login\RegisterHandler.cs" />
+    <Compile Include="Handlers\Maintenances\CreateMaintenanceHandler.cs" />
     <Compile Include="Handlers\Maintenances\EditMaintenanceHandler.cs" />
+    <Compile Include="Handlers\Maintenances\GetClientMaintenancesHandler.cs" />
     <Compile Include="Handlers\Maintenances\GetMaintenanceHandler.cs" />
+    <Compile Include="Handlers\Maintenances\GetMaintenanceStatisticsHandler.cs" />
     <Compile Include="Handlers\Sales\AcceptSaleHandler.cs" />
     <Compile Include="Handlers\Sales\CreateSaleHandler.cs" />
     <Compile Include="Handlers\Sales\GetSalesListHandler.cs" />
@@ -173,6 +183,7 @@
     <Compile Include="Handlers\Vehicles\CreateVehicleHandler.cs" />
     <Compile Include="Handlers\Vehicles\DeleteVehicleHandler.cs" />
     <Compile Include="Handlers\Vehicles\EditVehicleHandler.cs" />
+    <Compile Include="Handlers\Vehicles\GetClientVehiclesHandler.cs" />
     <Compile Include="Handlers\Vehicles\GetVehicleListHandler.cs" />
     <Compile Include="Handlers\Vehicles\SearchSailingVehiclesHandler.cs" />
     <Compile Include="Handlers\Vehicles\SearchVehiclesHandler.cs" />
@@ -182,6 +193,7 @@
     <Compile Include="Models\Clients\ClientGridModel.cs" />
     <Compile Include="Models\Clients\ClientInformationModel.cs" />
     <Compile Include="Models\Maintenances\MaintenanceGridModel.cs" />
+    <Compile Include="Models\Maintenances\MaintenanceStatisticsGridModel.cs" />
     <Compile Include="Models\Sales\SaleGridModel.cs" />
     <Compile Include="Models\Users\UserGridModel.cs" />
     <Compile Include="Profiles\ClientProfile.cs" />
@@ -212,6 +224,7 @@
     <Compile Include="ViewModel\Base\BaseViewModel.cs" />
     <Compile Include="ViewModel\ClientWindowViewModel.cs" />
     <Compile Include="ViewModel\Client\InformationControlViewModel.cs" />
+    <Compile Include="ViewModel\Client\ClientMaintenanceViewModel.cs" />
     <Compile Include="ViewModel\Client\MarketplaceViewModel.cs" />
     <Compile Include="ViewModel\EmployeeWindowViewModel.cs" />
     <Compile Include="ViewModel\LoginWindowViewModel.cs" />
@@ -288,6 +301,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Client\ClientInformationControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Client\MaintenanceControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -406,6 +423,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Icons\wallet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\repair_key.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

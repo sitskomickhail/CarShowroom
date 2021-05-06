@@ -22,6 +22,9 @@ namespace CarShowroom.ViewModel
         [Inject]
         public MarketplaceControl MarketplaceControl { get; set; }
 
+        [Inject]
+        public MaintenanceControl MaintenanceControl { get; set; }
+
         public ICommand BackToLoginCommand { get; set; }
 
         public ICommand TabItemChooseCommand { get; set; }
@@ -38,6 +41,7 @@ namespace CarShowroom.ViewModel
         {
             await InformationControl.LoadInitialData();
             await MarketplaceControl.LoadInitialData();
+            await MaintenanceControl.LoadInitialData();
         }
 
         private void OnBackToLoginCommandExecuted(IWindow currentWindow)
@@ -52,6 +56,7 @@ namespace CarShowroom.ViewModel
         {
             InformationControl.ViewModel.CurrentUserId = CurrentUserId;
             MarketplaceControl.ViewModel.CurrentUserId = CurrentUserId;
+            MaintenanceControl.ViewModel.CurrentUserId = CurrentUserId;
 
             await InformationControl.LoadInitialData();
         }
