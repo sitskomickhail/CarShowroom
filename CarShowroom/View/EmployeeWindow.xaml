@@ -3,30 +3,179 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CarShowroom.View"
-        xmlns:ViewModels="clr-namespace:CarShowroom.ViewModel"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         x:Name="EmployeeWindowName"
         Icon="../Images/Icons/automobile.png"
         mc:Ignorable="d"
         Title="Showroom-Employee" Height="650" Width="1200"
-        Closing="EmployeeWindow_OnClosing">
+        Closing="EmployeeWindow_OnClosing"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="35"></RowDefinition>
-            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <ToolBarTray VerticalAlignment="Top">
-            <ToolBar  Height="35" 
-                      VerticalAlignment="Top"
-                      HorizontalAlignment="Right"
-                      MinHeight="35">
-                <ToggleButton Command="{Binding BackToLoginCommand}"
-                              CommandParameter="{Binding ElementName=EmployeeWindowName}"
-                              HorizontalAlignment="Right"
-                              MaxHeight="35">
-                    <Image Source="../Images/Icons/cross.png"/>
-                </ToggleButton>
-            </ToolBar>
-        </ToolBarTray>
+        <ToolBar Grid.Row="0"
+                 Height="35" 
+                 VerticalAlignment="Top"
+                 MinHeight="35"/>
+        <ToolBar Grid.Row="0" HorizontalAlignment="Right"
+                 Height="35" 
+                 VerticalAlignment="Top"
+                 MinHeight="35">
+            <Button Command="{Binding BackToLoginCommand}"
+                    CommandParameter="{Binding ElementName=EmployeeWindowName}"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Stretch"
+                    MaxHeight="35">
+                <Image Source="../Images/Icons/logout.png"/>
+            </Button>
+        </ToolBar>
+        <TabControl Grid.Row="1" >
+            <TabItem>
+                <TabItem.Header>
+                    <Border BorderThickness="3"
+                            BorderBrush="LightGray"
+                            CornerRadius="5"
+                            Padding="2">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Images/Icons/automobile.png"
+                                   MaxHeight="25"></Image>
+                            <Label FontWeight="Bold">Автомобили</Label>
+                        </StackPanel>
+                    </Border>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <TabControl TabStripPlacement="Bottom"
+                                SelectionChanged="Selector_OnSelectionChanged"
+                                x:Name="Vehicles">
+                        <TabItem>
+                            <TabItem.Header>
+                                <Label>Просмотр таблицы</Label>
+                            </TabItem.Header>
+                            <TabItem.Content>
+                                <UserControl Grid.Column="1"
+                                             Content="{Binding Path=VehicleListEditControl, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                            </TabItem.Content>
+                        </TabItem>
+                        <TabItem>
+                            <TabItem.Header>
+                                <Label>Создать автомобиль</Label>
+                            </TabItem.Header>
+                            <TabItem.Content>
+                                <UserControl Grid.Column="1"
+                                             Content="{Binding Path=VehicleCreateControl, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                            </TabItem.Content>
+                        </TabItem>
+                    </TabControl>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <Border BorderThickness="3"
+                            BorderBrush="LightGray"
+                            CornerRadius="5"
+                            Padding="2">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Images/Icons/business.png"
+                                   MaxHeight="25"></Image>
+                            <Label FontWeight="Bold">Клиенты</Label>
+                        </StackPanel>
+                    </Border>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <TabControl TabStripPlacement="Bottom"
+                            SelectionChanged="Selector_OnSelectionChanged">
+                        <TabItem>
+                            <UserControl Content="{Binding Path=ClientListControl, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                        </TabItem>
+                    </TabControl>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <Border BorderThickness="3"
+                            BorderBrush="LightGray"
+                            CornerRadius="5"
+                            Padding="2">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Images/Icons/gear.png"
+                                   MaxHeight="25"></Image>
+                            <Label FontWeight="Bold">Мастерская</Label>
+                        </StackPanel>
+                    </Border>
+                </TabItem.Header>
+                <TabControl TabStripPlacement="Bottom"
+                            SelectionChanged="Selector_OnSelectionChanged">
+                    <TabItem>
+                        <TabItem.Content>
+                            <UserControl Grid.Column="1"
+                                 Content="{Binding Path=MaintenanceEditControl, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                        </TabItem.Content>
+                    </TabItem>
+                </TabControl>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <Border BorderThickness="3"
+                            BorderBrush="LightGray"
+                            CornerRadius="5"
+                            Padding="2">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Images/Icons/sales.png"
+                                   MaxHeight="25"></Image>
+                            <Label FontWeight="Bold">Продажи</Label>
+                        </StackPanel>
+                    </Border>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <TabControl TabStripPlacement="Bottom"
+                                SelectionChanged="Selector_OnSelectionChanged"
+                                x:Name="Sales">
+                        <TabItem>
+                            <TabItem.Header>
+                                <Label>Список продаж</Label>
+                            </TabItem.Header>
+                            <TabItem.Content>
+                                <UserControl Grid.Column="1"
+                                             Content="{Binding Path=SaleListControl, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                            </TabItem.Content>
+                        </TabItem>
+                        <TabItem>
+                            <TabItem.Header>
+                                <Label>Ожидают подтверждения</Label>
+                            </TabItem.Header>
+                            <TabItem.Content>
+                                <UserControl Grid.Column="1"
+                                             Content="{Binding Path=AcceptSalesControl, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                            </TabItem.Content>
+                        </TabItem>
+                    </TabControl>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <Border BorderThickness="3"
+                            BorderBrush="LightGray"
+                            CornerRadius="5"
+                            Padding="2">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Images/Icons/chart.png"
+                                   MaxHeight="25"></Image>
+                            <Label FontWeight="Bold">Статистика</Label>
+                        </StackPanel>
+                    </Border>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <TabControl TabStripPlacement="Bottom"
+                        SelectionChanged="Selector_OnSelectionChanged"></TabControl>
+                </TabItem.Content>
+            </TabItem>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding TabItemChooseCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </TabControl>
     </Grid>
 </Window>

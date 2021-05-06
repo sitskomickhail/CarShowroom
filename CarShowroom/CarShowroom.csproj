@@ -427,5 +427,8 @@
   <ItemGroup>
     <Resource Include="Images\Icons\repair_key.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\chart.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
