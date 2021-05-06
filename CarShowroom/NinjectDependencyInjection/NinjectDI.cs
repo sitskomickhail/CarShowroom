@@ -167,6 +167,7 @@ namespace CarShowroom.NinjectDependencyInjection
             Kernel.Bind<IGetClientMaintenancesHandler>().To<GetClientMaintenancesHandler>().InRequestScope();
             Kernel.Bind<IGetMaintenanceStatisticsHandler>().To<GetMaintenanceStatisticsHandler>().InRequestScope();
             Kernel.Bind<IGetClientVehiclesHandler>().To<GetClientVehiclesHandler>().InRequestScope();
+            Kernel.Bind<ICreateMaintenanceHandler>().To<CreateMaintenanceHandler>().InRequestScope();
         }
     }
 }

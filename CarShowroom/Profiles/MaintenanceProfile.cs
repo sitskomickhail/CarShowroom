@@ -14,6 +14,8 @@ namespace CarShowroom.Profiles
                 .ForMember(g => g.Vehicle, opts => opts.MapFrom(m => $"{m.Vehicle.Mark} {m.Vehicle.Model}"));
 
             CreateMap<MaintenanceGridModel, EditMaintenanceModel>();
+            CreateMap<MaintenanceStatisticAnswerModel, MaintenanceStatisticsGridModel>()
+                .ForMember(v => v.Vehicle, opts => opts.MapFrom(v => v.VehicleMark));
         }
     }
 }

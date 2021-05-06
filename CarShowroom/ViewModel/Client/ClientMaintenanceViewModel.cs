@@ -1,17 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using AutoMapper;
+using CarShowroom.Entities.Models.AnswerModels.Maintenances;
+using CarShowroom.Entities.Models.AnswerModels.Vehicles;
+using CarShowroom.Entities.Models.Enums;
+using CarShowroom.Entities.Models.TransferModels.Maintenances;
+using CarShowroom.Entities.Models.TransferModels.Vehicles;
 using CarShowroom.Handlers.Interfaces.Maintenances;
 using CarShowroom.Handlers.Interfaces.Vehicles;
 using CarShowroom.Models.Maintenances;
 using CarShowroom.Models.Vehicles;
 using CarShowroom.ViewModel.Base;
 using GalaSoft.MvvmLight.CommandWpf;
+using Newtonsoft.Json;
 using Ninject;
 
 namespace CarShowroom.ViewModel.Client
@@ -26,6 +31,9 @@ namespace CarShowroom.ViewModel.Client
 
         [Inject]
         public IGetClientVehiclesHandler GetClientVehiclesHandler { get; set; }
+
+        [Inject]
+        public ICreateMaintenanceHandler CreateMaintenanceHandler { get; set; }
 
         [Inject]
         public IMapper Mapper { get; set; }
@@ -61,18 +69,78 @@ namespace CarShowroom.ViewModel.Client
             AddRepairCommand = new RelayCommand<Guid>(AddRepairCommandExecuted);
         }
 
-        private void AddRepairCommandExecuted(Guid vehicleId)
+        private void GetMaintenanceStatistics()
         {
+            var recievedData = GetMaintenanceStatisticsHandler.GetMaintenanceStatistics(new GetMaintenanceStatisticModel() { UserId = CurrentUserId });
+            if (recievedData.RequestResult == RequestResult.Success)
+            {
+                var vehiclesList = JsonConvert.DeserializeObject<List<MaintenanceStatisticAnswerModel>>(recievedData.Object);
+                var gridList = Mapper.Map<List<MaintenanceStatisticsGridModel>>(vehiclesList);
 
+                MaintenanceStatistics = new ObservableCollection<MaintenanceStatisticsGridModel>(gridList);
+            }
         }
 
-        public override Task SetDefaultValues()
+        private void GetClientMaintenances()
+        {
+            var recievedData = GetClientVehiclesHandler.GetClientVehicles(new GetClientVehiclesModel() { UserId = CurrentUserId });
+
+            if (recievedData.RequestResult == RequestResult.Success)
+            {
+                var vehiclesList = JsonConvert.DeserializeObject<List<MaintenanceAnswerModel>>(recievedData.Object);
+                var gridList = Mapper.Map<List<MaintenanceGridModel>>(vehiclesList);
+
+                MaintenanceCollection = new ObservableCollection<MaintenanceGridModel>(gridList);
+            }
+        }
+
+        private void GetClientVehicles()
+        {
+            var recievedData = GetClientVehiclesHandler.GetClientVehicles(new GetClientVehiclesModel() { UserId = CurrentUserId });
+            if (recievedData.RequestResult == RequestResult.Success)
+            {
+                var vehiclesList = JsonConvert.DeserializeObject<List<VehicleAnswerModel>>(recievedData.Object);
+                var gridList = Mapper.Map<List<VehicleGridModel>>(vehiclesList);
+
+                int counter = 1;
+                gridList.ForEach(gl => gl.Number = counter++);
+
+                VehicleCollection = new ObservableCollection<VehicleGridModel>(gridList);
+            }
+        }
+
+        private async void AddRepairCommandExecuted(Guid vehicleId)
+        {
+            CreateMaintenanceModel createModel = new CreateMaintenanceModel()
+            {
+                UserId = CurrentUserId,
+                VehicleId = vehicleId
+            };
+
+            var recievedData = CreateMaintenanceHandler.CreateMaintenance(createModel);
+            if (recievedData.RequestResult == RequestResult.Success)
+            {
+                await SetDefaultValues();
+                MessageBox.Show("Vehicle added to cart successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+            }
+            else
+            {
+                MessageBox.Show(recievedData.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        public override async Task SetDefaultValues()
         {
             MaintenanceCollection = new ObservableCollection<MaintenanceGridModel>();
             VehicleCollection = new ObservableCollection<VehicleGridModel>();
             MaintenanceStatistics = new ObservableCollection<MaintenanceStatisticsGridModel>();
 
-            return Task.CompletedTask;
+            await Application.Current.Dispatcher.Invoke(async () =>
+            {
+                GetClientVehicles();
+                GetClientMaintenances();
+                GetMaintenanceStatistics();
+            });
         }
     }
 }

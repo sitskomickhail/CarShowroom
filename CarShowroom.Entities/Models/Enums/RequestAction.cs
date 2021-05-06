@@ -31,6 +31,7 @@
         GetMaintenances = 18,
         EditMaintenace = 20,
         GetMaintenanceStatistic = 24,
-        GetClientMaintenances = 25
+        GetClientMaintenances = 25,
+        CreateMaintenance = 27
     }
 }
