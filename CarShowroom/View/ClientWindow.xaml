@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
-        Title="ClientWindow" Height="650" Width="1200"
+        Title="Showroom-Client" Height="650" Width="1200"
         x:Name="ClienWindowName"
         Closing="ClientWindow_OnClosing"
+        Icon="../Images/Icons/coat.png"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
