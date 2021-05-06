@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Threading.Tasks;
 using AutoMapper;
 using CarShowroom.Entities.DatabaseModels;
@@ -37,7 +38,8 @@ namespace CarShowroom.Server.HandlerServices.Maintenances
         private static void MapModels(EditMaintenanceModel model, Maintenance maintenance)
         {
             maintenance.TotalCost = model.TotalCost;
-            maintenance.MaintainUntil = model.MaintainUntil;
+            maintenance.MaintainUntil = maintenance.MaintainUntil == null ? 
+                DateTime.Now.AddHours(model.RepairingHours) : maintenance.MaintainUntil.Value.AddHours(model.RepairingHours - (double)maintenance.RepairingHours);
             maintenance.RepairingHours = model.RepairingHours;
         }
     }
