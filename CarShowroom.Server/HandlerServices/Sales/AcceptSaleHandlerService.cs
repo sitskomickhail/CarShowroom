@@ -40,7 +40,7 @@ namespace CarShowroom.Server.HandlerServices.Sales
                     .Include(c => c.Client).Include(s => s.Client.User)
                     .Include(c => c.Client.Maintenances).Include(s => s.Client.Sales)
                     .Include(s => s.Vehicle)
-                    .Where(s => sale.Client.User.Id != s.Client.User.Id).ToListAsync();
+                    .Where(s => sale.Client.User.Id != s.Client.User.Id && sale.Vehicle.Id == s.Vehicle.Id).ToListAsync();
 
                 foreach (var anotherSale in saleList)
                 {
