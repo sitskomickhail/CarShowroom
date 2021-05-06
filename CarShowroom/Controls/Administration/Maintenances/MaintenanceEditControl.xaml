@@ -75,8 +75,9 @@
                                         Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <DatePickerTextBox Text="{Binding Path=MaintainUntil, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, StringFormat='dd.MM.yyyy HH:mm:ss'}"
-                                                   VerticalContentAlignment="Center"/>
+                                <Label Content="{Binding Path=MaintainUntil, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                       ContentStringFormat="dd.MM.yyyy HH:mm:ss"
+                                       VerticalContentAlignment="Center"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

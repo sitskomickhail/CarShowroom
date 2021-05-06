@@ -6,8 +6,6 @@ namespace CarShowroom.Entities.Models.TransferModels.Maintenances
     {
         public Guid Id { get; set; }
 
-        public DateTime MaintainUntil { get; set; }
-
         public double RepairingHours { get; set; }
 
         public decimal TotalCost { get; set; }

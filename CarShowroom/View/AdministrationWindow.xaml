@@ -11,7 +11,7 @@
         Icon="../Images/Icons/automobile.png"
         xmlns:vehiclesCtrl="clr-namespace:CarShowroom.Controls.Administration"
         xmlns:vctrl="clr-namespace:CarShowroom.Controls.Administration.Vehicles"
-        Title="Showroom-Administrator" Height="650" Width="1200"
+        Title="Showroom-Administrator" Height="600" Width="1200"
         Closing="AdministrationWindow_OnClosing"
         WindowStartupLocation="CenterScreen">
     <Window.Resources>
@@ -38,7 +38,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="35"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="35"></RowDefinition>
         </Grid.RowDefinitions>
         <ToolBar Grid.Row="0"
                  Height="35" 
