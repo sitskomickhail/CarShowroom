@@ -1,0 +1,119 @@
+﻿<UserControl x:Class="CarShowroom.Controls.Employee.Sales.SaleListEmployeeControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.9*"/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Row="0" 
+                  ItemsSource="{Binding Path=SaleCollection, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
+                  AutoGenerateColumns="False"
+                  AreRowDetailsFrozen="True"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False">
+
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="#" CanUserResize="False">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding Path=Position, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Client"
+                                        Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding Path=Client, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Vehicle"
+                                        Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding Path=Vehicle, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Total cost"
+                                        Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding Path=TotalCost, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, StringFormat={}{0:C}}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Payment"
+                                        Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding Path=PaymentMethod, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Sale time"
+                                        Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding Path=SaleTime, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                   ContentStringFormat="dd.MM.yyyy HH:mm:ss"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Payment above"
+                                        Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding Path=PaymentAbove, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                   ContentStringFormat="dd.MM.yyyy HH:mm:ss"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Status"
+                                        Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding Path=Status, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Grid.Row="1"
+              Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.7*"/>
+                <ColumnDefinition Width="0.3*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0"
+                    BorderBrush="DarkSeaGreen"
+                    BorderThickness="3"
+                    Margin="5"
+                    CornerRadius="5">
+                <TextBox BorderBrush="Transparent"
+                         FontSize="16"
+                         Text="{Binding Path=GetSalesListModel.SearchParameter, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+            </Border>
+
+            <Border Grid.Column="1"
+                    BorderBrush="DarkSeaGreen"
+                    BorderThickness="3"
+                    CornerRadius="5"
+                    Margin="5"
+                    Background="LightGoldenrodYellow">
+                <Button FontSize="14"
+                        FontWeight="Bold"
+                        BorderBrush="Transparent"
+                        Background="Transparent"
+                        Command="{Binding SearchSalesCommand}">Search</Button>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

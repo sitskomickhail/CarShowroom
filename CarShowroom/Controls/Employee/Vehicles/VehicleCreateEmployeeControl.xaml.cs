@@ -3,16 +3,16 @@ using System.Windows.Controls;
 using CarShowroom.Interfaces;
 using CarShowroom.ViewModel.Administration.Vehicles;
 
-namespace CarShowroom.Controls.Administration.Vehicles
+namespace CarShowroom.Controls.Employee.Vehicles
 {
     /// <summary>
-    /// Interaction logic for VehicleCreateControl.xaml
+    /// Interaction logic for VehicleCreateEmployeeControl.xaml
     /// </summary>
-    public partial class VehicleCreateControl : UserControl, IControl
+    public partial class VehicleCreateEmployeeControl : UserControl, IControl
     {
         public VehicleCreateViewModel ViewModel { get; set; }
 
-        public VehicleCreateControl(VehicleCreateViewModel viewModel)
+        public VehicleCreateEmployeeControl(VehicleCreateViewModel viewModel)
         {
             ViewModel = viewModel;
             DataContext = ViewModel;

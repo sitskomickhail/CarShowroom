@@ -5,16 +5,16 @@ using System.Windows.Controls;
 using CarShowroom.Interfaces;
 using CarShowroom.ViewModel.Administration.Vehicles;
 
-namespace CarShowroom.Controls.Administration.Vehicles
+namespace CarShowroom.Controls.Employee.Vehicles
 {
     /// <summary>
-    /// Interaction logic for VehicleListEditControl.xaml
+    /// Interaction logic for VehicleEditListEmployeeControl.xaml
     /// </summary>
-    public partial class VehicleListEditControl : UserControl, IControl
+    public partial class VehicleEditListEmployeeControl : UserControl, IControl
     {
         public VehicleEditListViewModel ViewModel { get; set; }
 
-        public VehicleListEditControl(VehicleEditListViewModel viewModel)
+        public VehicleEditListEmployeeControl(VehicleEditListViewModel viewModel)
         {
             ViewModel = viewModel;
             DataContext = ViewModel;
@@ -32,10 +32,10 @@ namespace CarShowroom.Controls.Administration.Vehicles
         private void DeleteButton_OnClick(object sender, RoutedEventArgs e)
         {
             var result = MessageBox.Show("Do you really want to delete this vehicle?",
-                            "Warning",
-                            MessageBoxButton.YesNo,
-                            MessageBoxImage.Question,
-                            MessageBoxResult.No);
+                "Warning",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question,
+                MessageBoxResult.No);
 
             if (result == MessageBoxResult.Yes)
             {

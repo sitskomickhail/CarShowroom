@@ -18,6 +18,11 @@ using CarShowroom.Controls.Administration.Maintenances;
 using CarShowroom.Controls.Administration.Sales;
 using CarShowroom.Controls.Administration.Users;
 using CarShowroom.Controls.Client;
+using CarShowroom.Controls.Employee;
+using CarShowroom.Controls.Employee.Clients;
+using CarShowroom.Controls.Employee.Maintenances;
+using CarShowroom.Controls.Employee.Sales;
+using CarShowroom.Controls.Employee.Vehicles;
 using CarShowroom.Handlers;
 using CarShowroom.Handlers.Clients;
 using CarShowroom.Handlers.Interfaces.Clients;
@@ -102,6 +107,13 @@ namespace CarShowroom.NinjectDependencyInjection
             Kernel.Bind<ClientInformationControl>().ToSelf().InSingletonScope();
             Kernel.Bind<MarketplaceControl>().ToSelf().InSingletonScope();
             Kernel.Bind<MaintenanceControl>().ToSelf().InSingletonScope();
+
+            Kernel.Bind<VehicleEditListEmployeeControl>().ToSelf().InSingletonScope();
+            Kernel.Bind<VehicleCreateEmployeeControl>().ToSelf().InSingletonScope();
+            Kernel.Bind<AcceptSaleEmployeeControl>().ToSelf().InSingletonScope();
+            Kernel.Bind<SaleListEmployeeControl>().ToSelf().InSingletonScope();
+            Kernel.Bind<ClientListEmployeeControl>().ToSelf().InSingletonScope();
+            Kernel.Bind<MaintenanceEditEmployeeControl>().ToSelf().InSingletonScope();
         }
 
         private void InjectViewModels()

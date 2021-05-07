@@ -131,6 +131,24 @@
     <Compile Include="Controls\Client\MarketplaceControl.xaml.cs">
       <DependentUpon>MarketplaceControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Employee\Clients\ClientListEmployeeControl.xaml.cs">
+      <DependentUpon>ClientListEmployeeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Employee\Maintenances\MaintenanceEditEmployeeControl.xaml.cs">
+      <DependentUpon>MaintenanceEditEmployeeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Employee\Sales\AcceptSaleEmployeeControl.xaml.cs">
+      <DependentUpon>AcceptSaleEmployeeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Employee\Sales\SaleListEmployeeControl.xaml.cs">
+      <DependentUpon>SaleListEmployeeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Employee\Vehicles\VehicleCreateEmployeeControl.xaml.cs">
+      <DependentUpon>VehicleCreateEmployeeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Employee\Vehicles\VehicleEditListEmployeeControl.xaml.cs">
+      <DependentUpon>VehicleEditListEmployeeControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PasswordControl.xaml.cs">
       <DependentUpon>PasswordControl.xaml</DependentUpon>
     </Compile>
@@ -312,6 +330,30 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\Employee\Clients\ClientListEmployeeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Employee\Maintenances\MaintenanceEditEmployeeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Employee\Sales\AcceptSaleEmployeeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Employee\Sales\SaleListEmployeeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Employee\Vehicles\VehicleCreateEmployeeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Employee\Vehicles\VehicleEditListEmployeeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\PasswordControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -426,6 +468,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Icons\repair_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\chart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\vehicle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
