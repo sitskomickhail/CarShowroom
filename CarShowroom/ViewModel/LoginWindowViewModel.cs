@@ -84,6 +84,7 @@ namespace CarShowroom.ViewModel
                         AdministrationWindow.Show();
                         break;
                     case EnumRoles.Employee:
+                        EmployeeWindow.SetDefault();
                         EmployeeWindow.Show();
                         break;
                     case EnumRoles.Client:

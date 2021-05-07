@@ -27,15 +27,15 @@ namespace CarShowroom.ViewModel
         [Inject] public VehicleListEditControl VehicleListEditControl { get; set; }
 
         [Inject] public UserListControl UserListControl { get; set; }
-        
+
         [Inject] public UserEditControl UserEditControl { get; set; }
-        
+
         [Inject] public UserCreateControl UserCreateControl { get; set; }
 
         [Inject] public ClientEditControl ClientEditControl { get; set; }
-        
+
         [Inject] public ClientListControl ClientListControl { get; set; }
-        
+
         [Inject] public SaleListControl SaleListControl { get; set; }
 
         [Inject] public AcceptSalesControl AcceptSalesControl { get; set; }
@@ -43,7 +43,7 @@ namespace CarShowroom.ViewModel
         [Inject] public MaintenanceListControl MaintenanceListControl { get; set; }
 
         [Inject] public MaintenanceEditControl MaintenanceEditControl { get; set; }
-        
+
         private UserControl _currentControl;
         public UserControl CurrentControl
         {
@@ -63,22 +63,22 @@ namespace CarShowroom.ViewModel
             CurrentControl = new UserControl();
         }
 
-        private void OnSelectionElementChoise(string control)
+        private async void OnSelectionElementChoise(string control)
         {
             switch (control)
             {
-                case nameof(VehicleListControl): VehicleListControl.LoadInitialData(); CurrentControl = VehicleListControl; break;
-                case nameof(VehicleCreateControl): VehicleCreateControl.LoadInitialData(); CurrentControl = VehicleCreateControl; break;
-                case nameof(VehicleListEditControl): VehicleListEditControl.LoadInitialData(); CurrentControl = VehicleListEditControl; break;
-                case nameof(UserListControl): UserListControl.LoadInitialData(); CurrentControl = UserListControl; break;
-                case nameof(UserEditControl): UserEditControl.LoadInitialData(); CurrentControl = UserEditControl; break;
-                case nameof(UserCreateControl): UserCreateControl.LoadInitialData(); CurrentControl = UserCreateControl; break;
-                case nameof(ClientEditControl): ClientEditControl.LoadInitialData(); CurrentControl = ClientEditControl; break;
-                case nameof(ClientListControl): ClientListControl.LoadInitialData(); CurrentControl = ClientListControl; break;
-                case nameof(SaleListControl): SaleListControl.LoadInitialData(); CurrentControl = SaleListControl; break;
-                case nameof(AcceptSalesControl): AcceptSalesControl.LoadInitialData(); CurrentControl = AcceptSalesControl; break;
-                case nameof(MaintenanceListControl): MaintenanceListControl.LoadInitialData(); CurrentControl = MaintenanceListControl; break;
-                case nameof(MaintenanceEditControl): MaintenanceEditControl.LoadInitialData(); CurrentControl = MaintenanceEditControl; break;
+                case nameof(VehicleListControl): await VehicleListControl.LoadInitialData(); CurrentControl = VehicleListControl; break;
+                case nameof(VehicleCreateControl): await VehicleCreateControl.LoadInitialData(); CurrentControl = VehicleCreateControl; break;
+                case nameof(VehicleListEditControl): await VehicleListEditControl.LoadInitialData(); CurrentControl = VehicleListEditControl; break;
+                case nameof(UserListControl): await UserListControl.LoadInitialData(); CurrentControl = UserListControl; break;
+                case nameof(UserEditControl): await UserEditControl.LoadInitialData(); CurrentControl = UserEditControl; break;
+                case nameof(UserCreateControl): await UserCreateControl.LoadInitialData(); CurrentControl = UserCreateControl; break;
+                case nameof(ClientEditControl): await ClientEditControl.LoadInitialData(); CurrentControl = ClientEditControl; break;
+                case nameof(ClientListControl): await ClientListControl.LoadInitialData(); CurrentControl = ClientListControl; break;
+                case nameof(SaleListControl): await SaleListControl.LoadInitialData(); CurrentControl = SaleListControl; break;
+                case nameof(AcceptSalesControl): await AcceptSalesControl.LoadInitialData(); CurrentControl = AcceptSalesControl; break;
+                case nameof(MaintenanceListControl): await MaintenanceListControl.LoadInitialData(); CurrentControl = MaintenanceListControl; break;
+                case nameof(MaintenanceEditControl): await MaintenanceEditControl.LoadInitialData(); CurrentControl = MaintenanceEditControl; break;
                 default: CurrentControl = new AdministrationBaseControl(); break;
             }
         }

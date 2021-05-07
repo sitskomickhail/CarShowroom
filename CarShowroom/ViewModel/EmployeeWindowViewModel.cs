@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Input;
-using CarShowroom.Controls.Administration.Clients;
-using CarShowroom.Controls.Administration.Maintenances;
-using CarShowroom.Controls.Administration.Sales;
-using CarShowroom.Controls.Administration.Vehicles;
+using CarShowroom.Controls.Employee.Clients;
+using CarShowroom.Controls.Employee.Maintenances;
+using CarShowroom.Controls.Employee.Sales;
+using CarShowroom.Controls.Employee.Vehicles;
 using CarShowroom.Interfaces;
 using CarShowroom.View;
 using CarShowroom.ViewModel.Base;
@@ -16,20 +16,18 @@ namespace CarShowroom.ViewModel
     {
         [Inject]
         public LoginWindow LoginWindow { get; set; }
+
+        [Inject] public VehicleCreateEmployeeControl VehicleCreateEmployeeControl { get; set; }
+
+        [Inject] public VehicleEditListEmployeeControl VehicleEditListEmployeeControl { get; set; }
+
+        [Inject] public ClientListEmployeeControl ClientListEmployeeControl { get; set; }
+
+        [Inject] public SaleListEmployeeControl SaleListEmployeeControl { get; set; }
+
+        [Inject] public AcceptSaleEmployeeControl AcceptSaleEmployeeControl { get; set; }
         
-        [Inject] public VehicleCreateControl VehicleCreateControl { get; set; }
-
-        [Inject] public VehicleListEditControl VehicleListEditControl { get; set; }
-        
-        [Inject] public ClientListControl ClientListControl { get; set; }
-
-        [Inject] public SaleListControl SaleListControl { get; set; }
-
-        [Inject] public AcceptSalesControl AcceptSalesControl { get; set; }
-
-        [Inject] public MaintenanceListControl MaintenanceListControl { get; set; }
-
-        [Inject] public MaintenanceEditControl MaintenanceEditControl { get; set; }
+        [Inject] public MaintenanceEditEmployeeControl MaintenanceEditEmployeeControl { get; set; }
 
         public ICommand BackToLoginCommand { get; set; }
 
@@ -43,13 +41,12 @@ namespace CarShowroom.ViewModel
 
         private async void OnTabItemChooseCommandExecuted()
         {
-            await VehicleCreateControl.LoadInitialData();
-            await VehicleListEditControl.LoadInitialData();
-            await ClientListControl.LoadInitialData();
-            await SaleListControl.LoadInitialData();
-            await AcceptSalesControl.LoadInitialData();
-            await MaintenanceListControl.LoadInitialData();
-            await MaintenanceEditControl.LoadInitialData();
+            await VehicleCreateEmployeeControl.LoadInitialData();
+            await VehicleEditListEmployeeControl.LoadInitialData();
+            await ClientListEmployeeControl.LoadInitialData();
+            await SaleListEmployeeControl.LoadInitialData();
+            await AcceptSaleEmployeeControl.LoadInitialData();
+            await MaintenanceEditEmployeeControl.LoadInitialData();
         }
 
         public void BackToLoginCommandExecute(IWindow currentWindow)
@@ -62,25 +59,24 @@ namespace CarShowroom.ViewModel
 
         public async void ReloadVehicles()
         {
-            await VehicleCreateControl.LoadInitialData();
-            await VehicleListEditControl.LoadInitialData();
+            await VehicleCreateEmployeeControl.LoadInitialData();
+            await VehicleEditListEmployeeControl.LoadInitialData();
         }
 
         public async void ReloadSales()
         {
-            await SaleListControl.LoadInitialData();
-            await AcceptSalesControl.LoadInitialData();
+            await SaleListEmployeeControl.LoadInitialData();
+            await AcceptSaleEmployeeControl.LoadInitialData();
         }
 
         public override async Task SetDefaultValues()
         {
-            await VehicleCreateControl.LoadInitialData();
-            await VehicleListEditControl.LoadInitialData();
-            await ClientListControl.LoadInitialData();
-            await SaleListControl.LoadInitialData();
-            await AcceptSalesControl.LoadInitialData();
-            await MaintenanceListControl.LoadInitialData();
-            await MaintenanceEditControl.LoadInitialData();
+            await VehicleCreateEmployeeControl.LoadInitialData();
+            await VehicleEditListEmployeeControl.LoadInitialData();
+            await ClientListEmployeeControl.LoadInitialData();
+            await SaleListEmployeeControl.LoadInitialData();
+            await AcceptSaleEmployeeControl.LoadInitialData();
+            await MaintenanceEditEmployeeControl.LoadInitialData();
         }
     }
 }

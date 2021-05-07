@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         x:Name="EmployeeWindowName"
-        Icon="../Images/Icons/automobile.png"
+        Icon="../Images/Icons/vehicle.png"
         mc:Ignorable="d"
         Title="Showroom-Employee" Height="650" Width="1200"
         Closing="EmployeeWindow_OnClosing"
@@ -55,7 +55,7 @@
                             </TabItem.Header>
                             <TabItem.Content>
                                 <UserControl Grid.Column="1"
-                                             Content="{Binding Path=VehicleListEditControl, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                             Content="{Binding Path=VehicleEditListEmployeeControl, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                             </TabItem.Content>
                         </TabItem>
                         <TabItem>
@@ -64,7 +64,7 @@
                             </TabItem.Header>
                             <TabItem.Content>
                                 <UserControl Grid.Column="1"
-                                             Content="{Binding Path=VehicleCreateControl, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                             Content="{Binding Path=VehicleCreateEmployeeControl, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                             </TabItem.Content>
                         </TabItem>
                     </TabControl>
@@ -87,7 +87,7 @@
                     <TabControl TabStripPlacement="Bottom"
                             SelectionChanged="Selector_OnSelectionChanged">
                         <TabItem>
-                            <UserControl Content="{Binding Path=ClientListControl, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                            <UserControl Content="{Binding Path=ClientListEmployeeControl, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                         </TabItem>
                     </TabControl>
                 </TabItem.Content>
@@ -110,7 +110,7 @@
                     <TabItem>
                         <TabItem.Content>
                             <UserControl Grid.Column="1"
-                                 Content="{Binding Path=MaintenanceEditControl, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                 Content="{Binding Path=MaintenanceEditEmployeeControl, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                         </TabItem.Content>
                     </TabItem>
                 </TabControl>
@@ -138,7 +138,7 @@
                             </TabItem.Header>
                             <TabItem.Content>
                                 <UserControl Grid.Column="1"
-                                             Content="{Binding Path=SaleListControl, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                             Content="{Binding Path=SaleListEmployeeControl, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                             </TabItem.Content>
                         </TabItem>
                         <TabItem>
@@ -147,7 +147,7 @@
                             </TabItem.Header>
                             <TabItem.Content>
                                 <UserControl Grid.Column="1"
-                                             Content="{Binding Path=AcceptSalesControl, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                             Content="{Binding Path=AcceptSaleEmployeeControl, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                             </TabItem.Content>
                         </TabItem>
                     </TabControl>
