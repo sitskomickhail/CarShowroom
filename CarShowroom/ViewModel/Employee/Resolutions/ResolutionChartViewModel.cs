@@ -70,11 +70,6 @@ namespace CarShowroom.ViewModel.Employee.Resolutions
             set { _level4Resolution = value; OnPropertyChanged(); }
         }
 
-        public ResolutionChartViewModel()
-        {
-
-        }
-
         private void SetResolutionCaseResult(ResolutionAnswerModel model)
         {
             switch (model.ResolutionActions)
@@ -129,6 +124,11 @@ namespace CarShowroom.ViewModel.Employee.Resolutions
 
         public override async Task SetDefaultValues()
         {
+            Level1Resolution = new ResolutionResultModel();
+            Level2Resolution = new ResolutionResultModel();
+            Level3Resolution = new ResolutionResultModel();
+            Level4Resolution = new ResolutionResultModel();
+
             await Application.Current.Dispatcher.Invoke(async () =>
             {
                 var recievedData = GetResolutionResultHandler.GetResolutionResult(new GetResolutionResultModel());

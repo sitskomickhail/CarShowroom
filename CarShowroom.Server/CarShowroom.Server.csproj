@@ -123,6 +123,7 @@
     <Compile Include="HandlerServices\Maintenances\GetClientMaintenancesHandlerService.cs" />
     <Compile Include="HandlerServices\Maintenances\GetMaintenanceListHandlerService.cs" />
     <Compile Include="HandlerServices\Maintenances\GetMaintenanceStatisticsHandlerService.cs" />
+    <Compile Include="HandlerServices\Resolutions\GetResolutionResultHandlerService.cs" />
     <Compile Include="HandlerServices\Resolutions\GetResolutionValuesHandlerService.cs" />
     <Compile Include="HandlerServices\Resolutions\SetResolutionValuesHandlerService.cs" />
     <Compile Include="HandlerServices\Sales\AcceptSaleHandlerService.cs" />
