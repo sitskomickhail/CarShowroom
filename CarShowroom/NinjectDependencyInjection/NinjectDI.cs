@@ -120,6 +120,7 @@ namespace CarShowroom.NinjectDependencyInjection
             Kernel.Bind<MaintenanceEditEmployeeControl>().ToSelf().InSingletonScope();
 
             Kernel.Bind<InitializeResolutionControl>().ToSelf().InSingletonScope();
+            Kernel.Bind<ResolutionChartControl>().ToSelf().InSingletonScope();
         }
 
         private void InjectViewModels()
@@ -152,6 +153,7 @@ namespace CarShowroom.NinjectDependencyInjection
             Kernel.Bind<ClientMaintenanceViewModel>().ToSelf().InSingletonScope();
 
             Kernel.Bind<InitializeResolutionViewModel>().ToSelf().InSingletonScope();
+            Kernel.Bind<ResolutionChartViewModel>().ToSelf().InSingletonScope();
         }
 
         private void InjectTcpHandler()
@@ -190,6 +192,7 @@ namespace CarShowroom.NinjectDependencyInjection
             Kernel.Bind<ICreateMaintenanceHandler>().To<CreateMaintenanceHandler>().InRequestScope();
             Kernel.Bind<IGetResolutionValuesHandler>().To<GetResolutionValuesHandler>().InRequestScope();
             Kernel.Bind<ISetResolutionValuesHandler>().To<SetResolutionValuesHandler>().InRequestScope();
+            Kernel.Bind<IGetResolutionResultHandler>().To<GetResolutionResultHandler>().InRequestScope();
         }
     }
 }

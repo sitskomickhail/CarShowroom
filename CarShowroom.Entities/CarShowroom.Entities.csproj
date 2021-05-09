@@ -111,6 +111,7 @@
     <Compile Include="Models\Enums\EnumRoles.cs" />
     <Compile Include="Models\Enums\RequestAction.cs" />
     <Compile Include="Models\Enums\RequestResult.cs" />
+    <Compile Include="Models\Enums\ResolutionActions.cs" />
     <Compile Include="Models\Enums\SaleStatus.cs" />
     <Compile Include="Models\TransferModels\Clients\DeleteClientModel.cs" />
     <Compile Include="Models\TransferModels\Clients\EditClientModel.cs" />
@@ -124,6 +125,7 @@
     <Compile Include="Models\TransferModels\Maintenances\GetMaintenanceListModel.cs" />
     <Compile Include="Models\TransferModels\Maintenances\GetMaintenanceStatisticModel.cs" />
     <Compile Include="Models\TransferModels\RegisterModel.cs" />
+    <Compile Include="Models\TransferModels\Resolutions\GetResolutionResultModel.cs" />
     <Compile Include="Models\TransferModels\Resolutions\GetResolutionValuesModel.cs" />
     <Compile Include="Models\TransferModels\Resolutions\InitResolutionModel.cs" />
     <Compile Include="Models\TransferModels\Sales\AcceptSaleModel.cs" />
