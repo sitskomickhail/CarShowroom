@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using CarShowroom.Entities.Models.AnswerModels.Resolutions;
@@ -79,8 +77,10 @@ namespace CarShowroom.ViewModel.Employee.Resolutions
                         Level1Resolution = new ResolutionResultModel()
                         {
                             ExpectedValue = model.ExpectedValue,
-                            Percent = model.Percent,
-                            DisplayText = $"При выполнении обоих условий, как результат ожидаемый доход = {model.ExpectedValue}$ c шансом {model.Percent}%"
+                            SuccessPercent = model.SuccessPercent,
+                            FailPercent = model.FailPercent,
+                            FailDisplayText = $"С шансом {model.FailPercent}% будет потеряно {model.Expenses}$",
+                            SuccessDisplayText = $"При выполнении обоих условий, как результат ожидаемый доход = {model.ExpectedValue}$ c шансом {model.SuccessPercent}%"
                         };
 
                         break;
@@ -90,8 +90,10 @@ namespace CarShowroom.ViewModel.Employee.Resolutions
                         Level2Resolution = new ResolutionResultModel()
                         {
                             ExpectedValue = model.ExpectedValue,
-                            Percent = model.Percent,
-                            DisplayText = $"При найме квалифицированных работников ожидаемый доход = {model.ExpectedValue}$ c шансом {model.Percent}%"
+                            SuccessPercent = model.SuccessPercent,
+                            FailPercent = model.FailPercent,
+                            FailDisplayText = $"С шансом {model.FailPercent}% будет потеряно {model.Expenses}$",
+                            SuccessDisplayText = $"При найме квалифицированных работников ожидаемый доход = {model.ExpectedValue}$ c шансом {model.SuccessPercent}%"
                         };
 
                         break;
@@ -102,8 +104,10 @@ namespace CarShowroom.ViewModel.Employee.Resolutions
                         Level3Resolution = new ResolutionResultModel()
                         {
                             ExpectedValue = model.ExpectedValue,
-                            Percent = model.Percent,
-                            DisplayText = $"При закупке необходимого оборудования ожидаемый доход = {model.ExpectedValue}$ c шансом {model.Percent}%"
+                            SuccessPercent = model.SuccessPercent,
+                            FailPercent = model.FailPercent,
+                            FailDisplayText = $"С шансом {model.FailPercent}% будет потеряно {model.Expenses}$",
+                            SuccessDisplayText = $"При закупке необходимого оборудования ожидаемый доход = {model.ExpectedValue}$ c шансом {model.SuccessPercent}%"
                         };
 
                         break;
@@ -113,8 +117,10 @@ namespace CarShowroom.ViewModel.Employee.Resolutions
                         Level4Resolution = new ResolutionResultModel()
                         {
                             ExpectedValue = model.ExpectedValue,
-                            Percent = model.Percent,
-                            DisplayText = $"Ни одно из действий не выполняется, поэтому, как результат ожидаемый доход = {model.ExpectedValue}$ c шансом {model.Percent}%"
+                            SuccessPercent = model.SuccessPercent,
+                            FailPercent = model.FailPercent,
+                            FailDisplayText = $"С шансом {model.FailPercent}% будет потеряно {model.Expenses}$",
+                            SuccessDisplayText = $"Ни одно из действий не выполняется, поэтому, как результат ожидаемый доход = {model.ExpectedValue}$ c шансом {model.SuccessPercent}%"
                         };
 
                         break;

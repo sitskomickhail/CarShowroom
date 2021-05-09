@@ -228,8 +228,9 @@
                 <Grid Grid.Column="0">
 
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="0.5*"/>
-                        <RowDefinition Height="0.5*"/>
+                        <RowDefinition Height="0.3*"/>
+                        <RowDefinition Height="0.4*"/>
+                        <RowDefinition Height="0.3*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0.3*"/>
@@ -245,7 +246,7 @@
                     <Label Grid.Row="0" Grid.Column="1"
                            HorizontalContentAlignment="Center"
                            VerticalContentAlignment="Center"
-                           Content="{Binding Path=Percent, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                           Content="{Binding Path=SuccessPercent, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
 
                     <Separator Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom"/>
 
@@ -258,15 +259,42 @@
                            HorizontalContentAlignment="Center"
                            VerticalContentAlignment="Center"
                            Content="{Binding Path=ExpectedValue, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-                </Grid>
-                <TextBlock Grid.Column="1"
-                           TextWrapping="WrapWithOverflow"
-                           TextAlignment="Center"
-                           FontSize="14"
-                           FontWeight="Bold"
+
+                    <Separator Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Bottom"/>
+
+                    <Label Grid.Column="0" Grid.Row="2"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
-                           Text="{Binding Path=DisplayText, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                           FontSize="12"
+                           FontWeight="Bold">P</Label>
+                    <Label Grid.Row="2" Grid.Column="1"
+                           HorizontalContentAlignment="Center"
+                           VerticalContentAlignment="Center"
+                           Content="{Binding Path=FailPercent, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.5*"/>
+                        <RowDefinition Height="0.5*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0"
+                               TextWrapping="WrapWithOverflow"
+                               TextAlignment="Center"
+                               FontSize="14"
+                               FontWeight="Bold"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Text="{Binding Path=SuccessDisplayText, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                    <TextBlock Grid.Row="1"
+                               TextWrapping="WrapWithOverflow"
+                               TextAlignment="Center"
+                               FontSize="14"
+                               FontWeight="Bold"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Text="{Binding Path=FailDisplayText, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                </Grid>
             </Grid>
             <Separator Grid.Row="0" VerticalAlignment="Bottom"/>
 
@@ -278,13 +306,15 @@
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="0.5*"/>
-                        <RowDefinition Height="0.5*"/>
+                        <RowDefinition Height="0.3*"/>
+                        <RowDefinition Height="0.4*"/>
+                        <RowDefinition Height="0.3*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0.3*"/>
                         <ColumnDefinition Width="0.7*"/>
                     </Grid.ColumnDefinitions>
+
 
                     <Label Grid.Column="0" Grid.Row="0"
                            HorizontalAlignment="Center"
@@ -293,8 +323,8 @@
                            FontWeight="Bold">P</Label>
                     <Label Grid.Row="0" Grid.Column="1"
                            HorizontalContentAlignment="Center"
-                           VerticalAlignment="Center"
-                           Content="{Binding Path=Percent, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                           VerticalContentAlignment="Center"
+                           Content="{Binding Path=SuccessPercent, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
 
                     <Separator Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom"/>
 
@@ -307,15 +337,41 @@
                            HorizontalContentAlignment="Center"
                            VerticalContentAlignment="Center"
                            Content="{Binding Path=ExpectedValue, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-                </Grid>
-                <TextBlock Grid.Column="1"
-                           TextWrapping="WrapWithOverflow"
-                           TextAlignment="Center"
+
+                    <Separator Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Bottom"/>
+
+                    <Label Grid.Column="0" Grid.Row="2"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
-                           FontSize="14"
-                           FontWeight="Bold"
-                           Text="{Binding Path=DisplayText, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                           FontSize="12"
+                           FontWeight="Bold">P</Label>
+                    <Label Grid.Row="2" Grid.Column="1"
+                           HorizontalContentAlignment="Center"
+                           VerticalContentAlignment="Center"
+                           Content="{Binding Path=FailPercent, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.5*"/>
+                        <RowDefinition Height="0.5*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0"
+                               TextWrapping="WrapWithOverflow"
+                               TextAlignment="Center"
+                               FontSize="14"
+                               FontWeight="Bold"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Text="{Binding Path=SuccessDisplayText, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                    <TextBlock Grid.Row="1"
+                               TextWrapping="WrapWithOverflow"
+                               TextAlignment="Center"
+                               FontSize="14"
+                               FontWeight="Bold"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Text="{Binding Path=FailDisplayText, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                </Grid>
             </Grid>
             <Separator Grid.Row="1" VerticalAlignment="Bottom"/>
 
@@ -327,13 +383,15 @@
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="0.5*"/>
-                        <RowDefinition Height="0.5*"/>
+                        <RowDefinition Height="0.3*"/>
+                        <RowDefinition Height="0.4*"/>
+                        <RowDefinition Height="0.3*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0.3*"/>
                         <ColumnDefinition Width="0.7*"/>
                     </Grid.ColumnDefinitions>
+
 
                     <Label Grid.Column="0" Grid.Row="0"
                            HorizontalAlignment="Center"
@@ -343,7 +401,7 @@
                     <Label Grid.Row="0" Grid.Column="1"
                            HorizontalContentAlignment="Center"
                            VerticalContentAlignment="Center"
-                           Content="{Binding Path=Percent, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                           Content="{Binding Path=SuccessPercent, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
 
                     <Separator Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom"/>
 
@@ -356,15 +414,41 @@
                            HorizontalContentAlignment="Center"
                            VerticalContentAlignment="Center"
                            Content="{Binding Path=ExpectedValue, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-                </Grid>
-                <TextBlock Grid.Column="1"
-                           TextWrapping="WrapWithOverflow"
-                           TextAlignment="Center"
-                           FontSize="14"
-                           FontWeight="Bold"
+
+                    <Separator Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Bottom"/>
+
+                    <Label Grid.Column="0" Grid.Row="2"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
-                           Text="{Binding Path=DisplayText, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                           FontSize="12"
+                           FontWeight="Bold">P</Label>
+                    <Label Grid.Row="2" Grid.Column="1"
+                           HorizontalContentAlignment="Center"
+                           VerticalContentAlignment="Center"
+                           Content="{Binding Path=FailPercent, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.5*"/>
+                        <RowDefinition Height="0.5*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0"
+                               TextWrapping="WrapWithOverflow"
+                               TextAlignment="Center"
+                               FontSize="14"
+                               FontWeight="Bold"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Text="{Binding Path=SuccessDisplayText, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                    <TextBlock Grid.Row="1"
+                               TextWrapping="WrapWithOverflow"
+                               TextAlignment="Center"
+                               FontSize="14"
+                               FontWeight="Bold"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Text="{Binding Path=FailDisplayText, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                </Grid>
             </Grid>
             <Separator Grid.Row="2" VerticalAlignment="Bottom"/>
 
@@ -376,13 +460,15 @@
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="0.5*"/>
-                        <RowDefinition Height="0.5*"/>
+                        <RowDefinition Height="0.3*"/>
+                        <RowDefinition Height="0.4*"/>
+                        <RowDefinition Height="0.3*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0.3*"/>
                         <ColumnDefinition Width="0.7*"/>
                     </Grid.ColumnDefinitions>
+
 
                     <Label Grid.Column="0" Grid.Row="0"
                            HorizontalAlignment="Center"
@@ -392,7 +478,7 @@
                     <Label Grid.Row="0" Grid.Column="1"
                            HorizontalContentAlignment="Center"
                            VerticalContentAlignment="Center"
-                           Content="{Binding Path=Percent, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                           Content="{Binding Path=SuccessPercent, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
 
                     <Separator Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom"/>
 
@@ -405,15 +491,42 @@
                            HorizontalContentAlignment="Center"
                            VerticalContentAlignment="Center"
                            Content="{Binding Path=ExpectedValue, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-                </Grid>
-                <TextBlock Grid.Column="1"
-                           TextWrapping="WrapWithOverflow"
-                           TextAlignment="Center"
-                           FontSize="14"
-                           FontWeight="Bold"
+
+                    <Separator Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Bottom"/>
+
+                    <Label Grid.Column="0" Grid.Row="2"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
-                           Text="{Binding Path=DisplayText, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                           FontSize="12"
+                           FontWeight="Bold">P</Label>
+                    <Label Grid.Row="2" Grid.Column="1"
+                           HorizontalContentAlignment="Center"
+                           VerticalContentAlignment="Center"
+                           Content="{Binding Path=FailPercent, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.5*"/>
+                        <RowDefinition Height="0.5*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0"
+                               TextWrapping="WrapWithOverflow"
+                               TextAlignment="Center"
+                               FontSize="14"
+                               FontWeight="Bold"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Text="{Binding Path=SuccessDisplayText, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                    <TextBlock Grid.Row="1"
+                               TextWrapping="WrapWithOverflow"
+                               TextAlignment="Center"
+                               FontSize="14"
+                               FontWeight="Bold"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Text="{Binding Path=FailDisplayText, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                </Grid>
+
             </Grid>
         </Grid>
     </Grid>
