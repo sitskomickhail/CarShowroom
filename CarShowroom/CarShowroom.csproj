@@ -140,6 +140,9 @@
     <Compile Include="Controls\Employee\Maintenances\MaintenanceEditEmployeeControl.xaml.cs">
       <DependentUpon>MaintenanceEditEmployeeControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Employee\Resolutions\InitializeResolutionControl.xaml.cs">
+      <DependentUpon>InitializeResolutionControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Employee\Sales\AcceptSaleEmployeeControl.xaml.cs">
       <DependentUpon>AcceptSaleEmployeeControl.xaml</DependentUpon>
     </Compile>
@@ -151,6 +154,9 @@
     </Compile>
     <Compile Include="Controls\Employee\Vehicles\VehicleEditListEmployeeControl.xaml.cs">
       <DependentUpon>VehicleEditListEmployeeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NumericUpDownControl.xaml.cs">
+      <DependentUpon>NumericUpDownControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\PasswordControl.xaml.cs">
       <DependentUpon>PasswordControl.xaml</DependentUpon>
@@ -173,6 +179,8 @@
     <Compile Include="Handlers\Interfaces\Maintenances\IGetClientMaintenancesHandler.cs" />
     <Compile Include="Handlers\Interfaces\Maintenances\IGetMaintenancesHandler.cs" />
     <Compile Include="Handlers\Interfaces\Maintenances\IGetMaintenanceStatisticsHandler.cs" />
+    <Compile Include="Handlers\Interfaces\Resolutions\IGetResolutionValuesHandler.cs" />
+    <Compile Include="Handlers\Interfaces\Resolutions\ISetResolutionValuesHandler.cs" />
     <Compile Include="Handlers\Interfaces\Sales\IAcceptSaleHandler.cs" />
     <Compile Include="Handlers\Interfaces\Sales\IGetSalesListHandler.cs" />
     <Compile Include="Handlers\Interfaces\Sales\ICreateSaleHandler.cs" />
@@ -194,6 +202,8 @@
     <Compile Include="Handlers\Maintenances\GetClientMaintenancesHandler.cs" />
     <Compile Include="Handlers\Maintenances\GetMaintenanceHandler.cs" />
     <Compile Include="Handlers\Maintenances\GetMaintenanceStatisticsHandler.cs" />
+    <Compile Include="Handlers\Resolutions\GetResolutionValuesHandler.cs" />
+    <Compile Include="Handlers\Resolutions\SetResolutionValuesHandler.cs" />
     <Compile Include="Handlers\Sales\AcceptSaleHandler.cs" />
     <Compile Include="Handlers\Sales\CreateSaleHandler.cs" />
     <Compile Include="Handlers\Sales\GetSalesListHandler.cs" />
@@ -248,6 +258,7 @@
     <Compile Include="ViewModel\Client\ClientMaintenanceViewModel.cs" />
     <Compile Include="ViewModel\Client\MarketplaceViewModel.cs" />
     <Compile Include="ViewModel\EmployeeWindowViewModel.cs" />
+    <Compile Include="ViewModel\Employee\Resolutions\InitializeResolutionViewModel.cs" />
     <Compile Include="ViewModel\LoginWindowViewModel.cs" />
     <Compile Include="ViewModel\RegisterWindowViewModel.cs" />
     <Compile Include="View\AdministrationWindow.xaml.cs">
@@ -341,6 +352,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\Employee\Resolutions\InitializeResolutionControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\Employee\Sales\AcceptSaleEmployeeControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -354,6 +369,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Employee\Vehicles\VehicleEditListEmployeeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\NumericUpDownControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -481,5 +500,6 @@
   <ItemGroup>
     <Resource Include="vehicle.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

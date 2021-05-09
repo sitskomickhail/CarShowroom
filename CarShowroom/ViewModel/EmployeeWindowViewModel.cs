@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using CarShowroom.Controls.Employee.Clients;
 using CarShowroom.Controls.Employee.Maintenances;
+using CarShowroom.Controls.Employee.Resolutions;
 using CarShowroom.Controls.Employee.Sales;
 using CarShowroom.Controls.Employee.Vehicles;
 using CarShowroom.Interfaces;
@@ -26,8 +27,10 @@ namespace CarShowroom.ViewModel
         [Inject] public SaleListEmployeeControl SaleListEmployeeControl { get; set; }
 
         [Inject] public AcceptSaleEmployeeControl AcceptSaleEmployeeControl { get; set; }
-        
+
         [Inject] public MaintenanceEditEmployeeControl MaintenanceEditEmployeeControl { get; set; }
+
+        [Inject] public InitializeResolutionControl InitializeResolutionControl { get; set; }
 
         public ICommand BackToLoginCommand { get; set; }
 
@@ -47,6 +50,7 @@ namespace CarShowroom.ViewModel
             await SaleListEmployeeControl.LoadInitialData();
             await AcceptSaleEmployeeControl.LoadInitialData();
             await MaintenanceEditEmployeeControl.LoadInitialData();
+            await InitializeResolutionControl.LoadInitialData();
         }
 
         public void BackToLoginCommandExecute(IWindow currentWindow)
@@ -69,13 +73,15 @@ namespace CarShowroom.ViewModel
             await AcceptSaleEmployeeControl.LoadInitialData();
         }
 
+        public async void ReloadResolution()
+        {
+            await InitializeResolutionControl.LoadInitialData();
+        }
+
         public override async Task SetDefaultValues()
         {
-            await VehicleCreateEmployeeControl.LoadInitialData();
             await VehicleEditListEmployeeControl.LoadInitialData();
             await ClientListEmployeeControl.LoadInitialData();
-            await SaleListEmployeeControl.LoadInitialData();
-            await AcceptSaleEmployeeControl.LoadInitialData();
             await MaintenanceEditEmployeeControl.LoadInitialData();
         }
     }

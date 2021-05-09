@@ -14,7 +14,7 @@ namespace CarShowroom.View
     {
         private const string _salesTabName = "Sales";
         private const string _vehiclesTabName = "Vehicles";
-
+        private const string _resolutionTabName = "Resolution";
         public EmployeeWindowViewModel ViewModel { get; set; }
 
         public EmployeeWindow(EmployeeWindowViewModel viewModel)
@@ -56,6 +56,10 @@ namespace CarShowroom.View
                 else if (name.Equals(_salesTabName, StringComparison.Ordinal) && sourceType == typeof(TabItem))
                 {
                     ViewModel.ReloadSales();
+                }
+                else if (name.Equals(_resolutionTabName, StringComparison.Ordinal) && sourceType == typeof(TabItem))
+                {
+                    ViewModel.ReloadResolution();
                 }
 
                 e.Handled = true;

@@ -32,6 +32,10 @@
         EditMaintenace = 20,
         GetMaintenanceStatistic = 24,
         GetClientMaintenances = 25,
-        CreateMaintenance = 27
+        CreateMaintenance = 27,
+
+        GetResolutionValues = 28,
+        SetResolutionValues = 29,
+        GetResolutionResult = 30
     }
 }

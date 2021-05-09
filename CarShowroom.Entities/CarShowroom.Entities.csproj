@@ -96,6 +96,8 @@
     <Compile Include="Models\AnswerModels\Clients\ClientDealsAnswerModel.cs" />
     <Compile Include="Models\AnswerModels\Maintenances\MaintenanceAnswerModel.cs" />
     <Compile Include="Models\AnswerModels\Maintenances\MaintenanceStatisticAnswerModel.cs" />
+    <Compile Include="Models\AnswerModels\Resolutions\ResolutionAnswerModel.cs" />
+    <Compile Include="Models\AnswerModels\Resolutions\ResolutionValuesAnswerModel.cs" />
     <Compile Include="Models\AnswerModels\Sales\SaleAnswerModel.cs" />
     <Compile Include="Models\AnswerModels\Users\UserAnswerModel.cs" />
     <Compile Include="Models\AnswerModels\Vehicles\VehicleAnswerModel.cs" />
@@ -117,6 +119,8 @@
     <Compile Include="Models\TransferModels\Maintenances\GetMaintenanceListModel.cs" />
     <Compile Include="Models\TransferModels\Maintenances\GetMaintenanceStatisticModel.cs" />
     <Compile Include="Models\TransferModels\RegisterModel.cs" />
+    <Compile Include="Models\TransferModels\Resolutions\GetResolutionValuesModel.cs" />
+    <Compile Include="Models\TransferModels\Resolutions\InitResolutionModel.cs" />
     <Compile Include="Models\TransferModels\Sales\AcceptSaleModel.cs" />
     <Compile Include="Models\TransferModels\Sales\CreateSaleModel.cs" />
     <Compile Include="Models\TransferModels\Sales\GetSalesListModel.cs" />

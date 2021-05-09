@@ -1,0 +1,227 @@
+﻿<UserControl x:Class="CarShowroom.Controls.Employee.Resolutions.InitializeResolutionControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CarShowroom.Controls.Employee.Resolutions"
+             xmlns:controls="clr-namespace:CarShowroom.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.2*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0"
+              Margin="50, 20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="0.5*"/>
+            </Grid.RowDefinitions>
+            <Label HorizontalAlignment="Center"
+                   HorizontalContentAlignment="Center"
+                   FontSize="15"
+                   FontWeight="Bold"
+                   VerticalContentAlignment="Center"
+                   Content="Принятие решения по увеличению объема выполняемых ремонтных работ на предприятии"/>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0"
+                        Background="Bisque"
+                        BorderBrush="RosyBrown"
+                        BorderThickness="5"
+                        CornerRadius="10"
+                        Margin="8">
+                    <Button Command="{Binding Path=SetDefaultResolutionValues}"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Content="Выставить значения по умолчанию"
+                            FontSize="14"
+                            FontWeight="Bold"/>
+                </Border>
+                <Border Grid.Column="1"
+                        Background="Azure"
+                        BorderBrush="LightBlue"
+                        BorderThickness="5"
+                        CornerRadius="10"
+                        Margin="8">
+                    <Button Command="{Binding Path=EditResolutionCommand}"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Content="Редактировать параметры"
+                            FontSize="14"
+                            FontWeight="Bold"/>
+                </Border>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.33*"/>
+                <RowDefinition Height="0.33*"/>
+                <RowDefinition Height="0.33*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.35*"/>
+                    <RowDefinition Height="0.65*"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0"
+                       FontSize="13"
+                       FontWeight="Bold"
+                       Content="Вероятность обеспечения необх. оборудованием, %"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+                <controls:NumericUpDownControl Grid.Row="1"
+                                               Margin="40, 10"
+                                               MinNumberValue="0"
+                                               MaxNumberValue="100"
+                                               FontSize="14"
+                                               FontWeight="Bold"
+                                               NumberValue="{Binding Path=EquipmentPurchaseSuccessChance, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                               IsEnabled="{Binding Path=IsEditingEnabled, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+
+            </Grid>
+            <Grid Grid.Row="1"
+                  Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.5*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0"
+                       FontWeight="Bold"
+                       HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center">Есть необх. оборуд. (%)</Label>
+                <Label Grid.Row="1" Grid.Column="0"
+                       Content="{Binding Path=EquipmentPurchaseSuccessChance, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                       BorderThickness="2"
+                       BorderBrush="SlateGray"
+                       HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center"
+                       FontWeight="Bold"/>
+                <Label Grid.Row="0" Grid.Column="1"
+                       FontWeight="Bold"
+                       HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center">Нет необх. оборуд. (%)</Label>
+                <Label Grid.Row="1" Grid.Column="1"
+                       Content="{Binding Path=EquipmentPurchaseFailChance, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                       FontWeight="Bold"
+                       BorderThickness="2"
+                       BorderBrush="SlateGray"
+                       HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center"/>
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.35*"/>
+                    <RowDefinition Height="0.65*"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0"
+                       FontSize="13"
+                       FontWeight="Bold"
+                       Content="Вероятность найма квалифицированных работников, %"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+                <controls:NumericUpDownControl Grid.Row="1"
+                                               Margin="40, 10"
+                                               MinNumberValue="0"
+                                               MaxNumberValue="100"
+                                               FontSize="14"
+                                               FontWeight="Bold"
+                                               NumberValue="{Binding Path=EmployeeHiringSuccessChance, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                               IsEnabled="{Binding Path=IsEditingEnabled, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+
+            </Grid>
+            <Grid Grid.Row="0"
+                  Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.5*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0"
+                       FontWeight="Bold"
+                       HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center">Квалиф. работники (%)</Label>
+                <Label Grid.Row="1" Grid.Column="0"
+                       Content="{Binding Path=EmployeeHiringSuccessChance, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                       BorderThickness="2"
+                       BorderBrush="SlateGray"
+                       HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center"
+                       FontWeight="Bold"/>
+                <Label Grid.Row="0" Grid.Column="1"
+                       FontWeight="Bold"
+                       HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center">Не квалиф. работники (%)</Label>
+                <Label Grid.Row="1" Grid.Column="1"
+                       Content="{Binding Path=EmployeeHiringFailChance, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                       FontWeight="Bold"
+                       BorderThickness="2"
+                       BorderBrush="SlateGray"
+                       HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center"/>
+            </Grid>
+
+            <Grid Grid.Row="2"
+                  Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="51*"/>
+                    <ColumnDefinition Width="109*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.5*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0"
+                       HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center"
+                       FontSize="13"
+                       FontWeight="Bold"
+                       Content="Расходы на закупку оборудования + найм работников ($)" Grid.ColumnSpan="2" Margin="0,0,0,37.2" Grid.RowSpan="2"/>
+                <controls:NumericUpDownControl Grid.Row="1"
+                                               Margin="80,4.4,80,4.2"
+                                               MinNumberValue="0"
+                                               FontSize="14"
+                                               FontWeight="Bold"
+                                               NumberValue="{Binding ResolutionExpenses, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                               IsEnabled="{Binding Path=IsEditingEnabled, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.ColumnSpan="2"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Border BorderBrush="Green"
+                    Background="PaleGreen"
+                    BorderThickness="5"
+                    CornerRadius="10"
+                    Margin="50, 15, 50, 35">
+                <Button Background="Transparent"
+                        BorderBrush="Transparent"
+                        FontSize="15"
+                        FontWeight="Bold"
+                        Command="{Binding Path=SaveResolutionCommand}"
+                        Content="Сохранить значения"
+                        IsEnabled="{Binding Path=IsEditingEnabled, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>
