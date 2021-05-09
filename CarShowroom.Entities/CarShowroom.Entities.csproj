@@ -59,6 +59,7 @@
     <Compile Include="DatabaseModels\Client.cs" />
     <Compile Include="DatabaseModels\Context\SqlServerContext.cs" />
     <Compile Include="DatabaseModels\Maintenance.cs" />
+    <Compile Include="DatabaseModels\Resolution.cs" />
     <Compile Include="DatabaseModels\Role.cs" />
     <Compile Include="DatabaseModels\Sale.cs" />
     <Compile Include="DatabaseModels\User.cs" />
@@ -90,6 +91,10 @@
     <Compile Include="Migrations\202105060702543_UpdatingDatabaseSrtucture_Vehicle_Sales_Maintenances.cs" />
     <Compile Include="Migrations\202105060702543_UpdatingDatabaseSrtucture_Vehicle_Sales_Maintenances.designer.cs">
       <DependentUpon>202105060702543_UpdatingDatabaseSrtucture_Vehicle_Sales_Maintenances.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105091655373_Creating_resolution_instance.cs" />
+    <Compile Include="Migrations\202105091655373_Creating_resolution_instance.designer.cs">
+      <DependentUpon>202105091655373_Creating_resolution_instance.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AnswerModels\Clients\ClientAnswerModel.cs" />
@@ -158,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105060702543_UpdatingDatabaseSrtucture_Vehicle_Sales_Maintenances.resx">
       <DependentUpon>202105060702543_UpdatingDatabaseSrtucture_Vehicle_Sales_Maintenances.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105091655373_Creating_resolution_instance.resx">
+      <DependentUpon>202105091655373_Creating_resolution_instance.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

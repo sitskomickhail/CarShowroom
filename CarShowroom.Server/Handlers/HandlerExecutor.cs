@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using CarShowroom.Entities.Models.AnswerModels.Clients;
 using CarShowroom.Entities.Models.AnswerModels.Maintenances;
+using CarShowroom.Entities.Models.AnswerModels.Resolutions;
 using CarShowroom.Entities.Models.AnswerModels.Sales;
 using CarShowroom.Entities.Models.AnswerModels.Users;
 using CarShowroom.Entities.Models.AnswerModels.Vehicles;
@@ -11,6 +12,7 @@ using CarShowroom.Entities.Models.Enums;
 using CarShowroom.Entities.Models.TransferModels;
 using CarShowroom.Entities.Models.TransferModels.Clients;
 using CarShowroom.Entities.Models.TransferModels.Maintenances;
+using CarShowroom.Entities.Models.TransferModels.Resolutions;
 using CarShowroom.Entities.Models.TransferModels.Sales;
 using CarShowroom.Entities.Models.TransferModels.Users;
 using CarShowroom.Entities.Models.TransferModels.Vehicles;
@@ -73,6 +75,10 @@ namespace CarShowroom.Server.Handlers
         [Inject] public Handler<CreateMaintenanceModel, MaintenanceAnswerModel> CreateMaintenanceHandler { get; set; }
         
         [Inject] public Handler<GetMaintenanceStatisticModel, List<MaintenanceStatisticAnswerModel>> GetMaintenanceStatisticsHandler { get; set; }
+        
+        [Inject] public Handler<InitResolutionModel, ResolutionValuesAnswerModel> SetResolutionValuesHandler { get; set; }
+
+        [Inject] public Handler<GetResolutionValuesModel, ResolutionValuesAnswerModel> GetResolutionValuesHandler { get; set; }
 
         public async Task<DataReciever> ExecuteAction(DataTransfer dataTransfer)
         {
@@ -108,6 +114,8 @@ namespace CarShowroom.Server.Handlers
                     case RequestAction.GetMaintenanceStatistic: answer = await GetMaintenanceStatisticsHandler.ExecuteAction(dataTransfer); break;
                     case RequestAction.GetClientVehicles: answer = await GetClientVehiclesHandler.ExecuteAction(dataTransfer); break;
                     case RequestAction.CreateMaintenance: answer = await CreateMaintenanceHandler.ExecuteAction(dataTransfer); break;
+                    case RequestAction.SetResolutionValues: answer = await SetResolutionValuesHandler.ExecuteAction(dataTransfer); break;
+                    case RequestAction.GetResolutionValues: answer = await GetResolutionValuesHandler.ExecuteAction(dataTransfer); break;
                     default: throw new Exception("Action type was not found");
                 }
             }

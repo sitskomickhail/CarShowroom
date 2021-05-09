@@ -123,6 +123,8 @@
     <Compile Include="HandlerServices\Maintenances\GetClientMaintenancesHandlerService.cs" />
     <Compile Include="HandlerServices\Maintenances\GetMaintenanceListHandlerService.cs" />
     <Compile Include="HandlerServices\Maintenances\GetMaintenanceStatisticsHandlerService.cs" />
+    <Compile Include="HandlerServices\Resolutions\GetResolutionValuesHandlerService.cs" />
+    <Compile Include="HandlerServices\Resolutions\SetResolutionValuesHandlerService.cs" />
     <Compile Include="HandlerServices\Sales\AcceptSaleHandlerService.cs" />
     <Compile Include="HandlerServices\Sales\CreateSaleHandlerService.cs" />
     <Compile Include="HandlerServices\Sales\GetSaleListHandlerService.cs" />
@@ -147,6 +149,7 @@
     <Compile Include="Helpers\UserHelper.cs" />
     <Compile Include="Profiles\ClientProfile.cs" />
     <Compile Include="Profiles\MaintenanceProfile.cs" />
+    <Compile Include="Profiles\ResolutionProfile.cs" />
     <Compile Include="Profiles\SaleProfile.cs" />
     <Compile Include="Profiles\UserProfile.cs" />
     <Compile Include="Profiles\VehicleProfile.cs" />

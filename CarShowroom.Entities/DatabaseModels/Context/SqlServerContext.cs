@@ -44,5 +44,7 @@ namespace CarShowroom.Entities.DatabaseModels.Context
         public DbSet<Sale> Sales { get; set; }
 
         public DbSet<Client> Clients { get; set; }
+
+        public DbSet<Resolution> Resolutions { get; set; }
     }
 }
