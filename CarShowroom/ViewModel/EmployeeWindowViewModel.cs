@@ -31,6 +31,8 @@ namespace CarShowroom.ViewModel
         [Inject] public MaintenanceEditEmployeeControl MaintenanceEditEmployeeControl { get; set; }
 
         [Inject] public InitializeResolutionControl InitializeResolutionControl { get; set; }
+        
+        [Inject] public ResolutionChartControl ResolutionChartControl { get; set; }
 
         public ICommand BackToLoginCommand { get; set; }
 
@@ -44,13 +46,9 @@ namespace CarShowroom.ViewModel
 
         private async void OnTabItemChooseCommandExecuted()
         {
-            await VehicleCreateEmployeeControl.LoadInitialData();
             await VehicleEditListEmployeeControl.LoadInitialData();
             await ClientListEmployeeControl.LoadInitialData();
-            await SaleListEmployeeControl.LoadInitialData();
-            await AcceptSaleEmployeeControl.LoadInitialData();
             await MaintenanceEditEmployeeControl.LoadInitialData();
-            await InitializeResolutionControl.LoadInitialData();
         }
 
         public void BackToLoginCommandExecute(IWindow currentWindow)
@@ -76,13 +74,18 @@ namespace CarShowroom.ViewModel
         public async void ReloadResolution()
         {
             await InitializeResolutionControl.LoadInitialData();
+            await ResolutionChartControl.LoadInitialData();
         }
 
         public override async Task SetDefaultValues()
         {
+            await VehicleCreateEmployeeControl.LoadInitialData();
             await VehicleEditListEmployeeControl.LoadInitialData();
             await ClientListEmployeeControl.LoadInitialData();
+            await SaleListEmployeeControl.LoadInitialData();
+            await AcceptSaleEmployeeControl.LoadInitialData();
             await MaintenanceEditEmployeeControl.LoadInitialData();
+            await InitializeResolutionControl.LoadInitialData();
         }
     }
 }

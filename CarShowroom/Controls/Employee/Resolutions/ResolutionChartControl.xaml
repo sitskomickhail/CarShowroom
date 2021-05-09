@@ -1,0 +1,420 @@
+﻿<UserControl x:Class="CarShowroom.Controls.Employee.Resolutions.ResolutionChartControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CarShowroom.Controls.Employee.Resolutions"
+             xmlns:controls="clr-namespace:CarShowroom.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.15*"></ColumnDefinition>
+            <ColumnDefinition Width="0.15*"></ColumnDefinition>
+            <ColumnDefinition Width="0.15*"></ColumnDefinition>
+            <ColumnDefinition Width="0.45*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Line HorizontalAlignment="Center"
+                  Y1="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}}, Path=ActualHeight}"
+                  Stroke="Gray"
+                  StrokeThickness="2"
+                  StrokeDashArray="7 4"/>
+            <Label HorizontalAlignment="Center"
+                   Content="Квалиф работники"
+                   FontWeight="Bold"/>
+            <Label HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Margin="25, 0, 0, 80"
+                   Content="+"
+                   FontSize="25"
+                   FontWeight="Bold"/>
+            <Border Height="50"
+                    Width="50"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    BorderBrush="DimGray"
+                    BorderThickness="3"
+                    Background="AliceBlue">
+                <Label HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center"
+                       Content="{Binding Path=ResolutionResult, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                       FontSize="20"
+                       FontWeight="Bold"
+                       x:Name="Level1_Event"/>
+            </Border>
+
+            <Label HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Margin="25, 80, 0, 0"
+                   Content="-"
+                   FontSize="25"
+                   FontWeight="Bold"/>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="0.5*"/>
+            </Grid.RowDefinitions>
+            <Line Grid.RowSpan="2"
+                  HorizontalAlignment="Center"
+                  Y1="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}}, Path=ActualHeight}"
+                  Stroke="Gray"
+                  StrokeThickness="2"
+                  StrokeDashArray="7 4"/>
+
+            <Label HorizontalAlignment="Center"
+                   Content="Необх. оборудование"
+                   FontWeight="Bold"/>
+            <Label HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Margin="25, 0, 0, 80"
+                   Content="+"
+                   FontSize="25"
+                   FontWeight="Bold"/>
+            <Border Grid.Row="0" Height="50"
+                    Width="50"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    BorderBrush="DimGray"
+                    BorderThickness="3"
+                    Background="AliceBlue">
+                <Label HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center"
+                       Content="{Binding Path=SecondLevelBestResult1, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                       FontSize="20"
+                       FontWeight="Bold"
+                       x:Name="Level2_1_Event"/>
+            </Border>
+            <Label HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Margin="25, 80, 0, 0"
+                   Content="-"
+                   FontSize="25"
+                   FontWeight="Bold"/>
+
+
+            <Label Grid.Row="1" HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Margin="25, 0, 0, 80"
+                   Content="+"
+                   FontSize="25"
+                   FontWeight="Bold"/>
+            <Border Grid.Row="1" Height="50"
+                    Width="50"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    BorderBrush="DimGray"
+                    BorderThickness="3"
+                    Background="AliceBlue">
+                <Label HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center"
+                       Content="{Binding Path=SecondLevelBestResult2, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                       FontSize="20"
+                       FontWeight="Bold"
+                       x:Name="Level2_2_Event"/>
+            </Border>
+            <Label Grid.Row="1" HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Margin="25, 80, 0, 0"
+                   Content="-"
+                   FontSize="25"
+                   FontWeight="Bold"/>
+        </Grid>
+
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="0.25*"/>
+            </Grid.RowDefinitions>
+            <Line Grid.RowSpan="4"
+                  HorizontalAlignment="Center"
+                  Y1="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}}, Path=ActualHeight}"
+                  Stroke="Gray"
+                  StrokeThickness="2"
+                  StrokeDashArray="7 4"/>
+
+            <Border Grid.Row="0" Height="50"
+                    Width="50"
+                    CornerRadius="100"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    BorderBrush="DimGray"
+                    BorderThickness="3"
+                    Background="AliceBlue">
+                <Label HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center"
+                       x:Name="Level3_1_Event"
+                       Content="1"
+                       FontSize="20"
+                       FontWeight="Bold"/>
+            </Border>
+
+            <Border Grid.Row="1" Height="50"
+                    Width="50"
+                    CornerRadius="100"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    BorderBrush="DimGray"
+                    BorderThickness="3"
+                    Background="AliceBlue">
+                <Label HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center"
+                       x:Name="Level3_2_Event"
+                       Content="2"
+                       FontSize="20"
+                       FontWeight="Bold"/>
+            </Border>
+
+            <Border Grid.Row="2" Height="50"
+                    Width="50"
+                    CornerRadius="100"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    BorderBrush="DimGray"
+                    BorderThickness="3"
+                    Background="AliceBlue">
+                <Label HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center"
+                       x:Name="Level3_3_Event"
+                       Content="3"
+                       FontSize="20"
+                       FontWeight="Bold"/>
+            </Border>
+
+            <Border Grid.Row="3" Height="50"
+                    Width="50"
+                    CornerRadius="100"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    BorderBrush="DimGray"
+                    BorderThickness="3"
+                    Background="AliceBlue">
+                <Label HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center"
+                       x:Name="Level3_4_Event"
+                       Content="4"
+                       FontSize="20"
+                       FontWeight="Bold"/>
+            </Border>
+        </Grid>
+
+        <controls:ConnectorControl Grid.Column="0" Grid.ColumnSpan="2" From="{x:Reference Level1_Event}" To="{x:Reference Level2_1_Event}" Foreground="Gray"/>
+        <controls:ConnectorControl Grid.Column="0" Grid.ColumnSpan="2"  From="{x:Reference Level1_Event}" To="{x:Reference Level2_2_Event}" Foreground="Gray"/>
+
+        <controls:ConnectorControl Grid.Column="1" Grid.ColumnSpan="2"  From="{x:Reference Level2_1_Event}" To="{x:Reference Level3_1_Event}" Foreground="Gray"/>
+        <controls:ConnectorControl Grid.Column="1" Grid.ColumnSpan="2"  From="{x:Reference Level2_1_Event}" To="{x:Reference Level3_2_Event}" Foreground="Gray"/>
+
+        <controls:ConnectorControl Grid.Column="1" Grid.ColumnSpan="2"  From="{x:Reference Level2_2_Event}" To="{x:Reference Level3_3_Event}" Foreground="Gray"/>
+        <controls:ConnectorControl Grid.Column="1" Grid.ColumnSpan="2"  From="{x:Reference Level2_2_Event}" To="{x:Reference Level3_4_Event}" Foreground="Gray"/>
+
+        <Grid Grid.Column="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="0.25*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" 
+                  DataContext="{Binding Path=Level1Resolution, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*"/>
+                    <ColumnDefinition Width="0.8*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.5*"/>
+                        <RowDefinition Height="0.5*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.3*"/>
+                        <ColumnDefinition Width="0.7*"/>
+                    </Grid.ColumnDefinitions>
+
+
+                    <Label Grid.Column="0" Grid.Row="0"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="12"
+                           FontWeight="Bold">P</Label>
+                    <Label Grid.Row="0" Grid.Column="1"
+                           HorizontalContentAlignment="Center"
+                           VerticalContentAlignment="Center"
+                           Content="{Binding Path=Percent, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+
+                    <Separator Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom"/>
+
+                    <Label Grid.Column="0" Grid.Row="1"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="12"
+                           FontWeight="Bold">EV</Label>
+                    <Label Grid.Column="1" Grid.Row="1" 
+                           HorizontalContentAlignment="Center"
+                           VerticalContentAlignment="Center"
+                           Content="{Binding Path=ExpectedValue, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                </Grid>
+                <TextBlock Grid.Column="1"
+                           TextWrapping="WrapWithOverflow"
+                           TextAlignment="Center"
+                           FontSize="14"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Text="{Binding Path=DisplayText, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+            </Grid>
+            <Separator Grid.Row="0" VerticalAlignment="Bottom"/>
+
+            <Grid Grid.Row="1"
+                  DataContext="{Binding Path=Level2Resolution, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*"/>
+                    <ColumnDefinition Width="0.8*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.5*"/>
+                        <RowDefinition Height="0.5*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.3*"/>
+                        <ColumnDefinition Width="0.7*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Grid.Row="0"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="12"
+                           FontWeight="Bold">P</Label>
+                    <Label Grid.Row="0" Grid.Column="1"
+                           HorizontalContentAlignment="Center"
+                           VerticalAlignment="Center"
+                           Content="{Binding Path=Percent, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+
+                    <Separator Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom"/>
+
+                    <Label Grid.Column="0" Grid.Row="1"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="12"
+                           FontWeight="Bold">EV</Label>
+                    <Label Grid.Column="1" Grid.Row="1" 
+                           HorizontalContentAlignment="Center"
+                           VerticalContentAlignment="Center"
+                           Content="{Binding Path=ExpectedValue, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                </Grid>
+                <TextBlock Grid.Column="1"
+                           TextWrapping="WrapWithOverflow"
+                           TextAlignment="Center"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="14"
+                           FontWeight="Bold"
+                           Text="{Binding Path=DisplayText, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+            </Grid>
+            <Separator Grid.Row="1" VerticalAlignment="Bottom"/>
+
+            <Grid Grid.Row="2"
+                  DataContext="{Binding Path=Level3Resolution, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*"/>
+                    <ColumnDefinition Width="0.8*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.5*"/>
+                        <RowDefinition Height="0.5*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.3*"/>
+                        <ColumnDefinition Width="0.7*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Grid.Row="0"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="12"
+                           FontWeight="Bold">P</Label>
+                    <Label Grid.Row="0" Grid.Column="1"
+                           HorizontalContentAlignment="Center"
+                           VerticalContentAlignment="Center"
+                           Content="{Binding Path=Percent, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+
+                    <Separator Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom"/>
+
+                    <Label Grid.Column="0" Grid.Row="1"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="12"
+                           FontWeight="Bold">EV</Label>
+                    <Label Grid.Column="1" Grid.Row="1" 
+                           HorizontalContentAlignment="Center"
+                           VerticalContentAlignment="Center"
+                           Content="{Binding Path=ExpectedValue, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                </Grid>
+                <TextBlock Grid.Column="1"
+                           TextWrapping="WrapWithOverflow"
+                           TextAlignment="Center"
+                           FontSize="14"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Text="{Binding Path=DisplayText, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+            </Grid>
+            <Separator Grid.Row="2" VerticalAlignment="Bottom"/>
+
+            <Grid Grid.Row="3"
+                  DataContext="{Binding Path=Level4Resolution, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*"/>
+                    <ColumnDefinition Width="0.8*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.5*"/>
+                        <RowDefinition Height="0.5*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.3*"/>
+                        <ColumnDefinition Width="0.7*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Grid.Row="0"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="12"
+                           FontWeight="Bold">P</Label>
+                    <Label Grid.Row="0" Grid.Column="1"
+                           HorizontalContentAlignment="Center"
+                           VerticalContentAlignment="Center"
+                           Content="{Binding Path=Percent, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+
+                    <Separator Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom"/>
+
+                    <Label Grid.Column="0" Grid.Row="1"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="12"
+                           FontWeight="Bold">EV</Label>
+                    <Label Grid.Column="1" Grid.Row="1" 
+                           HorizontalContentAlignment="Center"
+                           VerticalContentAlignment="Center"
+                           Content="{Binding Path=ExpectedValue, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                </Grid>
+                <TextBlock Grid.Column="1"
+                           TextWrapping="WrapWithOverflow"
+                           TextAlignment="Center"
+                           FontSize="14"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Text="{Binding Path=DisplayText, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
