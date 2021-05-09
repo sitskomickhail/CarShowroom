@@ -1,12 +1,17 @@
-﻿using CarShowroom.Entities.Models.Enums;
+﻿using System.Security.AccessControl;
+using CarShowroom.Entities.Models.Enums;
 
 namespace CarShowroom.Entities.Models.AnswerModels.Resolutions
 {
     public class ResolutionAnswerModel
     {
-        public int Percent { get; set; }
+        public int SuccessPercent { get; set; }
+
+        public int FailPercent { get; set; }
 
         public float ExpectedValue { get; set; }
+
+        public int Expenses { get; set; }
 
         public ResolutionActions ResolutionActions { get; set; }
     }

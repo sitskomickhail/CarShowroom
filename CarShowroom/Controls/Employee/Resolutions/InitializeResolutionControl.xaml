@@ -80,7 +80,7 @@
                 <Label Grid.Row="0"
                        FontSize="13"
                        FontWeight="Bold"
-                       Content="Вероятность обеспечения необх. оборудованием, %"
+                       Content="Квалиф. работники + нет необход. оборудования, %"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"/>
                 <controls:NumericUpDownControl Grid.Row="1"
@@ -89,42 +89,31 @@
                                                MaxNumberValue="100"
                                                FontSize="14"
                                                FontWeight="Bold"
-                                               NumberValue="{Binding Path=EquipmentPurchaseSuccessChance, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                               NumberValue="{Binding Path=EmployeeSuccess_EquipmentFailChance, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                                IsEnabled="{Binding Path=IsEditingEnabled, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
 
             </Grid>
             <Grid Grid.Row="1"
                   Grid.Column="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="0.5*"/>
-                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.35*"/>
+                    <RowDefinition Height="0.65*"/>
                 </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.5*"/>
-                    <ColumnDefinition Width="0.5*"/>
-                </Grid.ColumnDefinitions>
-                <Label Grid.Row="0" Grid.Column="0"
+
+                <Label Grid.Row="0"
+                       FontSize="13"
                        FontWeight="Bold"
-                       HorizontalContentAlignment="Center"
-                       VerticalContentAlignment="Center">Есть необх. оборуд. (%)</Label>
-                <Label Grid.Row="1" Grid.Column="0"
-                       Content="{Binding Path=EquipmentPurchaseSuccessChance, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                       BorderThickness="2"
-                       BorderBrush="SlateGray"
-                       HorizontalContentAlignment="Center"
-                       VerticalContentAlignment="Center"
-                       FontWeight="Bold"/>
-                <Label Grid.Row="0" Grid.Column="1"
-                       FontWeight="Bold"
-                       HorizontalContentAlignment="Center"
-                       VerticalContentAlignment="Center">Нет необх. оборуд. (%)</Label>
-                <Label Grid.Row="1" Grid.Column="1"
-                       Content="{Binding Path=EquipmentPurchaseFailChance, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                       FontWeight="Bold"
-                       BorderThickness="2"
-                       BorderBrush="SlateGray"
-                       HorizontalContentAlignment="Center"
-                       VerticalContentAlignment="Center"/>
+                       Content="Не квалиф. работники + нет необход. оборудование, %"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+                <controls:NumericUpDownControl Grid.Row="1"
+                                               Margin="40, 10"
+                                               MinNumberValue="0"
+                                               MaxNumberValue="100"
+                                               FontSize="14"
+                                               FontWeight="Bold"
+                                               NumberValue="{Binding Path=EmployeeFail_EquipmentFailChance, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                               IsEnabled="{Binding Path=IsEditingEnabled, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
             </Grid>
 
             <Grid Grid.Row="0" Grid.Column="0">
@@ -136,7 +125,7 @@
                 <Label Grid.Row="0"
                        FontSize="13"
                        FontWeight="Bold"
-                       Content="Вероятность найма квалифицированных работников, %"
+                       Content="Квалиф. работники + есть необход. оборудование, %"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"/>
                 <controls:NumericUpDownControl Grid.Row="1"
@@ -145,42 +134,31 @@
                                                MaxNumberValue="100"
                                                FontSize="14"
                                                FontWeight="Bold"
-                                               NumberValue="{Binding Path=EmployeeHiringSuccessChance, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                               NumberValue="{Binding Path=EmployeeSuccess_EquipmentSuccessChance, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                                IsEnabled="{Binding Path=IsEditingEnabled, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
 
             </Grid>
             <Grid Grid.Row="0"
                   Grid.Column="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="0.5*"/>
-                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.35*"/>
+                    <RowDefinition Height="0.65*"/>
                 </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.5*"/>
-                    <ColumnDefinition Width="0.5*"/>
-                </Grid.ColumnDefinitions>
-                <Label Grid.Row="0" Grid.Column="0"
+
+                <Label Grid.Row="0"
+                       FontSize="13"
                        FontWeight="Bold"
-                       HorizontalContentAlignment="Center"
-                       VerticalContentAlignment="Center">Квалиф. работники (%)</Label>
-                <Label Grid.Row="1" Grid.Column="0"
-                       Content="{Binding Path=EmployeeHiringSuccessChance, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                       BorderThickness="2"
-                       BorderBrush="SlateGray"
-                       HorizontalContentAlignment="Center"
-                       VerticalContentAlignment="Center"
-                       FontWeight="Bold"/>
-                <Label Grid.Row="0" Grid.Column="1"
-                       FontWeight="Bold"
-                       HorizontalContentAlignment="Center"
-                       VerticalContentAlignment="Center">Не квалиф. работники (%)</Label>
-                <Label Grid.Row="1" Grid.Column="1"
-                       Content="{Binding Path=EmployeeHiringFailChance, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                       FontWeight="Bold"
-                       BorderThickness="2"
-                       BorderBrush="SlateGray"
-                       HorizontalContentAlignment="Center"
-                       VerticalContentAlignment="Center"/>
+                       Content="Не квалиф. работники + есть необход. оборудование, %"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+                <controls:NumericUpDownControl Grid.Row="1"
+                                               Margin="40, 10"
+                                               MinNumberValue="0"
+                                               MaxNumberValue="100"
+                                               FontSize="14"
+                                               FontWeight="Bold"
+                                               NumberValue="{Binding Path=EmployeeFail_EquipmentSuccessChance, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                               IsEnabled="{Binding Path=IsEditingEnabled, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
             </Grid>
 
             <Grid Grid.Row="2"
