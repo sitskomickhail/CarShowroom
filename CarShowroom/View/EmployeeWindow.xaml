@@ -162,13 +162,29 @@
                         <StackPanel Orientation="Horizontal">
                             <Image Source="../Images/Icons/chart.png"
                                    MaxHeight="25"></Image>
-                            <Label FontWeight="Bold">Статистика</Label>
+                            <Label FontWeight="Bold">Решение</Label>
                         </StackPanel>
                     </Border>
                 </TabItem.Header>
                 <TabItem.Content>
                     <TabControl TabStripPlacement="Bottom"
-                        SelectionChanged="Selector_OnSelectionChanged"></TabControl>
+                                SelectionChanged="Selector_OnSelectionChanged"
+                                x:Name="Resolution">
+                        <TabItem>
+                            <TabItem.Header>
+                                <Label>Наглядное отображение решения</Label>
+                            </TabItem.Header>
+                        </TabItem>
+                        <TabItem>
+                            <TabItem.Header>
+                                <Label>Задать значения</Label>
+                            </TabItem.Header>
+                            <TabItem.Content>
+                                <UserControl Grid.Column="1"
+                                             Content="{Binding Path=InitializeResolutionControl, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                            </TabItem.Content>
+                        </TabItem>
+                    </TabControl>
                 </TabItem.Content>
             </TabItem>
             <i:Interaction.Triggers>
