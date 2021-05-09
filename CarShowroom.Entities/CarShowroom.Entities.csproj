@@ -96,6 +96,10 @@
     <Compile Include="Migrations\202105091655373_Creating_resolution_instance.designer.cs">
       <DependentUpon>202105091655373_Creating_resolution_instance.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105092124080_Editing_resolution_entity_model.cs" />
+    <Compile Include="Migrations\202105092124080_Editing_resolution_entity_model.designer.cs">
+      <DependentUpon>202105092124080_Editing_resolution_entity_model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AnswerModels\Clients\ClientAnswerModel.cs" />
     <Compile Include="Models\AnswerModels\Clients\ClientDealsAnswerModel.cs" />
@@ -168,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105091655373_Creating_resolution_instance.resx">
       <DependentUpon>202105091655373_Creating_resolution_instance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105092124080_Editing_resolution_entity_model.resx">
+      <DependentUpon>202105092124080_Editing_resolution_entity_model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -2,10 +2,14 @@
 {
     public class ResolutionResultModel
     {
-        public string DisplayText { get; set; }
+        public string SuccessDisplayText { get; set; }
+        
+        public string FailDisplayText { get; set; }
 
         public float ExpectedValue { get; set; }
 
-        public int Percent { get; set; }
+        public int SuccessPercent { get; set; }
+        
+        public int FailPercent { get; set; }
     }
 }

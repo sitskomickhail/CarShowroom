@@ -38,8 +38,11 @@ namespace CarShowroom.Server.HandlerServices.Resolutions
 
         private static void MapModels(Resolution resolution, InitResolutionModel model)
         {
-            resolution.EmployeeHiringChance = model.EmployeeHiringChance;
-            resolution.EquipmentPurchaseChance = model.EquipmentPurchaseChance;
+            resolution.EmployeeFail_EquipmentFailChance = model.EmployeeFail_EquipmentFailChance;
+            resolution.EmployeeFail_EquipmentSuccessChance = model.EmployeeFail_EquipmentSuccessChance;
+            resolution.EmployeeSuccess_EquipmentFailChance = model.EmployeeSuccess_EquipmentFailChance;
+            resolution.EmployeeSuccess_EquipmentSuccessChance = model.EmployeeSuccess_EquipmentSuccessChance;
+
             resolution.ResolutionExpenses = model.ResolutionExpenses;
         }
     }
