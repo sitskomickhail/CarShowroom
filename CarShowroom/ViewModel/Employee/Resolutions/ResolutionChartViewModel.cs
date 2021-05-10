@@ -86,7 +86,7 @@ namespace CarShowroom.ViewModel.Employee.Resolutions
             SaveChartToPdfFileCommand = new RelayCommand(SaveChartToPdfFileCommandExecuted);
         }
 
-        private async void SaveChartToPdfFileCommandExecuted()
+        private void SaveChartToPdfFileCommandExecuted()
         {
             try
             {
