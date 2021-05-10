@@ -1,13 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using CarShowroom.Entities.Models.AnswerModels.Resolutions;
 using CarShowroom.Entities.Models.Enums;
 using CarShowroom.Entities.Models.TransferModels.Resolutions;
 using CarShowroom.Handlers.Interfaces.Resolutions;
 using CarShowroom.Models.Resolutions;
+using CarShowroom.Services.Interfaces;
+using CarShowroom.View;
 using CarShowroom.ViewModel.Base;
+using GalaSoft.MvvmLight.CommandWpf;
 using Newtonsoft.Json;
 using Ninject;
 
@@ -17,6 +25,9 @@ namespace CarShowroom.ViewModel.Employee.Resolutions
     {
         [Inject]
         public IGetResolutionResultHandler GetResolutionResultHandler { get; set; }
+
+        [Inject]
+        public IPdfService PdfService { get; set; }
 
         private int _resolutionResult;
         public int ResolutionResult
@@ -66,6 +77,53 @@ namespace CarShowroom.ViewModel.Employee.Resolutions
         {
             get => _level4Resolution;
             set { _level4Resolution = value; OnPropertyChanged(); }
+        }
+
+        public ICommand SaveChartToPdfFileCommand { get; set; }
+
+        public ResolutionChartViewModel()
+        {
+            SaveChartToPdfFileCommand = new RelayCommand(SaveChartToPdfFileCommandExecuted);
+        }
+
+        private void SaveChartToPdfFileCommandExecuted()
+        {
+            try
+            {
+                var w = 8000;
+                var h = 4000;
+
+                var screen = Application.Current.Windows.OfType<EmployeeWindow>().SingleOrDefault(x => x.IsActive);
+
+                var visual = new DrawingVisual();
+                using (var context = visual.RenderOpen())
+                {
+                    context.DrawRectangle(new VisualBrush(screen),
+                        null,
+                        new Rect(new Point(), new Size(screen.Width, screen.Height)));
+                }
+
+                visual.Transform = new ScaleTransform(w / screen.ActualWidth, h / screen.ActualHeight);
+
+                var rtb = new RenderTargetBitmap(w, h, 96, 96, PixelFormats.Pbgra32);
+                rtb.Render(visual);
+
+                var enc = new PngBitmapEncoder();
+                enc.Frames.Add(BitmapFrame.Create(rtb));
+
+                var fileName = Guid.NewGuid() + DateTime.Now.ToString("ddMMyyyy-hhmmss") + ".png";
+                using (var stm = File.Create(fileName))
+                {
+                    enc.Save(stm);
+                }
+
+                PdfService.GeneratePDF("Отчет по решению.pdf", fileName);
+                MessageBox.Show("Отчет успешно создан", "Успех", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void SetResolutionCaseResult(ResolutionAnswerModel model)
