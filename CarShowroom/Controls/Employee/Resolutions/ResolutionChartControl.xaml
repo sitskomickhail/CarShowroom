@@ -7,6 +7,16 @@
              xmlns:controls="clr-namespace:CarShowroom.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.ContextMenu>
+        <ContextMenu>
+            <MenuItem Header="Сохранить как pdf-отчет"
+                      Command="{Binding Path=SaveChartToPdfFileCommand}">
+                <MenuItem.Icon>
+                    <Image Source="../../../Images/Icons/download.png"/>
+                </MenuItem.Icon>
+            </MenuItem>
+        </ContextMenu>
+    </UserControl.ContextMenu>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.15*"></ColumnDefinition>

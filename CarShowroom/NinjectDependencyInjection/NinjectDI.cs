@@ -36,6 +36,8 @@ using CarShowroom.Handlers.Resolutions;
 using CarShowroom.Handlers.Sales;
 using CarShowroom.Handlers.Users;
 using CarShowroom.Profiles;
+using CarShowroom.Services;
+using CarShowroom.Services.Interfaces;
 using CarShowroom.ViewModel.Administration.Clients;
 using CarShowroom.ViewModel.Administration.Maintenances;
 using CarShowroom.ViewModel.Administration.Sales;
@@ -62,6 +64,12 @@ namespace CarShowroom.NinjectDependencyInjection
             InjectWindows();
             InjectTcpHandler();
             InjectHandlers();
+            InjectServices();
+        }
+
+        private void InjectServices()
+        {
+            Kernel.Bind<IPdfService>().To<PdfService>().InRequestScope();
         }
 
         private void InjectMapper()
