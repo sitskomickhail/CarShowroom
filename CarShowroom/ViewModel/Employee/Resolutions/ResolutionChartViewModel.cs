@@ -130,6 +130,11 @@ namespace CarShowroom.ViewModel.Employee.Resolutions
 
         public override async Task SetDefaultValues()
         {
+            Level1Resolution = new ResolutionResultModel();
+            Level2Resolution = new ResolutionResultModel();
+            Level3Resolution = new ResolutionResultModel();
+            Level4Resolution = new ResolutionResultModel();
+
             await Application.Current.Dispatcher.Invoke(async () =>
             {
                 var recievedData = GetResolutionResultHandler.GetResolutionResult(new GetResolutionResultModel());

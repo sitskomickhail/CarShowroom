@@ -6,7 +6,7 @@
         
         public string FailDisplayText { get; set; }
 
-        public float ExpectedValue { get; set; }
+        public double ExpectedValue { get; set; }
 
         public int SuccessPercent { get; set; }
         

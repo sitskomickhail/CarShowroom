@@ -79,6 +79,8 @@ namespace CarShowroom.Server.Handlers
         [Inject] public Handler<InitResolutionModel, ResolutionValuesAnswerModel> SetResolutionValuesHandler { get; set; }
 
         [Inject] public Handler<GetResolutionValuesModel, ResolutionValuesAnswerModel> GetResolutionValuesHandler { get; set; }
+       
+        [Inject] public Handler<GetResolutionResultModel, List<ResolutionAnswerModel>> GetResolutionResultHandler { get; set; }
 
         public async Task<DataReciever> ExecuteAction(DataTransfer dataTransfer)
         {
@@ -116,6 +118,7 @@ namespace CarShowroom.Server.Handlers
                     case RequestAction.CreateMaintenance: answer = await CreateMaintenanceHandler.ExecuteAction(dataTransfer); break;
                     case RequestAction.SetResolutionValues: answer = await SetResolutionValuesHandler.ExecuteAction(dataTransfer); break;
                     case RequestAction.GetResolutionValues: answer = await GetResolutionValuesHandler.ExecuteAction(dataTransfer); break;
+                    case RequestAction.GetResolutionResult: answer = await GetResolutionResultHandler.ExecuteAction(dataTransfer); break;
                     default: throw new Exception("Action type was not found");
                 }
             }
