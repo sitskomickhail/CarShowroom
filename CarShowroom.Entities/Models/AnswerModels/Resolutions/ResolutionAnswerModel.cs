@@ -9,7 +9,7 @@ namespace CarShowroom.Entities.Models.AnswerModels.Resolutions
 
         public int FailPercent { get; set; }
 
-        public float ExpectedValue { get; set; }
+        public double ExpectedValue { get; set; }
 
         public int Expenses { get; set; }
 
