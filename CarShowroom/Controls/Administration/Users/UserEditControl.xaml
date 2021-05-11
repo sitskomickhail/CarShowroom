@@ -28,7 +28,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Name"
+                <DataGridTemplateColumn Header="ФИО"
                                         Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -36,7 +36,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Login"
+                <DataGridTemplateColumn Header="Логин"
                                         Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -44,7 +44,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Role"
+                <DataGridTemplateColumn Header="Право доступа"
                                         Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -52,7 +52,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Blocked"
+                <DataGridTemplateColumn Header="Заблокирован"
                                         Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -83,7 +83,7 @@
                                             <Image Source="../../../Images/Icons/save.png"
                                            Height="17"/>
                                             <Label FontWeight="Bold"
-                                               FontSize="10">Save</Label>
+                                               FontSize="10">Сохр.</Label>
                                         </StackPanel>
                                     </Button>
                                 </Border>
@@ -101,7 +101,7 @@
                                             <Image Source="../../../Images/Icons/garbage.png"
                                            Height="17"/>
                                             <Label FontWeight="Bold"
-                                               FontSize="10">Delete</Label>
+                                               FontSize="10">Блок.</Label>
                                         </StackPanel>
                                     </Button>
                                 </Border>
@@ -130,7 +130,7 @@
                             HorizontalAlignment="Center">
                     <Label FontSize="14"
                            Padding="-5"
-                           Background="Transparent">Show all</Label>
+                           Background="Transparent">Все польз.</Label>
                     <CheckBox Margin="5, 3, 0, 0"
                               Background="Transparent"
                               IsChecked="{Binding Path=UserListModel.UserBlocked, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
@@ -157,7 +157,7 @@
                         FontWeight="Bold"
                         BorderBrush="Transparent"
                         Background="Transparent"
-                        Command="{Binding SearchUsersCommand}">Search</Button>
+                        Command="{Binding SearchUsersCommand}">Поиск</Button>
             </Border>
         </Grid>
     </Grid>

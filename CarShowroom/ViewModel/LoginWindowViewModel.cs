@@ -34,7 +34,7 @@ namespace CarShowroom.ViewModel
         [Inject]
         public ILoginHandler LoginHandler { get; set; }
 
-        private string _infoMessage = "Welcome! Enter your credentials";
+        private string _infoMessage = "Добро пожаловать! Введите логин и пароль";
 
         public string InfoMessage
         {
@@ -63,7 +63,7 @@ namespace CarShowroom.ViewModel
 
         private async void OnLoginCommandExecuted(IWindow currentWindow)
         {
-            InfoMessage = "Waiting...";
+            InfoMessage = "Ожидание...";
             DataReciever serverAnswer = null;
 
             await Task.Run(async () =>
@@ -111,7 +111,7 @@ namespace CarShowroom.ViewModel
         {
             this.LoginModel = new LoginModel();
             this.LoginModel.Password = String.Empty;
-            this.InfoMessage = "Welcome! Enter your credentials";
+            this.InfoMessage = "Добро пожаловать! Введите логин и пароль";
 
             return Task.CompletedTask;
         }

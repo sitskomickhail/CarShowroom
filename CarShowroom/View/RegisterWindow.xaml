@@ -62,7 +62,7 @@
                     <Label Grid.Column="0"
                            HorizontalAlignment="Center"
                            FontSize="14"
-                           FontWeight="Bold">Role*</Label>
+                           FontWeight="Bold">Доступ*</Label>
                     <ComboBox Grid.Column="1"
                               FontSize="16"
                               x:Name="RoleComboBox"
@@ -89,7 +89,7 @@
                     <Label Grid.Column="0"
                            HorizontalAlignment="Center"
                            FontSize="14"
-                           FontWeight="Bold">Name*</Label>
+                           FontWeight="Bold">ФИО*</Label>
                     <TextBox Grid.Column="1"
                              BorderBrush="Transparent"
                              VerticalAlignment="Center"
@@ -114,7 +114,7 @@
                     <Label Grid.Column="0"
                            HorizontalAlignment="Center"
                            FontSize="14"
-                           FontWeight="Bold">Login*</Label>
+                           FontWeight="Bold">Логин*</Label>
                     <TextBox Grid.Column="1"
                              BorderBrush="Transparent"
                              VerticalAlignment="Center"
@@ -139,7 +139,7 @@
                     <Label Grid.Column="0"
                            HorizontalAlignment="Center"
                            FontSize="14"
-                           FontWeight="Bold">Password*</Label>
+                           FontWeight="Bold">Пароль*</Label>
                     <uc:PasswordControl Grid.Column="1"
                                         VerticalAlignment="Center"
                                         SecurePassword="{Binding Path=RegisterModel.Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
@@ -162,7 +162,7 @@
                            HorizontalAlignment="Center"
                            FontSize="14"
                            FontWeight="Bold">
-                        <TextBlock>Repeat<LineBreak/>password*</TextBlock>
+                        <TextBlock>Повторите<LineBreak/>пароль*</TextBlock>
                     </Label>
                     <uc:PasswordControl Grid.Column="1"
                                  VerticalAlignment="Center"
@@ -188,7 +188,7 @@
                            FontSize="14"
                            FontWeight="Bold"
                            Foreground="Red">
-                        <TextBlock>Secret<LineBreak/>password*</TextBlock>
+                        <TextBlock>Секретный<LineBreak/>пароль*</TextBlock>
                     </Label>
                     <uc:PasswordControl Grid.Column="1"
                                         VerticalAlignment="Center"
@@ -212,11 +212,11 @@
                         VerticalAlignment="Center"
                         BorderBrush="Transparent"
                         Command="{Binding SaveUserCommand}"
-                        CommandParameter="{Binding ElementName=RegisterWindowName}">Save</Button>
+                        CommandParameter="{Binding ElementName=RegisterWindowName}">Сохранить</Button>
             </Border>
         </Grid>
         <StatusBar Grid.Row="2">
-            <Label FontSize="10">Status: </Label>
+            <Label FontSize="10">Статус: </Label>
             <Label FontSize="10" Content="{Binding Path=Status, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></Label>
         </StatusBar>
     </Grid>

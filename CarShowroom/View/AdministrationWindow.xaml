@@ -17,7 +17,7 @@
     <Window.Resources>
         <Style x:Key="TreeViewStyle">
             <Setter Property="Control.FontSize" Value="14"/>
-            <Setter Property="TreeView.BorderBrush" Value="Black"/>
+            <Setter Property="TreeView.BorderBrush" Value="Transparent"/>
         </Style>
         <Style x:Key="TreeViewItemBorder">
             <Setter Property="Border.BorderBrush" Value="LightGray"/>
@@ -57,7 +57,7 @@
         </ToolBar>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.23*"></ColumnDefinition>
+                <ColumnDefinition Width="0.24*"></ColumnDefinition>
                 <ColumnDefinition Width="0.77*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <TreeView Grid.Column="0" 
@@ -68,11 +68,11 @@
                             <Image Source="../Images/Icons/bus.png" 
                                        MaxHeight="20"/>
                             <Border Style="{StaticResource TreeViewItemBorder}">
-                                <Label Style="{StaticResource TreeViewItemLabel}">Vehicles</Label>
+                                <Label Style="{StaticResource TreeViewItemLabel}">Автомобили</Label>
                             </Border>
                         </StackPanel>
                     </TreeViewItem.Header>
-                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Show list of vehicles" >
+                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Просмотр списка авто" >
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonUp">
                                 <i:InvokeCommandAction Command="{Binding TreeViewItemSelectionCommand}"
@@ -80,7 +80,7 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </TreeViewItem>
-                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Edit vehicles list">
+                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Редакт. список авто">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonUp">
                                 <i:InvokeCommandAction Command="{Binding TreeViewItemSelectionCommand}"
@@ -88,7 +88,7 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </TreeViewItem>
-                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Create vehicle">
+                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Создать авто">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonUp">
                                 <i:InvokeCommandAction Command="{Binding TreeViewItemSelectionCommand}"
@@ -103,11 +103,11 @@
                             <Image Source="../Images/Icons/key.png" 
                                    MaxHeight="20"/>
                             <Border Style="{StaticResource TreeViewItemBorder}">
-                                <Label Style="{StaticResource TreeViewItemLabel}">Users</Label>
+                                <Label Style="{StaticResource TreeViewItemLabel}">Пользователи</Label>
                             </Border>
                         </StackPanel>
                     </TreeViewItem.Header>
-                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Show list of users">
+                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Просмотр списка польз.">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonUp">
                                 <i:InvokeCommandAction Command="{Binding TreeViewItemSelectionCommand}"
@@ -115,7 +115,7 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </TreeViewItem>
-                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Edit users list">
+                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Редакт. список польз.">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonUp">
                                 <i:InvokeCommandAction Command="{Binding TreeViewItemSelectionCommand}"
@@ -123,7 +123,7 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </TreeViewItem>
-                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Create user">
+                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Создать польз.">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonUp">
                                 <i:InvokeCommandAction Command="{Binding TreeViewItemSelectionCommand}"
@@ -138,11 +138,11 @@
                             <Image Source="../Images/Icons/business.png" 
                                    MaxHeight="20"/>
                             <Border Style="{StaticResource TreeViewItemBorder}">
-                                <Label Style="{StaticResource TreeViewItemLabel}">Clients</Label>
+                                <Label Style="{StaticResource TreeViewItemLabel}">Клиенты</Label>
                             </Border>
                         </StackPanel>
                     </TreeViewItem.Header>
-                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Show list of clients">
+                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Просмотр списка клиентов">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonUp">
                                 <i:InvokeCommandAction Command="{Binding TreeViewItemSelectionCommand}"
@@ -150,7 +150,7 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </TreeViewItem>
-                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Edit clients list">
+                    <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Редакт. список клиентов">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonUp">
                                 <i:InvokeCommandAction Command="{Binding TreeViewItemSelectionCommand}"
@@ -166,7 +166,7 @@
                                    MaxHeight="20"/>
                             <Border Style="{StaticResource TreeViewItemBorder}">
                                 <Label Style="{StaticResource TreeViewItemLabel}"
-                                       Content="Sales and Maintenances"></Label>
+                                       Content="Продажи и Ремонт"></Label>
                             </Border>
                         </StackPanel>
                     </TreeViewItem.Header>
@@ -176,11 +176,11 @@
                                 <Image Source="../Images/Icons/sales.png" 
                                        MaxHeight="20"/>
                                 <Border Style="{StaticResource TreeViewItemBorder}">
-                                    <Label Style="{StaticResource TreeViewItemLabel}">Sales</Label>
+                                    <Label Style="{StaticResource TreeViewItemLabel}">Продажи</Label>
                                 </Border>
                             </StackPanel>
                         </TreeViewItem.Header>
-                        <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Show list of sales">
+                        <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Просмотр списка продаж">
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="MouseLeftButtonUp">
                                     <i:InvokeCommandAction Command="{Binding TreeViewItemSelectionCommand}"
@@ -188,7 +188,7 @@
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </TreeViewItem>
-                        <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Show sale requests">
+                        <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Запросы на покупку">
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="MouseLeftButtonUp">
                                     <i:InvokeCommandAction Command="{Binding TreeViewItemSelectionCommand}"
@@ -203,11 +203,11 @@
                                 <Image Source="../Images/Icons/gear.png" 
                                        MaxHeight="20"/>
                                 <Border Style="{StaticResource TreeViewItemBorder}">
-                                    <Label Style="{StaticResource TreeViewItemLabel}">Maintenances</Label>
+                                    <Label Style="{StaticResource TreeViewItemLabel}">Ремонт</Label>
                                 </Border>
                             </StackPanel>
                         </TreeViewItem.Header>
-                        <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Show list of maintenances">
+                        <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Просмотр списка ремонтов">
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="MouseLeftButtonUp">
                                     <i:InvokeCommandAction Command="{Binding TreeViewItemSelectionCommand}"
@@ -215,7 +215,7 @@
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </TreeViewItem>
-                        <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Edit maintenances list">
+                        <TreeViewItem Style="{StaticResource TreeViewItemElement}" Header="➼ Редакт. список ремонтов">
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="MouseLeftButtonUp">
                                     <i:InvokeCommandAction Command="{Binding TreeViewItemSelectionCommand}"
@@ -226,6 +226,10 @@
                     </TreeViewItem>
                 </TreeViewItem>
             </TreeView>
+            <Line HorizontalAlignment="Right"
+                  Y1="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}}, Path=ActualHeight}"
+                  Stroke="LightGray"
+                  StrokeThickness="2"/>
             <UserControl Grid.Column="1"
                          Content="{Binding Path=CurrentControl, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
         </Grid>

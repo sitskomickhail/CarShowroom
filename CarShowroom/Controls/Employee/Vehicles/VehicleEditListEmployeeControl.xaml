@@ -11,7 +11,6 @@
             <RowDefinition Height="0.9*"/>
             <RowDefinition Height="0.1*"/>
         </Grid.RowDefinitions>
-        <!--Data Template need-->
         <DataGrid Grid.Row="0" 
                   ItemsSource="{Binding Path=VehicleCollection, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                   AutoGenerateColumns="False"
@@ -27,7 +26,15 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Model"
+                <DataGridTemplateColumn Header="Марка"
+                                        Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox Text="{Binding Path=Mark, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Модель"
                                         Width="*"
                                         CanUserSort="True">
                     <DataGridTemplateColumn.CellTemplate>
@@ -36,15 +43,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Mark"
-                                        Width="*">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBox Text="{Binding Path=Mark, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Salable"
+                <DataGridTemplateColumn Header="Продается"
                                         Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -52,7 +51,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Cost"
+                <DataGridTemplateColumn Header="Стоимость"
                                         Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -60,7 +59,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Sold"
+                <DataGridTemplateColumn Header="Продан?"
                                         Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -71,7 +70,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Have repairs"
+                <DataGridTemplateColumn Header="Ремонт?"
                                         Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -101,7 +100,7 @@
                                             <Image Source="../../../Images/Icons/save.png"
                                            Height="17"/>
                                             <Label FontWeight="Bold"
-                                               FontSize="10">Save</Label>
+                                               FontSize="10">Сохр.</Label>
                                         </StackPanel>
                                     </Button>
                                 </Border>
@@ -119,7 +118,7 @@
                                             <Image Source="../../../Images/Icons/garbage.png"
                                            Height="17"/>
                                             <Label FontWeight="Bold"
-                                               FontSize="10">Delete</Label>
+                                               FontSize="10">Удалить</Label>
                                         </StackPanel>
                                     </Button>
                                 </Border>
@@ -156,7 +155,7 @@
                         FontWeight="Bold"
                         BorderBrush="Transparent"
                         Background="Transparent"
-                        Command="{Binding SearchVehicles}">Search</Button>
+                        Command="{Binding SearchVehicles}">Поиск</Button>
             </Border>
         </Grid>
     </Grid>

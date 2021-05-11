@@ -30,24 +30,7 @@
                 <ColumnDefinition Width="0.2*"/>
                 <ColumnDefinition Width="0.8*"/>
             </Grid.ColumnDefinitions>
-            <Label HorizontalAlignment="Center">Model</Label>
-            <Border Grid.Column="1"
-                    BorderBrush="Black"
-                    BorderThickness="2"
-                    CornerRadius="5">
-                <TextBox BorderBrush="Transparent"
-                         HorizontalContentAlignment="Center"
-                         Text="{Binding Path=CreateVehicle.Model, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-            </Border>
-        </Grid>
-        <Grid Grid.Row="1" 
-              Margin="10"
-              Style="{StaticResource ElementStyle}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.2*"/>
-                <ColumnDefinition Width="0.8*"/>
-            </Grid.ColumnDefinitions>
-            <Label HorizontalAlignment="Center">Mark</Label>
+            <Label HorizontalAlignment="Center">Марка</Label>
             <Border Grid.Column="1"
                     BorderBrush="Black"
                     BorderThickness="2"
@@ -57,6 +40,23 @@
                          Text="{Binding Path=CreateVehicle.Mark, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </Border>
         </Grid>
+        <Grid Grid.Row="1" 
+              Margin="10"
+              Style="{StaticResource ElementStyle}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition Width="0.8*"/>
+            </Grid.ColumnDefinitions>
+            <Label HorizontalAlignment="Center">Модель</Label>
+            <Border Grid.Column="1"
+                    BorderBrush="Black"
+                    BorderThickness="2"
+                    CornerRadius="5">
+                <TextBox BorderBrush="Transparent"
+                         HorizontalContentAlignment="Center"
+                         Text="{Binding Path=CreateVehicle.Model, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            </Border>
+        </Grid>
         <Grid Grid.Row="2" 
               Margin="10"
               Style="{StaticResource ElementStyle}">
@@ -64,7 +64,7 @@
                 <ColumnDefinition Width="0.2*"/>
                 <ColumnDefinition Width="0.8*"/>
             </Grid.ColumnDefinitions>
-            <Label HorizontalAlignment="Center">Salable</Label>
+            <Label HorizontalAlignment="Center">Продается</Label>
             <Border Grid.Column="1"
                     BorderBrush="Black"
                     BorderThickness="2"
@@ -87,7 +87,7 @@
                 <ColumnDefinition Width="0.2*"/>
                 <ColumnDefinition Width="0.8*"/>
             </Grid.ColumnDefinitions>
-            <Label HorizontalAlignment="Center">Cost</Label>
+            <Label HorizontalAlignment="Center">Стоимость</Label>
             <Border Grid.Column="1"
                     BorderBrush="Black"
                     BorderThickness="2"
@@ -107,7 +107,7 @@
                 <Button Background="Transparent"
                         BorderBrush="Transparent"
                         Command="{Binding SaveVehicleCommand }"
-                    Content="Save"></Button>
+                    Content="Сохранить"/>
             </Border>
         </Grid>
     </Grid>

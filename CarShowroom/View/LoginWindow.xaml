@@ -59,7 +59,7 @@
                     BorderThickness="2"
                     Background="DarkGray"
                     Command="{Binding LoginCommand}"
-                    CommandParameter="{Binding ElementName=LoginWindowName}">Login</Button>
+                    CommandParameter="{Binding ElementName=LoginWindowName}">Войти</Button>
         </Grid>
         <Grid Grid.Row="4"
               Margin="2"
@@ -67,7 +67,7 @@
             <Button Cursor="Hand"
                     BorderThickness="2"
                     FontSize="9"
-                    Command="{Binding RegisterCommand}">register in system</Button>
+                    Command="{Binding RegisterCommand}">Зарегистрироваться</Button>
         </Grid>
     </Grid>
 </Window>
