@@ -31,7 +31,7 @@
                 <ColumnDefinition Width="0.2*"/>
                 <ColumnDefinition Width="0.8*"/>
             </Grid.ColumnDefinitions>
-            <Label HorizontalAlignment="Center">Name</Label>
+            <Label HorizontalAlignment="Center">ФИО</Label>
             <Border Grid.Column="1"
                     BorderBrush="Black"
                     BorderThickness="2"
@@ -48,7 +48,7 @@
                 <ColumnDefinition Width="0.2*"/>
                 <ColumnDefinition Width="0.8*"/>
             </Grid.ColumnDefinitions>
-            <Label HorizontalAlignment="Center">Role</Label>
+            <Label HorizontalAlignment="Center">Право доступа</Label>
             <Border Grid.Column="1"
                     BorderBrush="Black"
                     BorderThickness="2"
@@ -71,7 +71,7 @@
                 <ColumnDefinition Width="0.2*"/>
                 <ColumnDefinition Width="0.8*"/>
             </Grid.ColumnDefinitions>
-            <Label HorizontalAlignment="Center">Login</Label>
+            <Label HorizontalAlignment="Center">Логин</Label>
             <Border Grid.Column="1"
                     BorderBrush="Black"
                     BorderThickness="2"
@@ -88,7 +88,7 @@
                 <ColumnDefinition Width="0.2*"/>
                 <ColumnDefinition Width="0.8*"/>
             </Grid.ColumnDefinitions>
-            <Label HorizontalAlignment="Center">Password</Label>
+            <Label HorizontalAlignment="Center">Пароль</Label>
             <Border Grid.Column="1"
                     BorderBrush="Black"
                     BorderThickness="2"
@@ -109,7 +109,7 @@
                 <Button Background="Transparent"
                         BorderBrush="Transparent"
                         Command="{Binding CreateUserCommand }"
-                    Content="Save"></Button>
+                    Content="Сохранить"></Button>
             </Border>
         </Grid>
     </Grid>

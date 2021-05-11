@@ -28,7 +28,7 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Header="Client"
+                    <DataGridTemplateColumn Header="Клиент"
                                         Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -36,7 +36,7 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Header="Vehicle"
+                    <DataGridTemplateColumn Header="Автомобиль"
                                         Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -44,7 +44,7 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Header="Total cost"
+                    <DataGridTemplateColumn Header="Общая стоимость"
                                         Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -53,7 +53,7 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Header="Repairing hours"
+                    <DataGridTemplateColumn Header="Рабочих часов"
                                         Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -62,7 +62,7 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Header="Started at"
+                    <DataGridTemplateColumn Header="Начало работ"
                                         Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -71,7 +71,7 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Header="Finish at"
+                    <DataGridTemplateColumn Header="Конец работ"
                                         Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -100,7 +100,7 @@
                                                 <Image Source="../../../Images/Icons/save.png"
                                            Height="17"/>
                                                 <Label FontWeight="Bold"
-                                               FontSize="10">Save</Label>
+                                               FontSize="10">Сохр.</Label>
                                             </StackPanel>
                                         </Button>
                                     </Border>
@@ -137,7 +137,7 @@
                         FontWeight="Bold"
                         BorderBrush="Transparent"
                         Background="Transparent"
-                        Command="{Binding SearchMaintenancesCommand}">Search</Button>
+                        Command="{Binding SearchMaintenancesCommand}">Поиск</Button>
                 </Border>
             </Grid>
         </Grid>

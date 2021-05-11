@@ -27,7 +27,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Name"
+                <DataGridTemplateColumn Header="ФИО"
                                         Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -35,7 +35,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Address"
+                <DataGridTemplateColumn Header="Адрес"
                                         Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -59,7 +59,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Phone"
+                <DataGridTemplateColumn Header="Номер телефона"
                                         Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -75,7 +75,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Have sales"
+                <DataGridTemplateColumn Header="Покупки?"
                                         Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -86,7 +86,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Have maintenances"
+                <DataGridTemplateColumn Header="Ремонт?"
                                         Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -116,7 +116,7 @@
                                             <Image Source="../../../Images/Icons/save.png"
                                            Height="17"/>
                                             <Label FontWeight="Bold"
-                                               FontSize="10">Save</Label>
+                                               FontSize="10">Сохр.</Label>
                                         </StackPanel>
                                     </Button>
                                 </Border>
@@ -134,7 +134,7 @@
                                             <Image Source="../../../Images/Icons/garbage.png"
                                            Height="17"/>
                                             <Label FontWeight="Bold"
-                                               FontSize="10">Block</Label>
+                                               FontSize="10">Блок.</Label>
                                         </StackPanel>
                                     </Button>
                                 </Border>
@@ -171,7 +171,7 @@
                         FontWeight="Bold"
                         BorderBrush="Transparent"
                         Background="Transparent"
-                        Command="{Binding SearchClientsCommand}">Search</Button>
+                        Command="{Binding SearchClientsCommand}">Поиск</Button>
             </Border>
         </Grid>
     </Grid>

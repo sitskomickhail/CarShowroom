@@ -6,7 +6,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowStyle="ToolWindow"
-        Height="550" Width="400">
+        Height="550" Width="600">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.1*"/>
@@ -22,7 +22,7 @@
                         <ColumnDefinition Width="0.7*"/>
                     </Grid.ColumnDefinitions>
                     <Label VerticalAlignment="Center"
-                           FontSize="15">Client name:</Label>
+                           FontSize="15">Клиент:</Label>
                     <Label Content="{Binding Path=Name}"
                            FontSize="15"
                            Grid.Column="1"
@@ -45,7 +45,7 @@
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        FontSize="16"
-                       FontWeight="Bold">Sales list</Label>
+                       FontWeight="Bold">Список покупок</Label>
                 <DataGrid Grid.Row="1" 
                           ItemsSource="{Binding Path=Sales}"
                           IsReadOnly="True"
@@ -54,11 +54,12 @@
                           CanUserDeleteRows="False" 
                           CanUserSortColumns="True">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Car mark" FontSize="11" CanUserSort="True" Width="0.3*" Binding="{Binding Path=Vehicle.Mark}"></DataGridTextColumn>
-                        <DataGridTextColumn Header="Sales time" FontSize="11" Width="0.3*" Binding="{Binding Path=SaleTime, StringFormat='{}{0:dd.MM.yyyy HH:mm:ss}'}"></DataGridTextColumn>
-                        <DataGridTextColumn Header="Cost" FontSize="11" Width="0.2*" Binding="{Binding Path=TotalCost, StringFormat={}{0:C}}"></DataGridTextColumn>
-                        <DataGridTextColumn Header="Payment" FontSize="11" Width="0.2*" Binding="{Binding Path=PaymentMethod}"></DataGridTextColumn>
-                        <DataGridTextColumn Header="Status" FontSize="11" Width="0.2*" Binding="{Binding Path=Status}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Марка авто" FontSize="11" CanUserSort="True" Width="0.3*" Binding="{Binding Path=Vehicle.Mark}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Марка авто" FontSize="11" CanUserSort="True" Width="0.3*" Binding="{Binding Path=Vehicle.Model}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Время продажи" FontSize="11" Width="0.3*" Binding="{Binding Path=SaleTime, StringFormat='{}{0:dd.MM.yyyy HH:mm:ss}'}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Стоимость" FontSize="11" Width="0.2*" Binding="{Binding Path=TotalCost, StringFormat={}{0:C}}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Способ оплаты" FontSize="11" Width="0.2*" Binding="{Binding Path=PaymentMethod}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Статус" FontSize="11" Width="0.2*" Binding="{Binding Path=Status}"></DataGridTextColumn>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
@@ -71,7 +72,7 @@
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        FontSize="16"
-                       FontWeight="Bold">Maintenance list</Label>
+                       FontWeight="Bold">Список ремонтных работ</Label>
                 <DataGrid Grid.Row="1" 
                           ItemsSource="{Binding Path=Maintenances}" 
                           AutoGenerateColumns="False" 
@@ -80,10 +81,11 @@
                           CanUserDeleteRows="False" 
                           CanUserSortColumns="True">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Car mark" FontSize="11" CanUserSort="True" Width="0.3*" Binding="{Binding Path=Vehicle.Mark}"></DataGridTextColumn>
-                        <DataGridTextColumn Header="Maintain until" FontSize="11" Width="0.3*" Binding="{Binding Path=MaintainUntil, StringFormat='{}{0:dd.MM.yyyy HH:mm:ss}'}"></DataGridTextColumn>
-                        <DataGridTextColumn Header="Work hours" FontSize="11" Width="0.2*" Binding="{Binding Path=RepairingHours}"></DataGridTextColumn>
-                        <DataGridTextColumn Header="Cost" FontSize="11" Width="0.2*" Binding="{Binding Path=TotalCost, StringFormat={}{0:C}}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Марка авто" FontSize="11" CanUserSort="True" Width="0.3*" Binding="{Binding Path=Vehicle.Mark}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Модель авто" FontSize="11" CanUserSort="True" Width="0.3*" Binding="{Binding Path=Vehicle.Model}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Конец работ" FontSize="11" Width="0.3*" Binding="{Binding Path=MaintainUntil, StringFormat='{}{0:dd.MM.yyyy HH:mm:ss}'}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Рабочих часов" FontSize="11" Width="0.2*" Binding="{Binding Path=RepairingHours}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Стоимость" FontSize="11" Width="0.2*" Binding="{Binding Path=TotalCost, StringFormat={}{0:C}}"></DataGridTextColumn>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>

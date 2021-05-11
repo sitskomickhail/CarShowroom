@@ -46,9 +46,13 @@ namespace CarShowroom.ViewModel
 
         private async void OnTabItemChooseCommandExecuted()
         {
+            await VehicleCreateEmployeeControl.LoadInitialData();
             await VehicleEditListEmployeeControl.LoadInitialData();
             await ClientListEmployeeControl.LoadInitialData();
+            await SaleListEmployeeControl.LoadInitialData();
+            await AcceptSaleEmployeeControl.LoadInitialData();
             await MaintenanceEditEmployeeControl.LoadInitialData();
+            await InitializeResolutionControl.LoadInitialData();
         }
 
         public void BackToLoginCommandExecute(IWindow currentWindow)

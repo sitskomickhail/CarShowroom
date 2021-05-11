@@ -27,7 +27,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Client"
+                <DataGridTemplateColumn Header="Клиент"
                                         Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -35,7 +35,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Vehicle"
+                <DataGridTemplateColumn Header="Автомобиль"
                                         Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -43,7 +43,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Total cost"
+                <DataGridTemplateColumn Header="Общая стоимость"
                                         Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -51,7 +51,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Payment"
+                <DataGridTemplateColumn Header="Способ оплаты"
                                         Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -78,7 +78,7 @@
                                             <Image Source="../../../Images/Icons/plus.png"
                                            Height="17"/>
                                             <Label FontWeight="Bold"
-                                               FontSize="10">Accept</Label>
+                                               FontSize="10">Принять</Label>
                                         </StackPanel>
                                     </Button>
                                 </Border>
@@ -96,7 +96,7 @@
                                             <Image Source="../../../Images/Icons/cross.png"
                                            Height="17"/>
                                             <Label FontWeight="Bold"
-                                               FontSize="10">Decline</Label>
+                                               FontSize="10">Отклонить</Label>
                                         </StackPanel>
                                     </Button>
                                 </Border>
@@ -133,7 +133,7 @@
                         FontWeight="Bold"
                         BorderBrush="Transparent"
                         Background="Transparent"
-                        Command="{Binding SearchSalesCommand}">Search</Button>
+                        Command="{Binding SearchSalesCommand}">Поиск</Button>
             </Border>
         </Grid>
     </Grid>
