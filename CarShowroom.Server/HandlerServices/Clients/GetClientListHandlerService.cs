@@ -27,9 +27,9 @@ namespace CarShowroom.Server.HandlerServices.Clients
                 .Include(c => c.Sales).Where(c => c.User.IsBlocked == false).ToListAsync();
 
             clients = clients.Select(s => s).Where(s => s.User.Name.Contains(model.SearchParameter) ||
-                                                        s.Number.Contains(model.SearchParameter) ||
-                                                        s.Email.Contains(model.SearchParameter) ||
-                                                        s.Address.Contains(model.SearchParameter)).ToList();
+                                                        (s.Number != null && s.Number.Contains(model.SearchParameter)) ||
+                                                         (s.Email != null && s.Email.Contains(model.SearchParameter)) ||
+                                                         (s.Address != null && s.Address.Contains(model.SearchParameter))).ToList();
 
             var clientsList = Mapper.Map<List<ClientAnswerModel>>(clients);
             return clientsList;

@@ -121,7 +121,7 @@ namespace CarShowroom.ViewModel.Client
             if (recievedData.RequestResult == RequestResult.Success)
             {
                 await SetDefaultValues();
-                MessageBox.Show("Vehicle added to cart successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+                MessageBox.Show("Vehicle added to repair successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
             else
             {

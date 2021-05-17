@@ -37,7 +37,7 @@ namespace CarShowroom.Server.HandlerServices.Resolutions
             {
                 SuccessPercent = resolutionValues.EmployeeSuccess_EquipmentFailChance,
                 FailPercent = 100 - resolutionValues.EmployeeSuccess_EquipmentFailChance,
-                Expenses = resolutionValues.ResolutionExpenses,
+                Expenses = resolutionValues.ResolutionExpenses / 2,
                 ResolutionActions = ResolutionActions.EmployeeCase
             };
             CalculateResolutionExpectedValue(employeeResolution);
@@ -47,7 +47,7 @@ namespace CarShowroom.Server.HandlerServices.Resolutions
             {
                 SuccessPercent = resolutionValues.EmployeeFail_EquipmentSuccessChance,
                 FailPercent = 100 - resolutionValues.EmployeeFail_EquipmentSuccessChance,
-                Expenses = resolutionValues.ResolutionExpenses,
+                Expenses = resolutionValues.ResolutionExpenses / 2,
                 ResolutionActions = ResolutionActions.EquipmentCase
             };
             CalculateResolutionExpectedValue(equipmentResolution);
@@ -57,7 +57,7 @@ namespace CarShowroom.Server.HandlerServices.Resolutions
             {
                 SuccessPercent = resolutionValues.EmployeeFail_EquipmentFailChance,
                 FailPercent = 100 - resolutionValues.EmployeeFail_EquipmentFailChance,
-                Expenses = resolutionValues.ResolutionExpenses,
+                Expenses = 0,
                 ResolutionActions = ResolutionActions.ZeroCases
             };
             CalculateResolutionExpectedValue(bothFail);
